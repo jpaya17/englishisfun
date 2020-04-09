@@ -1,7 +1,7 @@
 ## Kotlin Sample App
 [![CircleCI](https://circleci.com/gh/VMadalin/kotlin-sample-app/tree/master.svg?style=shield)](https://circleci.com/gh/VMadalin/kotlin-sample-app/tree/master)
 [![Codecov](https://codecov.io/gh/VMadalin/kotlin-sample-app/coverage.svg)](https://codecov.io/gh/VMadalin/kotlin-sample-app)
-[![Codacy](https://api.codacy.com/project/badge/Grade/5970b6648df0465588f9781ae6e3332e)](https://www.codacy.com/manual/VMadalin/kotlin-sample-app?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=VMadalin/kotlin-sample-app&amp;utm_campaign=Badge_Grade)
+[![Codacy](https://api.codacy.com/project/badge/Grade/c5eaf30c01da4cdeb3807a3bf3d98a70)](https://www.codacy.com/manual/jpaya17/englishisfun?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jpaya17/englishisfun&amp;utm_campaign=Badge_Grade)
 [![CodeStyle](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
 [![CodeFactor](https://www.codefactor.io/repository/github/jpaya17/englishisfun/badge)](https://www.codefactor.io/repository/github/jpaya17/englishisfun)
 [![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.61-blue.svg)](http://kotlinlang.org/)
