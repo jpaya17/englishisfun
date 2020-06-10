@@ -62,7 +62,7 @@ dependencies {
     implementation("com.pinterest:ktlint:${PluginsVersions.KTLINT}")
     implementation("com.diffplug.spotless:spotless-plugin-gradle:${PluginsVersions.SPOTLESS}")
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${PluginsVersions.DETEKT}")
-    implementation("com.google.gms:google-services:${PluginsVersions.GOOGLE_SERVICES}")
+//    implementation("com.google.gms:google-services:${PluginsVersions.GOOGLE_SERVICES}")
     implementation("com.google.firebase:firebase-crashlytics-gradle:${PluginsVersions.FIREBASE_CRASHLYTICS}")
     implementation("com.google.firebase:perf-plugin:${PluginsVersions.FIREBASE_PERFORMANCE}")
     implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:${PluginsVersions.SONARQUBE}")

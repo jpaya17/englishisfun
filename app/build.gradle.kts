@@ -26,7 +26,7 @@ plugins {
     id(BuildPlugins.NAVIGATION_SAFE_ARGS)
     id(BuildPlugins.JACOCO)
     id(BuildPlugins.GRAPH_GENERATOR)
-    id(BuildPlugins.GOOGLE_SERVICES)
+//    id(BuildPlugins.GOOGLE_SERVICES)
     id(BuildPlugins.FIREBASE_CRASHLYTICS)
     id(BuildPlugins.FIREBASE_PERFORMANCE)
 }
