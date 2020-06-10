@@ -28,7 +28,7 @@ plugins {
     id(BuildPlugins.GRAPH_GENERATOR)
 //    id(BuildPlugins.GOOGLE_SERVICES)
     id(BuildPlugins.FIREBASE_CRASHLYTICS)
-    id(BuildPlugins.FIREBASE_PERFORMANCE)
+//    id(BuildPlugins.FIREBASE_PERFORMANCE)
 }
 
 allOpen {
