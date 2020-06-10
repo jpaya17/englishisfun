@@ -25,7 +25,7 @@ jobs:
           echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
           echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
           echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
-          echo GOOGLE_SERVICES_JSON_DEV | base64 --decode > app/google-services.json
+          echo GOOGLE_SERVICES_JSON_DEV > app/google-services.json
 
       - name: run tests
         uses: reactivecircus/android-emulator-runner@v2
