@@ -8,7 +8,7 @@ on:
 
 jobs:
   uiTests:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     env:
       SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
       SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
