@@ -7,9 +7,8 @@ on:
   pull_request:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  uiTests:
+    runs-on: macos-latest
     env:
       SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
       SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
@@ -21,82 +20,6 @@ jobs:
       SONARCLOUD_URL: ${{ secrets.SONARCLOUD_URL }}
       GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
       GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-
-    - name: Secrets
-      run: |
-        echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
-        echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
-        echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
-        echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
-        echo "sonar.host.url=$SONARCLOUD_URL" >> local.properties
-        echo "sonar.login=$SONARCLOUD_LOGIN" >> local.properties
-        echo "sonar.projectKey=$SONARCLOUD_PROJECT_KEY" >> local.properties
-        echo "sonar.organization=$SONARCLOUD_ORGANIZATION" >> local.properties
-        echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
-
-    - uses: actions/cache@v1
-      timeout-minutes: 5
-      continue-on-error: true
-      with:
-        path: ~/.gradle/caches
-        key: ${{ runner.os }}-gradle-${{ hashFiles('checksum.txt') }}
-        restore-keys: ${{ runner.os }}-gradle-
-
-    - name: Detekt
-      run: |
-        ./gradlew detekt
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Detekt
-        path: ~/work/englishisfun/englishisfun/**/build/reports/detekt/report.html
-
-    - name: Ktlint
-      run: ./gradlew ktlint
-
-    - name: Lint
-      run: ./gradlew lintDevDebug
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Lint
-        path: ~/work/englishisfun/englishisfun/**/build/reports/lint-results-devDebug.html
-
-    - name: Spotless
-      run: ./gradlew spotlessKotlinCheck
-
-    - name: Unit tests
-      run: ./gradlew testDevDebugUnitTest
-
-    - name: Code coverage
-      run: ./gradlew jacocoTestReportDevDebug
-
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        flags: unittests
-
-    - name: SonarQube analysis
-      run: ./gradlew sonarqube
-
-  uiTests:
-    runs-on: macos-latest
-    env:
-      SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
-      SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
-      SIGNING_STORE_FILE: ${{ secrets.SIGNING_STORE_FILE }}
-      SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-      GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
-    needs: build
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -107,10 +30,14 @@ jobs:
           echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
           echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
           echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
+          echo "sonar.host.url=$SONARCLOUD_URL" >> local.properties
+          echo "sonar.login=$SONARCLOUD_LOGIN" >> local.properties
+          echo "sonar.projectKey=$SONARCLOUD_PROJECT_KEY" >> local.properties
+          echo "sonar.organization=$SONARCLOUD_ORGANIZATION" >> local.properties
           echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
 
       - name: run tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 29
+          api-level: 29 # TODO https://github.com/vinaygaba/Learn-Jetpack-Compose-By-Example/blob/master/.github/workflows/android.yml
           script: ./gradlew connectedCheck --no-daemon --stacktrace
