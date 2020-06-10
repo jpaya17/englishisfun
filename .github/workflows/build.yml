@@ -14,12 +14,7 @@ jobs:
       SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
       SIGNING_STORE_FILE: ${{ secrets.SIGNING_STORE_FILE }}
       SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-      SONARCLOUD_LOGIN: ${{ secrets.SONARCLOUD_LOGIN }}
-      SONARCLOUD_ORGANIZATION: ${{ secrets.SONARCLOUD_ORGANIZATION }}
-      SONARCLOUD_PROJECT_KEY: ${{ secrets.SONARCLOUD_PROJECT_KEY }}
-      SONARCLOUD_URL: ${{ secrets.SONARCLOUD_URL }}
       GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
-      GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -30,10 +25,6 @@ jobs:
           echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
           echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
           echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
-          echo "sonar.host.url=$SONARCLOUD_URL" >> local.properties
-          echo "sonar.login=$SONARCLOUD_LOGIN" >> local.properties
-          echo "sonar.projectKey=$SONARCLOUD_PROJECT_KEY" >> local.properties
-          echo "sonar.organization=$SONARCLOUD_ORGANIZATION" >> local.properties
           echo $GOOGLE_SERVICES_JSON | base64 --decode > app/google-services.json
 
       - name: run tests
