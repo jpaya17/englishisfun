@@ -34,7 +34,7 @@ jobs:
           echo "sonar.login=$SONARCLOUD_LOGIN" >> local.properties
           echo "sonar.projectKey=$SONARCLOUD_PROJECT_KEY" >> local.properties
           echo "sonar.organization=$SONARCLOUD_ORGANIZATION" >> local.properties
-          echo $GOOGLE_SERVICES_JSON | base64 --decode -i > app/google-services.json
+          echo $GOOGLE_SERVICES_JSON | base64 --decode > app/google-services.json
 
       - name: run tests
         uses: reactivecircus/android-emulator-runner@v2
