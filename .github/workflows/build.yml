@@ -90,13 +90,27 @@ jobs:
 
   uiTests:
     runs-on: macos-latest
+    env:
+      SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+      SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+      SIGNING_STORE_FILE: ${{ secrets.SIGNING_STORE_FILE }}
+      SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+      GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
     needs: build
     steps:
       - name: checkout
         uses: actions/checkout@v2
 
+      - name: Secrets
+        run: |
+          echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
+          echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
+          echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
+          echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
+          echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
+
       - name: run tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: ./gradlew connectedCheck
+          script: ./gradlew connectedCheck --no-daemon --stacktrace
