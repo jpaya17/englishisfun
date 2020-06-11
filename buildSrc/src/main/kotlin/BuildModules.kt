@@ -2,6 +2,7 @@
  * Configuration of build modules
  */
 object BuildModules {
+    const val BASE_ANDROID = ":base-android"
     const val APP = ":app"
     const val CORE = ":core"
 

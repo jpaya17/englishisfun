@@ -144,6 +144,7 @@ afterEvaluate {
 }
 
 dependencies {
+    implementation(project(BuildModules.BASE_ANDROID))
     implementation(project(BuildModules.CORE))
     implementation(
         arrayOf(

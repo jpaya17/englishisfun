@@ -102,6 +102,7 @@ junitJacoco {
 
 dependencies {
     implementation(project(BuildModules.APP))
+    implementation(project(BuildModules.BASE_ANDROID))
     implementation(project(BuildModules.CORE))
     implementation(project(BuildModules.Commons.UI))
 

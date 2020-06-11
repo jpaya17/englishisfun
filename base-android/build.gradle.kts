@@ -14,15 +14,9 @@
  * limitations under the License.
  */
 
-include(
-    ":app",
-    ":base-android",
-    ":core",
-    ":features:home",
-    ":features:abbreviations",
-    ":libraries:test_utils",
-    ":commons:ui",
-    ":commons:views"
-)
+plugins {
+    id("commons.android-library")
+}
 
-rootProject.buildFileName = "build.gradle.kts"
+dependencies {
+}

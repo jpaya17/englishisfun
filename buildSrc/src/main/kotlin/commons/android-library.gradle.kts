@@ -58,6 +58,10 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
+    buildFeatures{
+        dataBinding = true
+    }
+
     androidExtensions {
         isExperimental = true
     }
@@ -92,18 +96,4 @@ android {
 
 junitJacoco {
     includeNoLocationClasses = true
-}
-
-dependencies {
-    implementation(Dependencies.KOTLIN)
-    implementation(Dependencies.COROUTINES)
-    implementation(Dependencies.COROUTINES_ANDROID)
-    implementation(Dependencies.DAGGER)
-    implementation(Dependencies.TIMBER)
-
-    kapt(AnnotationProcessorsDependencies.DAGGER)
-
-    testImplementation(project(BuildModules.Libraries.TEST_UTILS))
-    testImplementation(TestDependencies.all())
-    androidTestImplementation(TestAndroidDependencies.all())
 }
