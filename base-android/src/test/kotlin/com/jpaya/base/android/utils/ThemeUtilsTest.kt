@@ -16,7 +16,6 @@
 
 package com.jpaya.base.android.utils
 
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.test.core.app.ActivityScenario
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.jpaya.base.android.testutils.TestCompatActivity
@@ -41,52 +40,13 @@ class ThemeUtilsTest : TestRobolectric() {
     }
 
     @Test
-    fun configuredAppNightMode_ShouldDarkTheme() {
-        scenario.onActivity {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            it.delegate.applyDayNight()
-
-            assertTrue(themeUtils.isDarkTheme(it))
-        }
-    }
-
-    @Test
-    fun configuredAppNightMode_ShouldNotLightTheme() {
-        scenario.onActivity {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            it.delegate.applyDayNight()
-
-            assertFalse(themeUtils.isLightTheme(it))
-        }
-    }
-
-    @Test
-    fun configuredAppNoNightMode_ShouldBeLightTheme() {
-        scenario.onActivity {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            it.delegate.applyDayNight()
-
-            assertTrue(themeUtils.isLightTheme(it))
-        }
-    }
-
-    @Test
-    fun configuredAppNoNightMode_ShouldBeNotDarkTheme() {
-        scenario.onActivity {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            it.delegate.applyDayNight()
-
-            assertFalse(themeUtils.isDarkTheme(it))
-        }
-    }
-
-    @Test
     fun forceAppNightMode_ShouldBeDarkTheme() {
         scenario.onActivity {
             themeUtils.setNightMode(true)
             it.delegate.applyDayNight()
 
             assertTrue(themeUtils.isDarkTheme(it))
+            assertFalse(themeUtils.isLightTheme(it))
         }
     }
 
@@ -97,6 +57,7 @@ class ThemeUtilsTest : TestRobolectric() {
             it.delegate.applyDayNight()
 
             assertTrue(themeUtils.isLightTheme(it))
+            assertFalse(themeUtils.isDarkTheme(it))
         }
     }
 }
