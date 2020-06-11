@@ -52,7 +52,7 @@ class AbbreviationsModuleTest {
 
     @Test
     fun verifyProvidedAbbreviationsListViewModel() {
-        mockkStatic("com.jpaya.commons.ui.extensions.FragmentExtensionsKt")
+        mockkStatic("com.jpaya.base.android.ui.extensions.FragmentExtensionsKt")
 
         every {
             fragment.viewModel(any(), any<() -> ViewModel>())

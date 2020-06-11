@@ -18,8 +18,8 @@ package com.jpaya.base.android.ui.livedata
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LifecycleOwner
-import com.jpaya.commons.ui.extensions.observe
 import com.jpaya.base.android.testutils.lifecycle.TestLifecycleOwner
+import com.jpaya.base.android.ui.extensions.observe
 import com.nhaarman.mockitokotlin2.argumentCaptor
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times

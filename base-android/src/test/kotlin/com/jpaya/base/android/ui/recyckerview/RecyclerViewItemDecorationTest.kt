@@ -21,7 +21,7 @@ import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.jpaya.commons.ui.recyclerview.RecyclerViewItemDecoration
+import com.jpaya.base.android.ui.recyclerview.RecyclerViewItemDecoration
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
