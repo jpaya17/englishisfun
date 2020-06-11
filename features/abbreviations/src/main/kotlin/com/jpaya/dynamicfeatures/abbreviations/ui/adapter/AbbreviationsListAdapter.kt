@@ -21,8 +21,8 @@ import android.view.ViewGroup
 import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.recyclerview.widget.RecyclerView
-import com.jpaya.commons.ui.base.BaseListAdapter
-import com.jpaya.commons.ui.base.BaseViewHolderListAdapter
+import com.jpaya.base.android.ui.base.BaseListAdapter
+import com.jpaya.base.android.ui.base.BaseViewHolderListAdapter
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel
 import com.jpaya.dynamicfeatures.abbreviations.ui.adapter.holders.AbbreviationViewHolder
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem

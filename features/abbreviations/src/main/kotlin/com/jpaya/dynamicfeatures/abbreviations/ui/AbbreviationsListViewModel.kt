@@ -21,7 +21,7 @@ import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
-import com.jpaya.core.network.NetworkState
+import com.jpaya.base.android.network.NetworkState
 import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSourceFactory
 import com.jpaya.dynamicfeatures.abbreviations.ui.paging.PAGE_MAX_ELEMENTS
 import javax.inject.Inject

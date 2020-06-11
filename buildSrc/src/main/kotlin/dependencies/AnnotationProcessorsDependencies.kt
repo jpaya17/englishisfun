@@ -9,4 +9,16 @@ object AnnotationProcessorsDependencies {
     const val DAGGER = "com.google.dagger:dagger-compiler:${BuildDependenciesVersions.DAGGER}"
     const val DATABINDING = "com.android.databinding:compiler:${BuildDependenciesVersions.DATABINDING}"
     const val ROOM = "androidx.room:room-compiler:${BuildDependenciesVersions.ROOM}"
+
+    /**
+     * Method to obtain all the annotation processor dependencies.
+     *
+     * @return An array with all the annotation processor dependencies.
+     */
+    fun all() = arrayOf(
+        AUTO_SERVICE,
+        DAGGER,
+        DATABINDING,
+        ROOM
+    )
 }

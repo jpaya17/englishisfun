@@ -16,7 +16,7 @@
 
 package com.jpaya.dynamicfeatures.abbreviations.ui.model
 
-import com.jpaya.core.mapper.Mapper
+import com.jpaya.base.android.mapper.Mapper
 import timber.log.Timber
 
 /**

@@ -16,8 +16,8 @@
 
 package com.jpaya.dynamicfeatures.abbreviations.ui.di
 
-import com.jpaya.core.di.CoreComponent
-import com.jpaya.core.di.scopes.FeatureScope
+import com.jpaya.base.android.di.CoreComponent
+import com.jpaya.base.android.di.scopes.FeatureScope
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 import dagger.Component
 

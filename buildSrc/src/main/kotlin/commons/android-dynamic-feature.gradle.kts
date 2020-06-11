@@ -103,8 +103,6 @@ junitJacoco {
 dependencies {
     implementation(project(BuildModules.APP))
     implementation(project(BuildModules.BASE_ANDROID))
-    implementation(project(BuildModules.CORE))
-    implementation(project(BuildModules.Commons.UI))
 
     implementation(Dependencies.KOTLIN)
     implementation(Dependencies.APPCOMPAT)
@@ -125,7 +123,7 @@ dependencies {
     kapt(AnnotationProcessorsDependencies.DATABINDING)
     kapt(AnnotationProcessorsDependencies.ROOM)
 
-    testImplementation(project(BuildModules.Libraries.TEST_UTILS))
+    testImplementation(project(BuildModules.BASE_ANDROID))
     testImplementation(TestDependencies.all())
     androidTestImplementation(TestAndroidDependencies.all())
 }

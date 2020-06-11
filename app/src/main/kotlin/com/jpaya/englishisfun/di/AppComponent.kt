@@ -16,8 +16,8 @@
 
 package com.jpaya.englishisfun.di
 
-import com.jpaya.core.di.CoreComponent
-import com.jpaya.core.di.scopes.AppScope
+import com.jpaya.base.android.di.CoreComponent
+import com.jpaya.base.android.di.scopes.AppScope
 import com.jpaya.englishisfun.EnglishIsFunApp
 import dagger.Component
 

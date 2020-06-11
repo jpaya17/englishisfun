@@ -18,10 +18,10 @@ package com.jpaya.englishisfun
 
 import android.content.Context
 import com.google.android.play.core.splitcompat.SplitCompatApplication
-import com.jpaya.core.di.CoreComponent
-import com.jpaya.core.di.DaggerCoreComponent
-import com.jpaya.core.di.modules.ContextModule
-import com.jpaya.core.utils.ThemeUtils
+import com.jpaya.base.android.di.CoreComponent
+import com.jpaya.base.android.di.DaggerCoreComponent
+import com.jpaya.base.android.di.modules.ContextModule
+import com.jpaya.base.android.utils.ThemeUtils
 import com.jpaya.englishisfun.di.DaggerAppComponent
 import timber.log.Timber
 import javax.inject.Inject

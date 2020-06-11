@@ -1,1 +1,16 @@
-<manifest package="com.jpaya.base.android" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.jpaya.base.android">
+
+    <application>
+
+        <activity android:name=".testutils.TestFragmentActivity" />
+
+        <activity android:name=".testutils.TestCompatActivity" />
+
+        <activity
+            android:name=".testutils.TestCompactActivityNoActionBar"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+
+    </application>
+</manifest>

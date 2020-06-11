@@ -20,8 +20,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.RecyclerView
-import com.jpaya.commons.ui.base.BaseFragment
-import com.jpaya.commons.ui.extensions.observe
+import com.jpaya.base.android.ui.base.BaseFragment
+import com.jpaya.base.android.ui.extensions.observe
 import com.jpaya.dynamicfeatures.abbreviations.R
 import com.jpaya.dynamicfeatures.abbreviations.databinding.FragmentAbbreviationsListBinding
 import com.jpaya.dynamicfeatures.abbreviations.ui.adapter.AbbreviationsListAdapter

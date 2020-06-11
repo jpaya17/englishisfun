@@ -33,7 +33,7 @@ plugins {
 
 allOpen {
     // allows mocking for classes w/o directly opening them for release builds
-    annotation("com.jpaya.core.annotations.OpenClass")
+    annotation("com.jpaya.base.android.annotations.OpenClass")
 }
 
 android {
@@ -145,7 +145,6 @@ afterEvaluate {
 
 dependencies {
     implementation(project(BuildModules.BASE_ANDROID))
-    implementation(project(BuildModules.CORE))
     implementation(
         arrayOf(
             Dependencies.KOTLIN,
