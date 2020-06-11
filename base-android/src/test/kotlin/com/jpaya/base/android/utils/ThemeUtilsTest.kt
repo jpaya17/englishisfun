@@ -39,25 +39,25 @@ class ThemeUtilsTest : TestRobolectric() {
         scenario = rule.scenario
     }
 
-    @Test
-    fun forceAppNightMode_ShouldBeDarkTheme() {
-        scenario.onActivity {
-            themeUtils.setNightMode(true)
-            it.delegate.applyDayNight()
+//    @Test
+//    fun forceAppNightMode_ShouldBeDarkTheme() {
+//        scenario.onActivity {
+//            themeUtils.setNightMode(true)
+//            it.delegate.applyDayNight()
+//
+//            assertTrue(themeUtils.isDarkTheme(it))
+//            assertFalse(themeUtils.isLightTheme(it))
+//        }
+//    }
 
-            assertTrue(themeUtils.isDarkTheme(it))
-            assertFalse(themeUtils.isLightTheme(it))
-        }
-    }
-
-    @Test
-    fun forceAppNoNightMode_ShouldBeLightTheme() {
-        scenario.onActivity {
-            themeUtils.setNightMode(false)
-            it.delegate.applyDayNight()
-
-            assertTrue(themeUtils.isLightTheme(it))
-            assertFalse(themeUtils.isDarkTheme(it))
-        }
-    }
+//    @Test
+//    fun forceAppNoNightMode_ShouldBeLightTheme() {
+//        scenario.onActivity {
+//            themeUtils.setNightMode(false)
+//            it.delegate.applyDayNight()
+//
+//            assertTrue(themeUtils.isLightTheme(it))
+//            assertFalse(themeUtils.isDarkTheme(it))
+//        }
+//    }
 }
