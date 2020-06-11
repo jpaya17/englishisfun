@@ -9,6 +9,10 @@ on:
 jobs:
   uiTests:
     runs-on: macos-latest
+    strategy:
+      matrix:
+        api-level: [23, 29]
+        target: [default, google_apis]
     env:
       SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
       SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
@@ -30,5 +34,7 @@ jobs:
       - name: run tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 29 # TODO https://github.com/vinaygaba/Learn-Jetpack-Compose-By-Example/blob/master/.github/workflows/android.yml
+          api-level: ${{ matrix.api-level }}
+          target: ${{ matrix.target }}
+          arch: x86_64
           script: ./gradlew connectedCheck --no-daemon --stacktrace
