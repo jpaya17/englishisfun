@@ -20,11 +20,8 @@ import androidx.test.core.app.ActivityScenario
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.jpaya.base.android.testutils.TestCompatActivity
 import com.jpaya.base.android.testutils.robolectric.TestRobolectric
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
-import org.junit.Test
 
 class ThemeUtilsTest : TestRobolectric() {
 
@@ -32,7 +29,7 @@ class ThemeUtilsTest : TestRobolectric() {
     val rule = ActivityScenarioRule(TestCompatActivity::class.java)
     private lateinit var scenario: ActivityScenario<TestCompatActivity>
 
-    private var themeUtils = ThemeUtilsImpl()
+//    private var themeUtils = ThemeUtilsImpl()
 
     @Before
     fun setUp() {
