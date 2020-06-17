@@ -20,7 +20,7 @@ jobs:
       SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
       SIGNING_STORE_FILE: ${{ secrets.SIGNING_STORE_FILE }}
       SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-      GOOGLE_SERVICES_JSON_DEV: ${{ secrets.GOOGLE_SERVICES_JSON_DEV }}
+      GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
           echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
           echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
           echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
-          echo GOOGLE_SERVICES_JSON_DEV >> app/src/dev/google-services.json
+          echo $GOOGLE_SERVICES_JSON | base64 -di >> app/google-services.json
 
       - name: Run UI tests
         uses: reactivecircus/android-emulator-runner@v2
@@ -39,4 +39,4 @@ jobs:
           api-level: ${{ matrix.api-level }}
           target: ${{ matrix.target }}
           arch: x86_64
-          script: ./gradlew connectedDevDebugAndroidTest --no-daemon --stacktrace
+          script: ./gradlew connectedProdDebugAndroidTest --no-daemon --stacktrace
