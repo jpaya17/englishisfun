@@ -26,10 +26,10 @@ plugins {
 dependencies {
     implementation(
         arrayOf(
-            Dependencies.PAGING,
-            Dependencies.NAVIGATION_UI
+            Dependencies.NAVIGATION_UI,
+            Dependencies.PAGING
         )
     )
     implementation(TestDependencies.all())
-    annotationProcessor(AnnotationProcessorsDependencies.AUTO_SERVICE)
+    kapt(AnnotationProcessorsDependencies.AUTO_SERVICE)
 }

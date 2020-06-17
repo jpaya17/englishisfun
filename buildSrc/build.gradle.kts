@@ -33,37 +33,58 @@ kotlinDslPluginOptions {
     experimentalWarning.set(false)
 }
 
-object PluginsVersions {
-    const val GRADLE_ANDROID = "4.0.0"
-    const val GRADLE_VERSIONS = "0.28.0"
-    const val KOTLIN = "1.3.72"
-    const val NAVIGATION = "2.2.2"
-    const val JACOCO = "0.16.0"
+object GradleVersions {
+    const val DETEKT = "1.9.1"
     const val DOKKA = "0.10.1"
-    const val KTLINT = "0.37.0"
-    const val SPOTLESS = "3.28.1"
-    const val DETEKT = "1.8.0"
-    const val GRAPH_GENERATOR = "0.5.0"
-    const val GOOGLE_SERVICES = "4.3.3"
     const val FIREBASE_CRASHLYTICS = "2.0.0"
     const val FIREBASE_PERFORMANCE = "1.3.1"
+    const val GOOGLE_SERVICES = "4.3.3"
+    const val GRADLE_ANDROID = "4.0.0"
+    const val GRADLE_VERSIONS = "0.28.0"
+    const val GRAPH_GENERATOR = "0.5.0"
+    const val HILT = "2.28-alpha"
+    const val JACOCO = "0.16.0"
+    const val KOTLIN = "1.3.72"
+    const val KTLINT = "0.37.2"
+    const val NAVIGATION = "2.2.2"
     const val SONARQUBE = "3.0"
+    const val SPOTLESS = "4.3.0"
+}
+
+object GradlePlugins {
+    const val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${GradleVersions.DETEKT}"
+    const val DOKKA = "org.jetbrains.dokka:dokka-gradle-plugin:${GradleVersions.DOKKA}"
+    const val FIREBASE_CRASHLYTICS = "com.google.firebase:firebase-crashlytics-gradle:${GradleVersions.FIREBASE_CRASHLYTICS}"
+    const val FIREBASE_PERFORMANCE = "com.google.firebase:perf-plugin:${GradleVersions.FIREBASE_PERFORMANCE}"
+    const val GOOGLE_SERVICES = "com.google.gms:google-services:${GradleVersions.GOOGLE_SERVICES}"
+    const val GRADLE_ANDROID = "com.android.tools.build:gradle:${GradleVersions.GRADLE_ANDROID}"
+    const val GRADLE_VERSIONS = "com.github.ben-manes:gradle-versions-plugin:${GradleVersions.GRADLE_VERSIONS}"
+    const val GRAPH_GENERATOR = "com.vanniktech:gradle-dependency-graph-generator-plugin:${GradleVersions.GRAPH_GENERATOR}"
+    const val HILT = "com.google.dagger:hilt-android-gradle-plugin:${GradleVersions.HILT}"
+    const val JACOCO = "com.vanniktech:gradle-android-junit-jacoco-plugin:${GradleVersions.JACOCO}"
+    const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${GradleVersions.KOTLIN}"
+    const val KOTLIN_ALLOPEN = "org.jetbrains.kotlin:kotlin-allopen:${GradleVersions.KOTLIN}"
+    const val KTLINT = "com.pinterest:ktlint:${GradleVersions.KTLINT}"
+    const val NAVIGATION_SAFE_ARGS = "androidx.navigation:navigation-safe-args-gradle-plugin:${GradleVersions.NAVIGATION}"
+    const val SONARQUBE = "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:${GradleVersions.SONARQUBE}"
+    const val SPOTLESS = "com.diffplug.spotless:spotless-plugin-gradle:${GradleVersions.SPOTLESS}"
 }
 
 dependencies {
-    implementation("com.android.tools.build:gradle:${PluginsVersions.GRADLE_ANDROID}")
-    implementation("com.github.ben-manes:gradle-versions-plugin:${PluginsVersions.GRADLE_VERSIONS}")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${PluginsVersions.KOTLIN}")
-    implementation("org.jetbrains.kotlin:kotlin-allopen:${PluginsVersions.KOTLIN}")
-    implementation("androidx.navigation:navigation-safe-args-gradle-plugin:${PluginsVersions.NAVIGATION}")
-    implementation("com.vanniktech:gradle-android-junit-jacoco-plugin:${PluginsVersions.JACOCO}")
-    implementation("com.vanniktech:gradle-dependency-graph-generator-plugin:${PluginsVersions.GRAPH_GENERATOR}")
-    implementation("org.jetbrains.dokka:dokka-gradle-plugin:${PluginsVersions.DOKKA}")
-    implementation("com.pinterest:ktlint:${PluginsVersions.KTLINT}")
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:${PluginsVersions.SPOTLESS}")
-    implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${PluginsVersions.DETEKT}")
-    implementation("com.google.gms:google-services:${PluginsVersions.GOOGLE_SERVICES}")
-    implementation("com.google.firebase:firebase-crashlytics-gradle:${PluginsVersions.FIREBASE_CRASHLYTICS}")
-    implementation("com.google.firebase:perf-plugin:${PluginsVersions.FIREBASE_PERFORMANCE}")
-    implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:${PluginsVersions.SONARQUBE}")
+    implementation(GradlePlugins.DETEKT)
+    implementation(GradlePlugins.DOKKA)
+    implementation(GradlePlugins.FIREBASE_CRASHLYTICS)
+    implementation(GradlePlugins.FIREBASE_PERFORMANCE)
+    implementation(GradlePlugins.GOOGLE_SERVICES)
+    implementation(GradlePlugins.GRADLE_ANDROID)
+    implementation(GradlePlugins.GRADLE_VERSIONS)
+    implementation(GradlePlugins.GRAPH_GENERATOR)
+    implementation(GradlePlugins.HILT)
+    implementation(GradlePlugins.JACOCO)
+    implementation(GradlePlugins.KOTLIN)
+    implementation(GradlePlugins.KOTLIN_ALLOPEN)
+    implementation(GradlePlugins.KTLINT)
+    implementation(GradlePlugins.NAVIGATION_SAFE_ARGS)
+    implementation(GradlePlugins.SONARQUBE)
+    implementation(GradlePlugins.SPOTLESS)
 }

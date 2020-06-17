@@ -53,24 +53,22 @@ jobs:
     - name: Detekt
       run: |
         ./gradlew detekt
-        mv app/build/reports/detekt/report.html app/build/reports/detekt/app.html
-        mv commons/ui/build/reports/detekt/report.html commons/ui/build/reports/detekt/commons_ui.html
-        mv commons/views/build/reports/detekt/report.html commons/views/build/reports/detekt/commons_views.html
-        mv core/build/reports/detekt/report.html core/build/reports/detekt/core.html
-        mv features/abbreviations/build/reports/detekt/report.html features/abbreviations/build/reports/detekt/abbreviations.html
-        mv features/home/build/reports/detekt/report.html features/home/build/reports/detekt/home.html
-        mv libraries/test_utils/build/reports/detekt/report.html libraries/test_utils/build/reports/detekt/test_utils.html
 
     - uses: actions/upload-artifact@v2
       with:
         name: Detekt
-        path: ~/work/**/build/reports/detekt/*.html
+        path: ~/work/englishisfun/englishisfun/**/build/reports/detekt/report.html
 
     - name: Ktlint
       run: ./gradlew ktlint
 
     - name: Lint
       run: ./gradlew lintDevDebug
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Lint
+        path: ~/work/englishisfun/englishisfun/**/build/reports/lint-results-devDebug.html
 
     - name: Spotless
       run: ./gradlew spotlessKotlinCheck

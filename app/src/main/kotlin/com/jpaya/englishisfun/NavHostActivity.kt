@@ -16,35 +16,13 @@
 
 package com.jpaya.englishisfun
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.Composable
-import androidx.ui.core.setContent
-import androidx.ui.foundation.Text
-import androidx.ui.material.MaterialTheme
-import androidx.ui.tooling.preview.Preview
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Base activity class that use the support library action bar features.
  *
  * @see AppCompatActivity
  */
-class NavHostActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            MaterialTheme {
-                Text(text = "Hello world!")
-            }
-        }
-    }
-}
-
-@Preview
-@Composable
-fun defaultPreview() {
-    MaterialTheme {
-        Text(text = "Hello world!")
-    }
-}
+@AndroidEntryPoint
+class NavHostActivity : AppCompatActivity(R.layout.activity_main)
