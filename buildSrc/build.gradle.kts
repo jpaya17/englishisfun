@@ -74,7 +74,7 @@ dependencies {
     implementation(GradlePlugins.DETEKT)
     implementation(GradlePlugins.DOKKA)
     implementation(GradlePlugins.FIREBASE_CRASHLYTICS)
-    implementation(GradlePlugins.FIREBASE_PERFORMANCE)
+//    implementation(GradlePlugins.FIREBASE_PERFORMANCE)
     implementation(GradlePlugins.GOOGLE_SERVICES)
     implementation(GradlePlugins.GRADLE_ANDROID)
     implementation(GradlePlugins.GRADLE_VERSIONS)
