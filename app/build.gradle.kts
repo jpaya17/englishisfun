@@ -141,7 +141,7 @@ android {
 junitJacoco {
     includeNoLocationClasses = true
     excludes = excludes.apply {
-        this.add("jdk.internal.*")
+        add("jdk.internal.*")
     }
 }
 
