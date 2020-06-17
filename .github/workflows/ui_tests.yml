@@ -12,9 +12,6 @@ jobs:
     continue-on-error: true
     strategy:
       fail-fast: false
-      matrix:
-        api-level: [23, 29]
-        target: [default, google_apis]
     env:
       SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
       SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
@@ -36,7 +33,6 @@ jobs:
       - name: Run UI tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: ${{ matrix.api-level }}
-          target: ${{ matrix.target }}
+          api-level: 29
           arch: x86_64
           script: ./gradlew connectedProdDebugAndroidTest --no-daemon --stacktrace
