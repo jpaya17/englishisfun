@@ -44,6 +44,7 @@ dependencies {
             Dependencies.LIFECYCLE_EXTENSIONS,
             Dependencies.LIFECYCLE_VIEWMODEL,
             Dependencies.LOGGING,
+            Dependencies.MATERIAL,
             Dependencies.MOSHI,
             Dependencies.MOSHI_KTX,
             Dependencies.NAVIGATION_FRAGMENT,
