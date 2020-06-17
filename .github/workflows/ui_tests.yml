@@ -31,7 +31,7 @@ jobs:
           echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
           echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
           echo "signing.store.password=$SIGNING_STORE_PASSWORD" >> local.properties
-          echo GOOGLE_SERVICES_JSON_DEV >> app/google-services.json
+          echo GOOGLE_SERVICES_JSON_DEV >> app/src/dev/google-services.json
 
       - name: Run UI tests
         uses: reactivecircus/android-emulator-runner@v2
@@ -39,4 +39,4 @@ jobs:
           api-level: ${{ matrix.api-level }}
           target: ${{ matrix.target }}
           arch: x86_64
-          script: ./gradlew connectedCheck --no-daemon --stacktrace
+          script: ./gradlew connectedDevDebugAndroidTest --no-daemon --stacktrace
