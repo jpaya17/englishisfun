@@ -16,19 +16,21 @@
 
 import dependencies.*
 import extensions.*
+import BuildDependenciesVersions
 
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
-    id(BuildPlugins.KOTLIN_ANDROID)
-    id(BuildPlugins.KOTLIN_ANDROID_EXTENSIONS)
-    id(BuildPlugins.KOTLIN_KAPT)
-    id(BuildPlugins.KOTLIN_ALLOPEN)
-    id(BuildPlugins.NAVIGATION_SAFE_ARGS)
-    id(BuildPlugins.JACOCO)
-    id(BuildPlugins.GRAPH_GENERATOR)
-    id(BuildPlugins.GOOGLE_SERVICES)
     id(BuildPlugins.FIREBASE_CRASHLYTICS)
     id(BuildPlugins.FIREBASE_PERFORMANCE)
+    id(BuildPlugins.GOOGLE_SERVICES)
+    id(BuildPlugins.GRAPH_GENERATOR)
+    id(BuildPlugins.HILT)
+    id(BuildPlugins.JACOCO)
+    id(BuildPlugins.KOTLIN_ANDROID)
+    id(BuildPlugins.KOTLIN_ANDROID_EXTENSIONS)
+    id(BuildPlugins.KOTLIN_ALLOPEN)
+    id(BuildPlugins.KOTLIN_KAPT)
+    id(BuildPlugins.NAVIGATION_SAFE_ARGS)
 }
 
 allOpen {
@@ -95,7 +97,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "0.1.0-dev12"
+        kotlinCompilerExtensionVersion = BuildDependenciesVersions.COMPOSE
         kotlinCompilerVersion = "1.3.70-dev-withExperimentalGoogleExtensions-20200424"
     }
 
@@ -147,30 +149,36 @@ afterEvaluate {
 }
 
 dependencies {
-    implementation(project(BuildModules.CORE))
+    implementation(project(BuildModules.BASE_ANDROID))
     implementation(
         arrayOf(
-            Dependencies.KOTLIN,
             Dependencies.APPCOMPAT,
-            Dependencies.MATERIAL,
-            Dependencies.CONSTRAINT_LAYOUT,
-            Dependencies.NAVIGATION_FRAGMENT,
-            Dependencies.TIMBER,
-            Dependencies.LOGGING,
-            Dependencies.PLAY_CORE,
-            Dependencies.DAGGER,
-            Dependencies.FIREBASE_ANALYTICS,
-            Dependencies.FIREBASE_CRASHLYTICS,
-            Dependencies.FIREBASE_FIRESTORE,
-            Dependencies.FIREBASE_AUTH,
-            Dependencies.FIREBASE_PERFORMANCE,
             Dependencies.COMPOSE_MATERIAL,
             Dependencies.COMPOSE_RUNTIME,
-            Dependencies.COMPOSE_TOOLING
+            Dependencies.COMPOSE_TOOLING,
+            Dependencies.CONSTRAINT_LAYOUT,
+            Dependencies.FIREBASE_ANALYTICS,
+            Dependencies.FIREBASE_AUTH,
+            Dependencies.FIREBASE_CRASHLYTICS,
+            Dependencies.FIREBASE_FIRESTORE,
+            Dependencies.FIREBASE_PERFORMANCE,
+            Dependencies.HILT,
+            Dependencies.HILT_VIEWMODEL,
+            Dependencies.KOTLIN,
+            Dependencies.LOGGING,
+            Dependencies.MATERIAL,
+            Dependencies.NAVIGATION_FRAGMENT,
+            Dependencies.PLAY_CORE,
+            Dependencies.TIMBER
         )
     )
     debugImplementation(DebugDependencies.LEAKCANARY)
-    kapt(AnnotationProcessorsDependencies.DAGGER)
+    kapt(
+        arrayOf(
+            AnnotationProcessorsDependencies.HILT,
+            AnnotationProcessorsDependencies.HILT_VIEWMODEL
+        )
+    )
     testImplementation(TestDependencies.all())
     androidTestImplementation(TestAndroidDependencies.all())
 }

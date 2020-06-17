@@ -101,10 +101,11 @@ dependencies {
     implementation(Dependencies.KOTLIN)
     implementation(Dependencies.COROUTINES)
     implementation(Dependencies.COROUTINES_ANDROID)
-    implementation(Dependencies.DAGGER)
+    implementation(Dependencies.HILT)
+    implementation(Dependencies.HILT_VIEWMODEL)
     implementation(Dependencies.TIMBER)
 
-    kapt(AnnotationProcessorsDependencies.DAGGER)
+    kapt(AnnotationProcessorsDependencies.HILT)
 
     testImplementation(project(BuildModules.Libraries.TEST_UTILS))
     testImplementation(TestDependencies.all())

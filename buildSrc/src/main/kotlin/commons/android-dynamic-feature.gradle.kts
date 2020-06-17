@@ -105,8 +105,7 @@ junitJacoco {
 
 dependencies {
     implementation(project(BuildModules.APP))
-    implementation(project(BuildModules.CORE))
-    implementation(project(BuildModules.Commons.UI))
+    implementation(project(BuildModules.BASE_ANDROID))
 
     implementation(Dependencies.KOTLIN)
     implementation(Dependencies.APPCOMPAT)
@@ -119,11 +118,12 @@ dependencies {
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.FRAGMENT_KTX)
     implementation(Dependencies.CONSTRAINT_LAYOUT)
-    implementation(Dependencies.DAGGER)
     implementation(Dependencies.TIMBER)
     implementation(Dependencies.LOGGING)
+    implementation(Dependencies.HILT)
+    implementation(Dependencies.HILT_VIEWMODEL)
 
-    kapt(AnnotationProcessorsDependencies.DAGGER)
+    kapt(AnnotationProcessorsDependencies.HILT)
     kapt(AnnotationProcessorsDependencies.DATABINDING)
     kapt(AnnotationProcessorsDependencies.ROOM)
 

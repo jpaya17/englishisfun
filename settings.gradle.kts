@@ -16,12 +16,10 @@
 
 include(
     ":app",
-    ":core",
-    ":features:home",
-    ":features:abbreviations",
-    ":libraries:test_utils",
-    ":commons:ui",
-    ":commons:views"
+    ":base-android",
+    ":feature_home",
+    ":feature_abbreviations",
+    ":libraries:test_utils"
 )
 
 rootProject.buildFileName = "build.gradle.kts"
