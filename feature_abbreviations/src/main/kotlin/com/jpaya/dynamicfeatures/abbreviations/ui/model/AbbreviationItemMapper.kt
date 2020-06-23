@@ -35,20 +35,14 @@ class AbbreviationItemMapper : Mapper<MutableList<HashMap<String, String>>, Muta
     override suspend fun map(from: MutableList<HashMap<String, String>>): MutableList<AbbreviationItem> {
         val result = mutableListOf<AbbreviationItem>()
         var counter = 1L
-        from.map {
-            try {
-                result.add(
-                    AbbreviationItem(
-                        id = counter,
-                        abbr = it["abbr"]!!,
-                        desc = it["desc"]!!
-                    )
-                )
+        from
+            .filter { abbr -> abbr.containsKey("abbr") && abbr.containsKey("desc") }
+            .map {
+                val abbr = it["abbr"]!!
+                val desc = it["desc"]!!
+                result.add(AbbreviationItem(counter, abbr, desc))
                 counter++
-            } catch (ignored: KotlinNullPointerException) {
-                Timber.d("AbbreviationItemMapper -> Item ignored")
             }
-        }
         return result
     }
 }
