@@ -24,7 +24,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.base.firebase.FireStoreProperties
 import com.jpaya.base.network.NetworkState
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
-import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItemMapper
+import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationsDocument
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -45,9 +45,7 @@ open class AbbreviationsPageDataSource @Inject constructor(
     @VisibleForTesting(otherwise = PRIVATE)
     val fireStoreProperties: FireStoreProperties,
     @VisibleForTesting(otherwise = PRIVATE)
-    val scope: CoroutineScope,
-    @VisibleForTesting(otherwise = PRIVATE)
-    val mapper: AbbreviationItemMapper
+    val scope: CoroutineScope
 ) : PageKeyedDataSource<Int, AbbreviationItem>() {
 
     val networkState = MutableLiveData<NetworkState>()
@@ -75,18 +73,19 @@ open class AbbreviationsPageDataSource @Inject constructor(
                 networkState.postValue(NetworkState.Error())
             }
         ) {
-            val list = fireStore
+            val document = fireStore
                 .collection(fireStoreProperties.getAbbreviationCollectionName())
                 .document(fireStoreProperties.getAbbreviationDocumentName())
                 .get()
                 .await()
+                .toObject(AbbreviationsDocument::class.java)
 
-            val result =
-                mapper.map(list[fireStoreProperties.getAbbreviationListField()] as MutableList<HashMap<String, String>>)
-            callback.onResult(result, null, null)
-            networkState.postValue(
-                NetworkState.Success(isAdditional = false, isEmptyResponse = result.isEmpty())
-            )
+            document?.let {
+                callback.onResult(it.abbreviations, null, null)
+                networkState.postValue(
+                    NetworkState.Success(isAdditional = false, isEmptyResponse = it.abbreviations.isEmpty())
+                )
+            }
         }
     }
 
