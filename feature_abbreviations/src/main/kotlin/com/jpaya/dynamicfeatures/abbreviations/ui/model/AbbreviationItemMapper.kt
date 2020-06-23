@@ -17,7 +17,6 @@
 package com.jpaya.dynamicfeatures.abbreviations.ui.model
 
 import com.jpaya.base.mapper.Mapper
-import timber.log.Timber
 
 /**
  * Helper class to transforms network response to visual model, catching the necessary data.
