@@ -36,70 +36,70 @@ import org.junit.Test
 
 class AbbreviationsModuleTest {
 
-    @MockK
-    lateinit var fragment: AbbreviationsListFragment
-    private lateinit var module: AbbreviationsModule
-
-    @Before
-    fun setUp() {
-        MockKAnnotations.init(this)
-        module = AbbreviationsModule(fragment)
-    }
-
-    @Test
-    fun initializeCharactersListModule_ShouldSetUpCorrectly() {
-        assertEquals(fragment, module.fragment)
-    }
-
-    @Test
-    fun verifyProvidedAbbreviationsListViewModel() {
-        mockkStatic("com.jpaya.base.ui.extensions.FragmentExtensionsKt")
-
-        every {
-            fragment.viewModel(any(), any<() -> ViewModel>())
-        } returns mockk<AbbreviationsListViewModel>()
-
-        val factoryCaptor = slot<() -> AbbreviationsListViewModel>()
-        val dataFactory = mockk<AbbreviationsPageDataSourceFactory>(relaxed = true)
-        module.providesAbbreviationsListViewModel(dataFactory)
-
-        verify { fragment.viewModel(factory = capture(factoryCaptor)) }
-
-        assertEquals(dataFactory, factoryCaptor.captured().dataSourceFactory)
-    }
-
-    @Test
-    fun verifyProvidedFireStoreClient() {
-        val fireStore = mockk<FirebaseFirestore>(relaxed = true)
-        val fireStoreProperties = mockk<FireStoreProperties>(relaxed = true)
-
-        val fireStoreClient = module.providesFireStoreClient(fireStore, fireStoreProperties)
-
-        assertThat(fireStoreClient, instanceOf(FireStoreClientImpl::class.java))
-        assertEquals(fireStore, (fireStoreClient as FireStoreClientImpl).fireStore)
-        assertEquals(fireStoreProperties, fireStoreClient.properties)
-    }
-
-    @Test
-    fun verifyProvidedCharactersPageDataSource() {
-        val fireStoreClient = mockk<FireStoreClientImpl>(relaxed = true)
-        val viewModel = mockk<AbbreviationsListViewModel>(relaxed = true)
-        val scope = mockk<CoroutineScope>()
-        every { viewModel.viewModelScope } returns scope
-
-        val dataSource = module.providesAbbreviationsPageDataSource(
-            fireStoreClient = fireStoreClient,
-            viewModel = viewModel
-        )
-
-        assertEquals(fireStoreClient, dataSource.fireStoreClient)
-        assertEquals(scope, dataSource.scope)
-    }
-
-    @Test
-    fun verifyProvidedAbbreviationsListAdapter() {
-        val viewModel = mockk<AbbreviationsListViewModel>(relaxed = true)
-        val adapter = module.providesAbbreviationsListAdapter(viewModel)
-        assertEquals(viewModel, adapter.viewModel)
-    }
+//    @MockK
+//    lateinit var fragment: AbbreviationsListFragment
+//    private lateinit var module: AbbreviationsModule
+//
+//    @Before
+//    fun setUp() {
+//        MockKAnnotations.init(this)
+//        module = AbbreviationsModule(fragment)
+//    }
+//
+//    @Test
+//    fun initializeCharactersListModule_ShouldSetUpCorrectly() {
+//        assertEquals(fragment, module.fragment)
+//    }
+//
+//    @Test
+//    fun verifyProvidedAbbreviationsListViewModel() {
+//        mockkStatic("com.jpaya.base.ui.extensions.FragmentExtensionsKt")
+//
+//        every {
+//            fragment.viewModel(any(), any<() -> ViewModel>())
+//        } returns mockk<AbbreviationsListViewModel>()
+//
+//        val factoryCaptor = slot<() -> AbbreviationsListViewModel>()
+//        val dataFactory = mockk<AbbreviationsPageDataSourceFactory>(relaxed = true)
+//        module.providesAbbreviationsListViewModel(dataFactory)
+//
+//        verify { fragment.viewModel(factory = capture(factoryCaptor)) }
+//
+//        assertEquals(dataFactory, factoryCaptor.captured().dataSourceFactory)
+//    }
+//
+//    @Test
+//    fun verifyProvidedFireStoreClient() {
+//        val fireStore = mockk<FirebaseFirestore>(relaxed = true)
+//        val fireStoreProperties = mockk<FireStoreProperties>(relaxed = true)
+//
+//        val fireStoreClient = module.providesFireStoreClient(fireStore, fireStoreProperties)
+//
+//        assertThat(fireStoreClient, instanceOf(FireStoreClientImpl::class.java))
+//        assertEquals(fireStore, (fireStoreClient as FireStoreClientImpl).fireStore)
+//        assertEquals(fireStoreProperties, fireStoreClient.properties)
+//    }
+//
+//    @Test
+//    fun verifyProvidedCharactersPageDataSource() {
+//        val fireStoreClient = mockk<FireStoreClientImpl>(relaxed = true)
+//        val viewModel = mockk<AbbreviationsListViewModel>(relaxed = true)
+//        val scope = mockk<CoroutineScope>()
+//        every { viewModel.viewModelScope } returns scope
+//
+//        val dataSource = module.providesAbbreviationsPageDataSource(
+//            fireStoreClient = fireStoreClient,
+//            viewModel = viewModel
+//        )
+//
+//        assertEquals(fireStoreClient, dataSource.fireStoreClient)
+//        assertEquals(scope, dataSource.scope)
+//    }
+//
+//    @Test
+//    fun verifyProvidedAbbreviationsListAdapter() {
+//        val viewModel = mockk<AbbreviationsListViewModel>(relaxed = true)
+//        val adapter = module.providesAbbreviationsListAdapter(viewModel)
+//        assertEquals(viewModel, adapter.viewModel)
+//    }
 }
