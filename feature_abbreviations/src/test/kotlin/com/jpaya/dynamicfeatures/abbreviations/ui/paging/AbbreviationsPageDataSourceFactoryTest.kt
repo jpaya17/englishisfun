@@ -53,7 +53,7 @@ class AbbreviationsPageDataSourceFactoryTest {
 
     @Test
     fun init_WithCreate_ShouldHaveDataSource() {
-        doReturn(AbbreviationsPageDataSource(mock(), mock(), mock())).whenever(providerDataSource).get()
+        doReturn(AbbreviationsPageDataSource(mock(), mock())).whenever(providerDataSource).get()
         val dataSource = dataSourceFactory.create() as AbbreviationsPageDataSource
         verify(dataSourceFactory.sourceLiveData).postValue(same(dataSource))
     }

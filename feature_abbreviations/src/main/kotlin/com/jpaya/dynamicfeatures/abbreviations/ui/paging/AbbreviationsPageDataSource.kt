@@ -20,15 +20,12 @@ import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
-import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.base.firebase.FireStoreProperties
 import com.jpaya.base.network.NetworkState
+import com.jpaya.dynamicfeatures.abbreviations.ui.firestore.FireStoreClient
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
-import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationsDocument
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 const val PAGE_MAX_ELEMENTS = 50
@@ -41,9 +38,7 @@ const val PAGE_MAX_ELEMENTS = 50
  */
 open class AbbreviationsPageDataSource @Inject constructor(
     @VisibleForTesting(otherwise = PRIVATE)
-    val fireStore: FirebaseFirestore,
-    @VisibleForTesting(otherwise = PRIVATE)
-    val fireStoreProperties: FireStoreProperties,
+    val fireStoreClient: FireStoreClient,
     @VisibleForTesting(otherwise = PRIVATE)
     val scope: CoroutineScope
 ) : PageKeyedDataSource<Int, AbbreviationItem>() {
@@ -73,13 +68,7 @@ open class AbbreviationsPageDataSource @Inject constructor(
                 networkState.postValue(NetworkState.Error())
             }
         ) {
-            val list = fireStore
-                .collection(fireStoreProperties.getAbbreviationCollectionName())
-                .document(fireStoreProperties.getAbbreviationDocumentName())
-                .get()
-                .await()
-                .toObject(AbbreviationsDocument::class.java)
-            list?.let {
+            fireStoreClient.abbreviations()?.let {
                 callback.onResult(it.abbreviations, null, null)
                 networkState.postValue(
                     NetworkState.Success(isAdditional = false, isEmptyResponse = it.abbreviations.isEmpty())

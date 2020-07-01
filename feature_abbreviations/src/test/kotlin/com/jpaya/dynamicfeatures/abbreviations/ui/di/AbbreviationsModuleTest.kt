@@ -19,14 +19,17 @@ package com.jpaya.dynamicfeatures.abbreviations.ui.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.base.ui.extensions.viewModel
 import com.jpaya.base.firebase.FireStoreProperties
+import com.jpaya.base.ui.extensions.viewModel
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel
+import com.jpaya.dynamicfeatures.abbreviations.ui.firestore.FireStoreClientImpl
 import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSourceFactory
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.CoroutineScope
+import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.core.IsInstanceOf.instanceOf
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -66,21 +69,30 @@ class AbbreviationsModuleTest {
     }
 
     @Test
-    fun verifyProvidedCharactersPageDataSource() {
+    fun verifyProvidedFireStoreClient() {
         val fireStore = mockk<FirebaseFirestore>(relaxed = true)
         val fireStoreProperties = mockk<FireStoreProperties>(relaxed = true)
+
+        val fireStoreClient = module.providesFireStoreClient(fireStore, fireStoreProperties)
+
+        assertThat(fireStoreClient, instanceOf(FireStoreClientImpl::class.java))
+        assertEquals(fireStore, (fireStoreClient as FireStoreClientImpl).fireStore)
+        assertEquals(fireStoreProperties, fireStoreClient.properties)
+    }
+
+    @Test
+    fun verifyProvidedCharactersPageDataSource() {
+        val fireStoreClient = mockk<FireStoreClientImpl>(relaxed = true)
         val viewModel = mockk<AbbreviationsListViewModel>(relaxed = true)
         val scope = mockk<CoroutineScope>()
         every { viewModel.viewModelScope } returns scope
 
         val dataSource = module.providesAbbreviationsPageDataSource(
-            fireStore = fireStore,
-            fireStoreProperties = fireStoreProperties,
+            fireStoreClient = fireStoreClient,
             viewModel = viewModel
         )
 
-        assertEquals(fireStore, dataSource.fireStore)
-        assertEquals(fireStoreProperties, dataSource.fireStoreProperties)
+        assertEquals(fireStoreClient, dataSource.fireStoreClient)
         assertEquals(scope, dataSource.scope)
     }
 
