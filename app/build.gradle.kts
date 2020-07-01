@@ -154,6 +154,7 @@ dependencies {
             Dependencies.COMPOSE_RUNTIME,
             Dependencies.COMPOSE_TOOLING,
             Dependencies.CONSTRAINT_LAYOUT,
+            Dependencies.COROUTINES_PLAY_SERVICES,
             Dependencies.FIREBASE_ANALYTICS,
             Dependencies.FIREBASE_AUTH,
             Dependencies.FIREBASE_CRASHLYTICS,

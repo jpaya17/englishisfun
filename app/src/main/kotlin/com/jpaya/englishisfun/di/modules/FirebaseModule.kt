@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.di
+package com.jpaya.englishisfun.di.modules
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.jpaya.base.firebase.FireStoreProperties
+import com.jpaya.englishisfun.firestore.FireStoreProperties
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

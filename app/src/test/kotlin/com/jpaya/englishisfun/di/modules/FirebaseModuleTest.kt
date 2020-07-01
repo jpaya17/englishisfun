@@ -14,17 +14,23 @@
  * limitations under the License.
  */
 
-package com.jpaya.dynamicfeatures.abbreviations.ui.firestore
+package com.jpaya.englishisfun.di.modules
 
-import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationsDocument
+import org.junit.Assert.assertNotNull
+import org.junit.Before
+import org.junit.Test
 
-/**
- * Interface to declare all FireStore requests needed on the application.
- */
-interface FireStoreClient {
+class FirebaseModuleTest {
 
-    /**
-     * Obtains a document with all the abbreviations available.
-     */
-    suspend fun abbreviations(): AbbreviationsDocument?
+    private lateinit var module: FirebaseModule
+
+    @Before
+    fun setUp() {
+        module = FirebaseModule()
+    }
+
+    @Test
+    fun verifyProvidedFireStoreProperties() {
+        assertNotNull(module.provideFireStoreProperties())
+    }
 }

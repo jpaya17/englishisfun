@@ -14,27 +14,26 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.firebase
+package com.jpaya.englishisfun.firestore
 
-import org.junit.Assert.assertEquals
-import org.junit.Test
+/**
+ * Object that contains all FirebaseFireStore-related properties such as:
+ *
+ * - Collection names
+ * - Document names
+ * - Field names
+ */
+class FireStoreProperties {
 
-class FireStorePropertiesTest {
-
-    private val fireStoreProperties = FireStoreProperties()
-
-    @Test
-    fun verifyAbbreviationCollectionName() {
-        assertEquals(fireStoreProperties.getAbbreviationCollectionName(), "abbreviation")
+    companion object {
+        private const val COLLECTION_NAME = "abbreviation"
+        private const val DOCUMENT_NAME = "list"
+        private const val LIST_FIELD = "abbreviations"
     }
 
-    @Test
-    fun verifyAbbreviationDocumentName() {
-        assertEquals(fireStoreProperties.getAbbreviationDocumentName(), "list")
-    }
+    fun getAbbreviationCollectionName() = COLLECTION_NAME
 
-    @Test
-    fun verifyAbbreviationListField() {
-        assertEquals(fireStoreProperties.getAbbreviationListField(), "abbreviations")
-    }
+    fun getAbbreviationDocumentName() = DOCUMENT_NAME
+
+    fun getAbbreviationListField() = LIST_FIELD
 }

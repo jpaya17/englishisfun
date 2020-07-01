@@ -19,11 +19,11 @@ package com.jpaya.dynamicfeatures.abbreviations.ui.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.base.firebase.FireStoreProperties
+import com.jpaya.englishisfun.firestore.FireStoreProperties
 import com.jpaya.base.ui.extensions.viewModel
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel
-import com.jpaya.dynamicfeatures.abbreviations.ui.firestore.FireStoreClientImpl
+import com.jpaya.englishisfun.firestore.FireStoreClientImpl
 import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSourceFactory
 import io.mockk.*
 import io.mockk.impl.annotations.MockK

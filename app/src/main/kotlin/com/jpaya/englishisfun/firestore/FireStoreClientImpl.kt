@@ -14,12 +14,10 @@
  * limitations under the License.
  */
 
-package com.jpaya.dynamicfeatures.abbreviations.ui.firestore
+package com.jpaya.englishisfun.firestore
 
 import androidx.annotation.VisibleForTesting
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.base.firebase.FireStoreProperties
-import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationsDocument
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
@@ -33,12 +31,12 @@ class FireStoreClientImpl @Inject constructor(
     /**
      * Obtains a document with all the abbreviations available.
      */
-    override suspend fun abbreviations(): AbbreviationsDocument? {
+    override suspend fun <T> abbreviations(type: Class<T>): T {
         return fireStore
             .collection(properties.getAbbreviationCollectionName())
             .document(properties.getAbbreviationDocumentName())
             .get()
             .await()
-            .toObject(AbbreviationsDocument::class.java)
+            .toObject(type)!!
     }
 }

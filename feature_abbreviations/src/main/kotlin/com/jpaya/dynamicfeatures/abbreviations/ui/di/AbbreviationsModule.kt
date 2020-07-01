@@ -21,12 +21,12 @@ import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.base.ui.extensions.viewModel
-import com.jpaya.base.firebase.FireStoreProperties
+import com.jpaya.englishisfun.firestore.FireStoreProperties
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel
 import com.jpaya.dynamicfeatures.abbreviations.ui.adapter.AbbreviationsListAdapter
-import com.jpaya.dynamicfeatures.abbreviations.ui.firestore.FireStoreClient
-import com.jpaya.dynamicfeatures.abbreviations.ui.firestore.FireStoreClientImpl
+import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.firestore.FireStoreClientImpl
 import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSource
 import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSourceFactory
 import dagger.Module

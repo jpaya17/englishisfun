@@ -14,23 +14,32 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.di
+package com.jpaya.englishisfun.di.modules
 
+import com.jpaya.englishisfun.EnglishIsFunApp
+import com.nhaarman.mockitokotlin2.doReturn
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.whenever
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
 
-class FirebaseModuleTest {
+class AppModuleTest {
 
-    private lateinit var module: FirebaseModule
+    private lateinit var appModule: AppModule
 
     @Before
     fun setUp() {
-        module = FirebaseModule()
+        appModule = AppModule()
     }
 
     @Test
-    fun verifyProvidedFireStoreProperties() {
-        assertNotNull(module.provideFireStoreProperties())
+    fun verifyProvidedContext() {
+        val application: EnglishIsFunApp = mock()
+        doReturn(application).whenever(application).applicationContext
+
+        assertNotNull(appModule.provideContext(application))
+        assertEquals(application, appModule.provideContext(application))
     }
 }

@@ -14,26 +14,15 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.firebase
+package com.jpaya.englishisfun.firestore
 
 /**
- * Object that contains all FirebaseFireStore-related properties such as:
- *
- * - Collection names
- * - Document names
- * - Field names
+ * Interface to declare all FireStore requests needed on the application.
  */
-class FireStoreProperties {
+interface FireStoreClient {
 
-    companion object {
-        private const val COLLECTION_NAME = "abbreviation"
-        private const val DOCUMENT_NAME = "list"
-        private const val LIST_FIELD = "abbreviations"
-    }
-
-    fun getAbbreviationCollectionName() = COLLECTION_NAME
-
-    fun getAbbreviationDocumentName() = DOCUMENT_NAME
-
-    fun getAbbreviationListField() = LIST_FIELD
+    /**
+     * Obtains a document with all the abbreviations available.
+     */
+    suspend fun <T> abbreviations(type: Class<T>): T
 }

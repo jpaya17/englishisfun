@@ -24,7 +24,6 @@ plugins {
 dependencies {
     implementation(
         arrayOf(
-            Dependencies.COROUTINES_PLAY_SERVICES,
             Dependencies.FIREBASE_ANALYTICS,
             Dependencies.FIREBASE_FIRESTORE,
             Dependencies.PAGING,

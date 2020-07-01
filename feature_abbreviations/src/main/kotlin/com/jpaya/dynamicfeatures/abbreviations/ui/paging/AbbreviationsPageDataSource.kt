@@ -21,8 +21,9 @@ import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
 import com.jpaya.base.network.NetworkState
-import com.jpaya.dynamicfeatures.abbreviations.ui.firestore.FireStoreClient
+import com.jpaya.englishisfun.firestore.FireStoreClient
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
+import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationsDocument
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -68,20 +69,18 @@ open class AbbreviationsPageDataSource @Inject constructor(
                 networkState.postValue(NetworkState.Error())
             }
         ) {
-            fireStoreClient.abbreviations()?.let {
-                callback.onResult(it.abbreviations, null, null)
-                networkState.postValue(
-                    NetworkState.Success(isAdditional = false, isEmptyResponse = it.abbreviations.isEmpty())
-                )
-            }
+            val list = fireStoreClient.abbreviations(AbbreviationsDocument::class.java).abbreviations
+            callback.onResult(list, null, null)
+            networkState.postValue(
+                NetworkState.Success(isAdditional = false, isEmptyResponse = list.isEmpty())
+            )
         }
     }
 
     /**
-     * Append page with the key specified by [LoadParams.key].
+     * Append page with the specified params.
      *
-     * @param params Parameters for the load, including the key for the new page, and requested
-     * load size.
+     * @param params Parameters for the load, including the key for the new page, and requested load size.
      * @param callback Callback that receives loaded data.
      * @see PageKeyedDataSource.loadAfter
      */
@@ -90,17 +89,13 @@ open class AbbreviationsPageDataSource @Inject constructor(
     }
 
     /**
-     * Prepend page with the key specified by [LoadParams.key]
+     * Prepend page with the specified params.
      *
-     * @param params Parameters for the load, including the key for the new page, and requested
-     * load size.
+     * @param params Parameters for the load, including the key for the new page, and requested load size.
      * @param callback Callback that receives loaded data.
      * @see PageKeyedDataSource.loadBefore
      */
-    override fun loadBefore(
-        params: LoadParams<Int>,
-        callback: LoadCallback<Int, AbbreviationItem>
-    ) {
+    override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, AbbreviationItem>) {
         // Ignored, since we load all list at once
     }
 

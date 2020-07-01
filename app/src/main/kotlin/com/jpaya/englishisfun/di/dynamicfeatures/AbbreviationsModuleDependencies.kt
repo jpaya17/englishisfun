@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.di.dynamicfeatures
 
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.base.firebase.FireStoreProperties
+import com.jpaya.englishisfun.firestore.FireStoreProperties
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
