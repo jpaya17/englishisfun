@@ -43,7 +43,7 @@ class SingleLiveDataTest {
 
     @Test
     fun observingSingleLiveData_WhenPostStringValue_ShouldTriggerOneEvent() {
-        val singleLiveData = com.jpaya.base.ui.livedata.SingleLiveData<String>()
+        val singleLiveData = SingleLiveData<String>()
         val observerPostValue = "Event Value"
         val observer = mock<(String) -> Unit>()
         val observerCaptor = argumentCaptor<String>()
@@ -57,7 +57,7 @@ class SingleLiveDataTest {
 
     @Test
     fun observingSingleLiveData_WhenPostMultipleIntValue_ShouldTriggerMultipleTimes() {
-        val singleLiveData = com.jpaya.base.ui.livedata.SingleLiveData<Int>()
+        val singleLiveData = SingleLiveData<Int>()
         val observerPostValue = 1
         val observer = mock<(Int) -> Unit>()
         val observerCaptor = argumentCaptor<Int>()
@@ -77,7 +77,7 @@ class SingleLiveDataTest {
 
     @Test
     fun multipleObservingSingleLiveData_WhenPostIntValue_ShouldTriggerOnlyFirstObserver() {
-        val singleLiveData = com.jpaya.base.ui.livedata.SingleLiveData<String>()
+        val singleLiveData = SingleLiveData<String>()
         val observerPostValue = "Event Value"
         val observer1 = mock<(String) -> Unit>()
         val observer2 = mock<(String) -> Unit>()
@@ -98,7 +98,7 @@ class SingleLiveDataTest {
 
     @Test
     fun observingSingleLiveData_WithoutPostValue_ShouldNotTrigger() {
-        val singleLiveData = com.jpaya.base.ui.livedata.SingleLiveData<Int>()
+        val singleLiveData = SingleLiveData<Int>()
         val observer = mock<(Int) -> Unit>()
 
         lifecycleOwner.observe(singleLiveData, observer)

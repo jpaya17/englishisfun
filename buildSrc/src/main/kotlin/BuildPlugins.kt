@@ -21,6 +21,7 @@ object BuildPlugins {
     const val ANDROID_APPLICATION = "com.android.application"
     const val ANDROID_DYNAMIC_FEATURE = "com.android.dynamic-feature"
     const val ANDROID_LIBRARY = "com.android.library"
+    const val CHANGELOG = "changelog"
     const val DEPENDENCY_GRAPH = "plugins.dependency-graph"
     const val DETEKT = "plugins.detekt"
     const val DOKKA = "plugins.dokka"

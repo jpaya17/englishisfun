@@ -20,6 +20,7 @@ import android.view.ViewGroup
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.RecyclerView
+import com.jpaya.libraries.testutils.pagelist.pagedListOf
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import com.nhaarman.mockitokotlin2.*
 import org.junit.Assert.*
@@ -82,23 +83,23 @@ class BasePagedListAdapterTest : TestRobolectric() {
         verify(adapter).onCreateViewHolder(same(parent), same(viewType))
     }
 
-//    @Test
-//    fun listedRecycleView_ShouldInvokeItemsComparator() {
-//        adapter.submitList(pagedListOf("item1", "item2"))
-//        adapter.submitList(pagedListOf("item3", "item4"))
-//
-//        verify(itemsSame, after(300).atLeastOnce()).invoke(anyString(), anyString())
-//    }
+    @Test
+    fun listedRecycleView_ShouldInvokeItemsComparator() {
+        adapter.submitList(pagedListOf("1", "2"))
+        adapter.submitList(pagedListOf("3", "4"))
 
-//    @Test
-//    fun listedRecycleView_ShouldInvokeContentComparator() {
-//        doReturn(true).whenever(itemsSame).invoke(anyString(), anyString())
-//
-//        adapter.submitList(pagedListOf("item1", "item2"))
-//        adapter.submitList(pagedListOf("item6", "item4", "item2"))
-//
-//        verify(contentsSame, after(300).atLeastOnce()).invoke(anyString(), anyString())
-//    }
+        verify(itemsSame, after(300).atLeastOnce()).invoke(anyString(), anyString())
+    }
+
+    @Test
+    fun listedRecycleView_ShouldInvokeContentComparator() {
+        doReturn(true).whenever(itemsSame).invoke(anyString(), anyString())
+
+        adapter.submitList(pagedListOf("1", "2"))
+        adapter.submitList(pagedListOf("6", "4", "2"))
+
+        verify(contentsSame, after(300).atLeastOnce()).invoke(anyString(), anyString())
+    }
 
     @Test
     fun emptyRecycleView_ShouldNotInvokeAnyComparator() {
@@ -163,7 +164,7 @@ class BasePagedListAdapterTest : TestRobolectric() {
         verify(recyclerView, never()).scrollToPosition(anyInt())
     }
 
-    inner class TestBasePagedListAdapter : com.jpaya.base.ui.base.BasePagedListAdapter<String>(
+    inner class TestBasePagedListAdapter : BasePagedListAdapter<String>(
         itemsSame = itemsSame, contentsSame = contentsSame
     ) {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =

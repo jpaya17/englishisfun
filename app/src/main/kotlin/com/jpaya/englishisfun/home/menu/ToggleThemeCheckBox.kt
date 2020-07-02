@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.jpaya.dynamicfeatures.home.ui.menu
+package com.jpaya.englishisfun.home.menu
 
 import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatCheckBox
-import com.jpaya.dynamicfeatures.home.R
+import com.jpaya.englishisfun.R
 
 /**
  * Animated button menu item check box to apply night/light mode.

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jpaya.dynamicfeatures.home.ui
+package com.jpaya.englishisfun.home
 
 import com.jpaya.base.ui.base.BaseViewState
 

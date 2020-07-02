@@ -23,13 +23,11 @@ import com.jpaya.base.ui.extensions.viewModel
 import com.jpaya.base.firebase.FireStoreProperties
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel
-import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItemMapper
 import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSourceFactory
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.CoroutineScope
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
 
@@ -71,7 +69,6 @@ class AbbreviationsModuleTest {
     fun verifyProvidedCharactersPageDataSource() {
         val fireStore = mockk<FirebaseFirestore>(relaxed = true)
         val fireStoreProperties = mockk<FireStoreProperties>(relaxed = true)
-        val mapper = mockk<AbbreviationItemMapper>(relaxed = true)
         val viewModel = mockk<AbbreviationsListViewModel>(relaxed = true)
         val scope = mockk<CoroutineScope>()
         every { viewModel.viewModelScope } returns scope
@@ -79,19 +76,12 @@ class AbbreviationsModuleTest {
         val dataSource = module.providesAbbreviationsPageDataSource(
             fireStore = fireStore,
             fireStoreProperties = fireStoreProperties,
-            viewModel = viewModel,
-            mapper = mapper
+            viewModel = viewModel
         )
 
         assertEquals(fireStore, dataSource.fireStore)
         assertEquals(fireStoreProperties, dataSource.fireStoreProperties)
-        assertEquals(mapper, dataSource.mapper)
         assertEquals(scope, dataSource.scope)
-    }
-
-    @Test
-    fun verifyProvidedAbbreviationItemMapper() {
-        assertNotNull(module.providesAbbreviationItemMapper())
     }
 
     @Test

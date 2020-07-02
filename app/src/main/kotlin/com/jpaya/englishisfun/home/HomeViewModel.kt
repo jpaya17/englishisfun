@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package com.jpaya.dynamicfeatures.home.ui
+package com.jpaya.englishisfun.home
 
 import android.app.Activity
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
-import com.jpaya.dynamicfeatures.home.R
-import javax.inject.Inject
+import com.jpaya.englishisfun.R
 
 /**
  * View model responsible for preparing and managing the data for [HomeFragment].
  *
  * @see ViewModel
  */
-class HomeViewModel @Inject constructor() : ViewModel() {
+class HomeViewModel @ViewModelInject constructor() : ViewModel() {
 
     private val _state = MutableLiveData<HomeViewState>()
     val state: LiveData<HomeViewState>

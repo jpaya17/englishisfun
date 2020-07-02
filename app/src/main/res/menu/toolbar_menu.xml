@@ -5,5 +5,5 @@
         android:id="@+id/menu_toggle_theme"
         android:title="@string/home_toolbar_theme"
         app:showAsAction="always"
-        app:actionViewClass="com.jpaya.dynamicfeatures.home.ui.menu.ToggleThemeCheckBox" />
+        app:actionViewClass="com.jpaya.englishisfun.home.menu.ToggleThemeCheckBox" />
 </menu>

@@ -16,9 +16,11 @@
 
 import dependencies.*
 import extensions.*
+import BuildDependenciesVersions
 
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
+    id(BuildPlugins.CHANGELOG)
 //    id(BuildPlugins.FIREBASE_CRASHLYTICS)
 //    id(BuildPlugins.FIREBASE_PERFORMANCE)
 //    id(BuildPlugins.GOOGLE_SERVICES)
@@ -87,7 +89,6 @@ android {
     }
 
     dynamicFeatures = mutableSetOf(
-        BuildModules.Features.HOME,
         BuildModules.Features.ABBREVIATIONS
     )
 
@@ -96,7 +97,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "0.1.0-dev12"
+        kotlinCompilerExtensionVersion = BuildDependenciesVersions.COMPOSE
         kotlinCompilerVersion = "1.3.70-dev-withExperimentalGoogleExtensions-20200424"
     }
 
@@ -164,6 +165,7 @@ dependencies {
             Dependencies.LOGGING,
             Dependencies.MATERIAL,
             Dependencies.NAVIGATION_FRAGMENT,
+            Dependencies.NAVIGATION_UI,
             Dependencies.PLAY_CORE,
             Dependencies.TIMBER
         )
@@ -175,6 +177,7 @@ dependencies {
             AnnotationProcessorsDependencies.HILT_VIEWMODEL
         )
     )
+    testImplementation(project(BuildModules.Libraries.TEST_UTILS))
     testImplementation(TestDependencies.all())
     androidTestImplementation(TestAndroidDependencies.all())
 }

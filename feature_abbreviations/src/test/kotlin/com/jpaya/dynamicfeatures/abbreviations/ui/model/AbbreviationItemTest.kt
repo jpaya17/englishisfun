@@ -26,7 +26,11 @@ class AbbreviationItemTest {
         val id: Long = 1
         val abbr = "LOL"
         val desc = "Laugh out loud"
-        val abbreviation = AbbreviationItem(id, abbr, desc)
+        val abbreviation = AbbreviationItem().apply {
+            this.id = id
+            this.abbr = abbr
+            this.desc = desc
+        }
 
         assertEquals(id, abbreviation.id)
         assertEquals(abbr, abbreviation.abbr)

@@ -19,6 +19,7 @@ on the application are:
 
 | Content            | Availability  |
 | ------------------ |-------------- |
+| Irregular Verbs    | :x:           |
 | Chat Abbreviations | :x:           |
 | Conditionals       | :x:           |
 | Exam Preparation   | :x:           |

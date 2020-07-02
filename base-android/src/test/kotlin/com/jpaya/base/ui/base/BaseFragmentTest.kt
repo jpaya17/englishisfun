@@ -91,7 +91,7 @@ class BaseFragmentTest : TestRobolectric() {
         }
     }
 
-    class TestBaseFragment : com.jpaya.base.ui.base.BaseFragment<ViewDataBinding, ViewModel>(
+    class TestBaseFragment : BaseFragment<ViewDataBinding, ViewModel>(
         layoutId = 0
     ) {
         override fun onCreateView(

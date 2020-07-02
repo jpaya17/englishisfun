@@ -34,6 +34,7 @@ kotlinDslPluginOptions {
 }
 
 object GradleVersions {
+    const val CHANGELOG = "0.1.3"
     const val DETEKT = "1.9.1"
     const val DOKKA = "0.10.1"
     const val FIREBASE_CRASHLYTICS = "2.0.0"
@@ -45,13 +46,14 @@ object GradleVersions {
     const val HILT = "2.28-alpha"
     const val JACOCO = "0.16.0"
     const val KOTLIN = "1.3.72"
-    const val KTLINT = "0.37.0"
+    const val KTLINT = "0.37.2"
     const val NAVIGATION = "2.2.2"
     const val SONARQUBE = "3.0"
     const val SPOTLESS = "4.3.0"
 }
 
 object GradlePlugins {
+    const val CHANGELOG = "com.github.marcpoppleton:git-changelog:${GradleVersions.CHANGELOG}"
     const val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${GradleVersions.DETEKT}"
     const val DOKKA = "org.jetbrains.dokka:dokka-gradle-plugin:${GradleVersions.DOKKA}"
     const val FIREBASE_CRASHLYTICS = "com.google.firebase:firebase-crashlytics-gradle:${GradleVersions.FIREBASE_CRASHLYTICS}"
@@ -71,6 +73,7 @@ object GradlePlugins {
 }
 
 dependencies {
+    implementation(GradlePlugins.CHANGELOG)
     implementation(GradlePlugins.DETEKT)
     implementation(GradlePlugins.DOKKA)
 //    implementation(GradlePlugins.FIREBASE_CRASHLYTICS)

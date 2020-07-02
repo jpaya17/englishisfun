@@ -27,4 +27,4 @@ import androidx.recyclerview.widget.RecyclerView
  * @see ListAdapter
  */
 abstract class BaseListAdapter<T>(itemsSame: (T, T) -> Boolean, contentsSame: (T, T) -> Boolean) :
-    com.jpaya.base.ui.base.BaseViewHolderListAdapter<T, RecyclerView.ViewHolder>(itemsSame, contentsSame)
+    BaseViewHolderListAdapter<T, RecyclerView.ViewHolder>(itemsSame, contentsSame)

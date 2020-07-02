@@ -2,8 +2,8 @@ name: Internal Release
 
 on:
   push:
-    tags:
-      - '[0-9]+.[0-9]+.[0-9]+-RC[0-9]+'
+    branches:
+      - release/**
 
 jobs:
   release:
@@ -30,11 +30,12 @@ jobs:
       - name: Unit tests
         run: bash ./gradlew testDevDebugUnitTest
       - name: Update release version
+        id: version
         run: |
-          latest_release="$(git describe --match '[0-9]*.[0-9]*.[0-9]*-RC[0-9]*' --abbrev=0 --tags)"
-          version_name="\"$latest_release\""
+          version_name="\"${GITHUB_REF##*/}\""
           sed -i "s/BuildAndroidConfig.VERSION_NAME/$version_name/g" app/build.gradle.kts
           sed -i "s/BuildAndroidConfig.VERSION_CODE/$VERSION_CODE/g" app/build.gradle.kts
+          echo "::set-output name=version_name::$version_name"
       - name: Build Signed Bundle
         run: bash ./gradlew :app:bundleProdRelease
       - name: Upload Bundle artifact
@@ -42,6 +43,29 @@ jobs:
         with:
           name: app-release
           path: app/build/outputs/bundle/prodRelease/app-prod-release.aab
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.version.outputs.version_name }}
+          release_name: Version ${{ steps.version.outputs.version_name }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: false
+          prerelease: true
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: app/build/outputs/bundle/prodRelease/app-prod-release.aab
+          asset_name: englishisfun.aab
+          asset_content_type: application/zip
 
   uploadBundle:
     name: Upload Bundle to Google Play

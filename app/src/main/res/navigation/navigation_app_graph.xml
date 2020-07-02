@@ -4,7 +4,7 @@
     app:startDestination="@id/home_fragment">
     <fragment
         android:id="@+id/home_fragment"
-        android:name="com.jpaya.dynamicfeatures.home.ui.HomeFragment"
+        android:name="com.jpaya.englishisfun.home.HomeFragment"
         android:label="HomeFragment">
     </fragment>
 </navigation>

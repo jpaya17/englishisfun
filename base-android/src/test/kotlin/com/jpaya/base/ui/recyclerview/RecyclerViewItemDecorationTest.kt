@@ -30,16 +30,20 @@ import org.junit.Test
 
 class RecyclerViewItemDecorationTest {
 
-    lateinit var recyclerViewItemDecoration: com.jpaya.base.ui.recyclerview.RecyclerViewItemDecoration
+    lateinit var recyclerViewItemDecoration: RecyclerViewItemDecoration
 
     @MockK(relaxed = true)
     lateinit var viewDecorate: View
+
     @MockK(relaxed = true)
     lateinit var stateRecyclerView: RecyclerView.State
+
     @MockK(relaxed = true)
     lateinit var parentRecyclerView: RecyclerView
+
     @MockK(relaxed = true)
     lateinit var gridLayoutManager: GridLayoutManager
+
     @MockK(relaxed = true)
     lateinit var linearLayoutManager: LinearLayoutManager
 
@@ -53,8 +57,7 @@ class RecyclerViewItemDecorationTest {
         val spacingPx = 10
         val outSpacing = Rect()
 
-        recyclerViewItemDecoration =
-            com.jpaya.base.ui.recyclerview.RecyclerViewItemDecoration(spacingPx)
+        recyclerViewItemDecoration = RecyclerViewItemDecoration(spacingPx)
         recyclerViewItemDecoration.getItemOffsets(
             outRect = outSpacing,
             view = viewDecorate,
@@ -83,7 +86,7 @@ class RecyclerViewItemDecorationTest {
         every { parentRecyclerView.layoutManager } returns gridLayoutManager
 
         recyclerViewItemDecoration =
-            com.jpaya.base.ui.recyclerview.RecyclerViewItemDecoration(spacingPx)
+            RecyclerViewItemDecoration(spacingPx)
         expectedSpacingsOnPosition.forEachIndexed { index, expectedSpacing ->
             val outSpacing = generateFakeOffsetsGridLayout(
                 position = index,
@@ -123,7 +126,7 @@ class RecyclerViewItemDecorationTest {
         every { parentRecyclerView.layoutManager } returns gridLayoutManager
 
         recyclerViewItemDecoration =
-            com.jpaya.base.ui.recyclerview.RecyclerViewItemDecoration(spacingPx)
+            RecyclerViewItemDecoration(spacingPx)
         expectedSpacingsOnPosition.forEachIndexed { index, expectedSpacing ->
             val outSpacing = generateFakeOffsetsGridLayout(
                 position = index,
@@ -169,7 +172,7 @@ class RecyclerViewItemDecorationTest {
         every { parentRecyclerView.layoutManager } returns gridLayoutManager
 
         recyclerViewItemDecoration =
-            com.jpaya.base.ui.recyclerview.RecyclerViewItemDecoration(spacingPx)
+            RecyclerViewItemDecoration(spacingPx)
         expectedSpacingsOnPosition.forEachIndexed { index, expectedSpacing ->
             val outSpacing = generateFakeOffsetsGridLayout(
                 position = index,
@@ -197,7 +200,7 @@ class RecyclerViewItemDecorationTest {
         every { parentRecyclerView.layoutManager } returns linearLayoutManager
 
         recyclerViewItemDecoration =
-            com.jpaya.base.ui.recyclerview.RecyclerViewItemDecoration(spacingPx)
+            RecyclerViewItemDecoration(spacingPx)
         expectedSpacingsOnPosition.forEachIndexed { index, expectedSpacing ->
             val outSpacing = generateFakeOffsetsLinearLayout(
                 position = index,
@@ -236,7 +239,7 @@ class RecyclerViewItemDecorationTest {
         every { parentRecyclerView.layoutManager } returns linearLayoutManager
 
         recyclerViewItemDecoration =
-            com.jpaya.base.ui.recyclerview.RecyclerViewItemDecoration(spacingPx)
+            RecyclerViewItemDecoration(spacingPx)
         expectedSpacingsOnPosition.forEachIndexed { index, expectedSpacing ->
             val outSpacing = generateFakeOffsetsLinearLayout(
                 position = index,
@@ -263,7 +266,7 @@ class RecyclerViewItemDecorationTest {
         every { parentRecyclerView.layoutManager } returns linearLayoutManager
 
         recyclerViewItemDecoration =
-            com.jpaya.base.ui.recyclerview.RecyclerViewItemDecoration(spacingPx)
+            RecyclerViewItemDecoration(spacingPx)
         expectedSpacingsOnPosition.forEachIndexed { index, expectedSpacing ->
             val outSpacing = generateFakeOffsetsLinearLayout(
                 position = index,
@@ -302,7 +305,7 @@ class RecyclerViewItemDecorationTest {
         every { parentRecyclerView.layoutManager } returns linearLayoutManager
 
         recyclerViewItemDecoration =
-            com.jpaya.base.ui.recyclerview.RecyclerViewItemDecoration(spacingPx)
+            RecyclerViewItemDecoration(spacingPx)
         expectedSpacingsOnPosition.forEachIndexed { index, expectedSpacing ->
             val outSpacing = generateFakeOffsetsLinearLayout(
                 position = index,
@@ -328,7 +331,7 @@ class RecyclerViewItemDecorationTest {
         every { parentRecyclerView.layoutManager } returns linearLayoutManager
 
         recyclerViewItemDecoration =
-            com.jpaya.base.ui.recyclerview.RecyclerViewItemDecoration(spacingPx)
+            RecyclerViewItemDecoration(spacingPx)
         expectedSpacingsOnPosition.forEachIndexed { index, expectedSpacing ->
             val outSpacing = generateFakeOffsetsLinearLayout(
                 position = index,

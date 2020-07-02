@@ -14,22 +14,24 @@
  * limitations under the License.
  */
 
-package com.jpaya.dynamicfeatures.home.ui.di
+package com.jpaya.englishisfun.home.menu
 
-import com.jpaya.dynamicfeatures.home.ui.HomeFragment
-import com.jpaya.englishisfun.di.dynamicfeatures.HomeModuleDependencies
-import dagger.Component
+import com.jpaya.libraries.testutils.robolectric.TestRobolectric
+import org.junit.Assert.assertNotNull
+import org.junit.Before
+import org.junit.Test
 
-/**
- * Dagger component class to inject dependencies into [HomeFragment] class.
- */
-@Component(modules = [HomeModule::class], dependencies = [HomeModuleDependencies::class])
-interface HomeComponent {
+class ToggleThemeCheckBoxTest : TestRobolectric() {
 
-    /**
-     * Inject dependencies on [HomeFragment]
-     *
-     * @param homeFragment The fragment instance to inject the dependencies into.
-     */
-    fun inject(homeFragment: HomeFragment)
+    private lateinit var checkBox: ToggleThemeCheckBox
+
+    @Before
+    fun setUp() {
+        checkBox = ToggleThemeCheckBox(context, null)
+    }
+
+    @Test
+    fun whenInitShouldInitialiseProperly() {
+        assertNotNull(checkBox)
+    }
 }

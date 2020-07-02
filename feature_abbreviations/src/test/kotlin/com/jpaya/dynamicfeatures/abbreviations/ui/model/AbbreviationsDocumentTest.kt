@@ -16,13 +16,24 @@
 
 package com.jpaya.dynamicfeatures.abbreviations.ui.model
 
-import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
-/**
- * Model view to display on the screen [AbbreviationsListFragment].
- */
-class AbbreviationItem {
-    var id: Long = 0
-    lateinit var abbr: String
-    lateinit var desc: String
+class AbbreviationsDocumentTest {
+
+    @Test
+    fun abbreviationDocument_shouldInitialiseProperly() {
+        val document = AbbreviationsDocument()
+        val item = AbbreviationItem().apply {
+            id = 1
+            abbr = "LOL"
+            desc = "Laugh out loud"
+        }
+        document.abbreviations = listOf(item)
+
+        assertEquals(1, document.abbreviations.size)
+        assertEquals(1, document.abbreviations[0].id)
+        assertEquals("LOL", document.abbreviations[0].abbr)
+        assertEquals("Laugh out loud", document.abbreviations[0].desc)
+    }
 }

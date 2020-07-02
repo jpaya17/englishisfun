@@ -14,12 +14,24 @@
  * limitations under the License.
  */
 
-import dependencies.Dependencies
+package com.jpaya.englishisfun.home
 
-plugins {
-    id("commons.android-dynamic-feature")
-}
+import org.junit.Assert.assertNotNull
+import org.junit.Before
+import org.junit.Test
 
-dependencies {
-    implementation(Dependencies.FIREBASE_AUTH)
+class HomeViewModelTest {
+
+    private lateinit var viewModel: HomeViewModel
+
+    @Before
+    fun setUp() {
+        viewModel = HomeViewModel()
+    }
+
+    @Test
+    fun shouldInitialiseProperly() {
+        assertNotNull(viewModel)
+        assertNotNull(viewModel.state)
+    }
 }

@@ -25,7 +25,6 @@ import com.jpaya.base.firebase.FireStoreProperties
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel
 import com.jpaya.dynamicfeatures.abbreviations.ui.adapter.AbbreviationsListAdapter
-import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItemMapper
 import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSource
 import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSourceFactory
 import dagger.Module
@@ -68,23 +67,12 @@ class AbbreviationsModule(
     fun providesAbbreviationsPageDataSource(
         fireStore: FirebaseFirestore,
         fireStoreProperties: FireStoreProperties,
-        viewModel: AbbreviationsListViewModel,
-        mapper: AbbreviationItemMapper
+        viewModel: AbbreviationsListViewModel
     ) = AbbreviationsPageDataSource(
         fireStore = fireStore,
         fireStoreProperties = fireStoreProperties,
-        scope = viewModel.viewModelScope,
-        mapper = mapper
+        scope = viewModel.viewModelScope
     )
-
-    /**
-     * Create a provider method binding for [AbbreviationItemMapper].
-     *
-     * @return Instance of mapper.
-     * @see Provides
-     */
-    @Provides
-    fun providesAbbreviationItemMapper() = AbbreviationItemMapper()
 
     /**
      * Create a provider method binding for [AbbreviationsListAdapter].

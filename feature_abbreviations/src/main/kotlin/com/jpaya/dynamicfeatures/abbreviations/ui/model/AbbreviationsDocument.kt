@@ -14,21 +14,13 @@
  * limitations under the License.
  */
 
-import dependencies.Dependencies
-import extensions.implementation
+package com.jpaya.dynamicfeatures.abbreviations.ui.model
 
-plugins {
-    id("commons.android-dynamic-feature")
-}
+import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 
-dependencies {
-    implementation(
-        arrayOf(
-            Dependencies.COROUTINES_PLAY_SERVICES,
-            Dependencies.FIREBASE_ANALYTICS,
-            Dependencies.FIREBASE_FIRESTORE,
-            Dependencies.PAGING,
-            Dependencies.RECYCLER_VIEW
-        )
-    )
+/**
+ * Model view to display on the screen [AbbreviationsListFragment].
+ */
+class AbbreviationsDocument {
+    lateinit var abbreviations: List<AbbreviationItem>
 }
