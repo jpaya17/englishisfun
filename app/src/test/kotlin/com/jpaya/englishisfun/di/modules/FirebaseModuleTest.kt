@@ -16,6 +16,13 @@
 
 package com.jpaya.englishisfun.di.modules
 
+import com.google.firebase.firestore.FirebaseFirestore
+import com.jpaya.englishisfun.firestore.FireStoreClientImpl
+import com.jpaya.englishisfun.firestore.FireStoreProperties
+import io.mockk.mockk
+import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.core.IsInstanceOf.instanceOf
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
@@ -32,5 +39,17 @@ class FirebaseModuleTest {
     @Test
     fun verifyProvidedFireStoreProperties() {
         assertNotNull(module.provideFireStoreProperties())
+    }
+
+    @Test
+    fun verifyProvidedFireStoreClient() {
+        val fireStore = mockk<FirebaseFirestore>(relaxed = true)
+        val fireStoreProperties = mockk<FireStoreProperties>(relaxed = true)
+
+        val fireStoreClient = module.providesFireStoreClient(fireStore, fireStoreProperties)
+
+        assertThat(fireStoreClient, instanceOf(FireStoreClientImpl::class.java))
+        assertEquals(fireStore, (fireStoreClient as FireStoreClientImpl).fireStore)
+        assertEquals(fireStoreProperties, fireStoreClient.properties)
     }
 }

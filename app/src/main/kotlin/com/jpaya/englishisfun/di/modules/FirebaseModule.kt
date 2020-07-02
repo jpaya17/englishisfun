@@ -17,8 +17,11 @@
 package com.jpaya.englishisfun.di.modules
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.firestore.FireStoreClientImpl
 import com.jpaya.englishisfun.firestore.FireStoreProperties
 import dagger.Module
 import dagger.Provides
@@ -40,7 +43,7 @@ class FirebaseModule {
      * @see Provides
      */
     @Provides
-    fun provideFirebaseFireStore() = Firebase.firestore
+    fun provideFirebaseFireStore(): FirebaseFirestore = Firebase.firestore
 
     /**
      * Create a provider method binding for [FirebaseAuth].
@@ -49,7 +52,7 @@ class FirebaseModule {
      * @see Provides
      */
     @Provides
-    fun provideFirebaseAuth() = FirebaseAuth.getInstance()
+    fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
 
     /**
      * Create a provider method binding for [FireStoreProperties].
@@ -58,5 +61,17 @@ class FirebaseModule {
      * @see Provides
      */
     @Provides
-    fun provideFireStoreProperties() = FireStoreProperties()
+    fun provideFireStoreProperties(): FireStoreProperties = FireStoreProperties()
+
+    /**
+     * Create a provider method binding for [FireStoreClient].
+     *
+     * @return Instance of data source.
+     * @see Provides
+     */
+    @Provides
+    fun providesFireStoreClient(
+        fireStore: FirebaseFirestore,
+        properties: FireStoreProperties
+    ): FireStoreClient = FireStoreClientImpl(fireStore, properties)
 }

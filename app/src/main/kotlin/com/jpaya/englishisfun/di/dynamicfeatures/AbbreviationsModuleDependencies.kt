@@ -16,8 +16,7 @@
 
 package com.jpaya.englishisfun.di.dynamicfeatures
 
-import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.englishisfun.firestore.FireStoreProperties
+import com.jpaya.englishisfun.firestore.FireStoreClient
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
@@ -30,7 +29,5 @@ import dagger.hilt.android.components.ApplicationComponent
 @InstallIn(ApplicationComponent::class)
 interface AbbreviationsModuleDependencies {
 
-    fun bindFirebaseFirestore(): FirebaseFirestore
-
-    fun bindFireStoreProperties(): FireStoreProperties
+    fun bindFireStoreClient(): FireStoreClient
 }
