@@ -24,8 +24,8 @@ class PreferencesTest : TestRobolectric() {
 
     @Test
     fun `Check getAppearance and putAppearance work properly`() {
-        assertEquals("auto", Preferences.getAppearance(context)) // Default value
-        val appearance = "light"
+        assertEquals("Auto", Preferences.getAppearance(context)) // Default value
+        val appearance = "Light"
         Preferences.putAppearance(appearance, context)
         assertEquals(appearance, Preferences.getAppearance(context))
     }
