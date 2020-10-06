@@ -33,13 +33,13 @@ object Libraries {
         const val COIL = "0.13.0"
         const val COMPOSE = "0.1.0-dev14"
         const val CONSTRAINT_LAYOUT = "2.0.1"
-        const val CORE_KTX = "1.3.1"
+        const val CORE_KTX = "1.3.2"
         const val COROUTINES = "1.3.9"
         const val FIREBASE_ANALYTICS = "17.5.0"
         const val FIREBASE_AUTH = "19.4.0"
         const val FIREBASE_CRASHLYTICS = "17.2.2"
-        const val FIREBASE_FIRESTORE = "21.4.3"
-        const val FIREBASE_PERFORMANCE = "19.0.7"
+        const val FIREBASE_FIRESTORE = "21.7.0"
+        const val FIREBASE_PERFORMANCE = "19.0.9"
         const val FRAGMENT = "1.2.5"
         const val HILT = "2.28-alpha"
         const val HILT_VIEWMODEL = "1.0.0-alpha01"
@@ -133,7 +133,7 @@ object AnnotationProcessorsLibraries {
 object DebugLibraries {
     private object Versions {
         const val DEBUG_DB = "1.0.6"
-        const val LEAKCANARY = "2.4"
+        const val LEAKCANARY = "2.5"
     }
 
     private const val DEBUG_DB = "com.amitshekhar.android:debug-db:${Versions.DEBUG_DB}"
@@ -218,7 +218,7 @@ object TestAndroidLibraries {
         const val ESPRESSO = "3.3.0"
         const val EXT = "1.1.2"
         const val FRAGMENT = "1.2.5"
-        const val LEAKCANARY = "2.4"
+        const val LEAKCANARY = "2.5"
         const val MOCKITO = "2.2.0"
         const val PLAY_CORE = "1.7.3"
         const val TEST = "1.3.0"

@@ -35,11 +35,11 @@ kotlinDslPluginOptions {
 
 object GradleVersions {
     const val CHANGELOG = "0.1.3"
-    const val DETEKT = "1.13.1"
+    const val DETEKT = "1.14.1"
     const val DOKKA = "0.10.1"
     const val FIREBASE_CRASHLYTICS = "2.3.0"
     const val FIREBASE_PERFORMANCE = "1.3.1"
-    const val GOOGLE_SERVICES = "4.3.3"
+    const val GOOGLE_SERVICES = "4.3.4"
     const val GRADLE_ANDROID = "4.0.1"
     const val GRADLE_VERSIONS = "0.33.0"
     const val GRAPH_GENERATOR = "0.5.0"
@@ -49,7 +49,7 @@ object GradleVersions {
     const val KTLINT = "0.39.0"
     const val NAVIGATION = "2.3.0"
     const val SONARQUBE = "3.0"
-    const val SPOTLESS = "5.5.1"
+    const val SPOTLESS = "5.6.0"
 }
 
 object GradlePlugins {
