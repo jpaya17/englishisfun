@@ -27,7 +27,7 @@ object Preferences {
     private const val APPEARANCE_PREF_KEY = "appearance"
 
     // Default Values
-    private const val DEFAULT_APPERANCE = "auto"
+    private const val DEFAULT_APPERANCE = "Auto"
 
     fun putAppearance(appearance: String, applicationContext: Context) =
         getPreferences(applicationContext).edit().putString(APPEARANCE_PREF_KEY, appearance).apply()
