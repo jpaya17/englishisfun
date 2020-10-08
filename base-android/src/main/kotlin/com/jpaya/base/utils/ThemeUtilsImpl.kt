@@ -18,9 +18,9 @@ package com.jpaya.base.utils
 
 import androidx.appcompat.app.AppCompatDelegate
 import com.jpaya.base.extensions.isNightTime
-import com.jpaya.base.utils.ThemeUtilsImpl.Appearance.AUTO
-import com.jpaya.base.utils.ThemeUtilsImpl.Appearance.DARK
-import com.jpaya.base.utils.ThemeUtilsImpl.Appearance.LIGHT
+import com.jpaya.base.utils.ThemeUtilsImpl.Appearance.Auto
+import com.jpaya.base.utils.ThemeUtilsImpl.Appearance.Dark
+import com.jpaya.base.utils.ThemeUtilsImpl.Appearance.Light
 import java.util.Calendar
 import javax.inject.Inject
 
@@ -31,9 +31,9 @@ import javax.inject.Inject
 class ThemeUtilsImpl @Inject constructor() : ThemeUtils {
 
     enum class Appearance {
-        AUTO,
-        DARK,
-        LIGHT
+        Auto,
+        Dark,
+        Light
     }
 
     /**
@@ -61,9 +61,9 @@ class ThemeUtilsImpl @Inject constructor() : ThemeUtils {
 
     override fun setAppearance(appearance: Appearance) {
         when (appearance) {
-            AUTO -> setNightMode(Calendar.getInstance().isNightTime())
-            DARK -> setNightMode(true)
-            LIGHT -> setNightMode(false)
+            Auto -> setNightMode(Calendar.getInstance().isNightTime())
+            Dark -> setNightMode(true)
+            Light -> setNightMode(false)
         }
     }
 }

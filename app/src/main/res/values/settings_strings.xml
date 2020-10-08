@@ -12,9 +12,9 @@
         <item>@string/setting_appearance_option_light</item>
     </string-array>
 
-    <string name="setting_appearance_option_auto_value" translatable="false">auto</string>
-    <string name="setting_appearance_option_dark_value" translatable="false">dark</string>
-    <string name="setting_appearance_option_light_value" translatable="false">light</string>
+    <string name="setting_appearance_option_auto_value" translatable="false">Auto</string>
+    <string name="setting_appearance_option_dark_value" translatable="false">Dark</string>
+    <string name="setting_appearance_option_light_value" translatable="false">Light</string>
     <string-array name="setting_appearance_options_values">
         <item>@string/setting_appearance_option_auto_value</item>
         <item>@string/setting_appearance_option_dark_value</item>
