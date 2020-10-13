@@ -29,9 +29,4 @@ object BuildAndroidConfig {
     const val VERSION_NAME = "0.0.3"
 
     const val SUPPORT_LIBRARY_VECTOR_DRAWABLES = true
-
-    const val TEST_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
-    val TEST_INSTRUMENTATION_RUNNER_ARGUMENTS = mutableMapOf(
-        "leakcanary.FailTestOnLeakRunListener" to "listener"
-    )
 }
