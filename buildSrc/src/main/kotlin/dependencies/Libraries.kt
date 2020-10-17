@@ -161,7 +161,7 @@ object TestLibraries {
         const val EXT = "1.1.2"
         const val FRAGMENT = "1.2.5"
         const val HAMCREST = "2.2"
-        const val JUNIT = "4.13"
+        const val JUNIT = "4.13.1"
         const val MOCKITO = "2.2.0"
         const val MOCKK = "1.10.2"
         const val RAINBOW_CAKE = "1.0.0"
