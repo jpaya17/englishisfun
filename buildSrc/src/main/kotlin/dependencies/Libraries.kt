@@ -48,7 +48,7 @@ object Libraries {
         const val LIFECYCLE = "2.2.0"
         const val MATERIAL = "1.2.1"
         const val MOSHI = "1.9.3"
-        const val NAVIGATION = "2.3.0"
+        const val NAVIGATION = "2.3.1"
         const val PAGING = "2.1.2"
         const val PLAY_CORE = "1.7.3"
         const val PREFERENCES = "1.1.1"
