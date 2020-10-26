@@ -37,7 +37,6 @@ allOpen {
 dependencies {
     implementation(
         arrayOf(
-            Libraries.COIL,
             Libraries.CORE_KTX,
             Libraries.FRAGMENT_KTX,
             Libraries.HILT,

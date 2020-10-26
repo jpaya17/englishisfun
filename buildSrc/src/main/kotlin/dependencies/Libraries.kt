@@ -30,7 +30,6 @@ object Compose {
 object Libraries {
     private object Versions {
         const val APPCOMPAT = "1.2.0"
-        const val COIL = "0.13.0"
         const val COMPOSE = "0.1.0-dev14"
         const val CONSTRAINT_LAYOUT = "2.0.2"
         const val CORE_KTX = "1.3.2"
@@ -62,7 +61,6 @@ object Libraries {
     }
 
     const val APPCOMPAT = "androidx.appcompat:appcompat:${Versions.APPCOMPAT}"
-    const val COIL = "io.coil-kt:coil:${Versions.COIL}"
     const val COMPOSE_ANIMATION = "androidx.ui:ui-animation:${Versions.COMPOSE}"
     const val COMPOSE_CORE = "androidx.ui:ui-core:${Versions.COMPOSE}"
     const val COMPOSE_FOUNDATION = "androidx.ui:ui-foundation:${Versions.COMPOSE}"

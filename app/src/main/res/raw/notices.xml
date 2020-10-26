@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <notices>
     <notice>
-        <name>Coil</name>
-        <url>https://github.com/coil-kt/coil</url>
-        <copyright>Copyright 2020 Coil Contributors</copyright>
-        <license>Apache Software License 2.0</license>
-    </notice>
-
-    <notice>
         <name>kotlinx.coroutines</name>
         <url>https://github.com/Kotlin/kotlinx.coroutines</url>
         <copyright>Copyright 2016-2019 JetBrains s.r.o and respective authors and developers
