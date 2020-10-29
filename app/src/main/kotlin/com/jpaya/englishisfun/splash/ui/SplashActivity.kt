@@ -17,9 +17,11 @@
 package com.jpaya.englishisfun.splash.ui
 
 import android.os.Bundle
+import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.jpaya.englishisfun.NavHostActivity
 import com.jpaya.base.extensions.launchActivity
+import com.jpaya.englishisfun.R
 
 /**
  * This is the first Activity of the application.
@@ -28,9 +30,14 @@ import com.jpaya.base.extensions.launchActivity
  */
 class SplashActivity : AppCompatActivity() {
 
+    companion object {
+        private const val SPLASH_DELAY: Long = 1000
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.splash_activity)
 
-        launchActivity<NavHostActivity> {}
+        Handler().postDelayed({ launchActivity<NavHostActivity> {} }, SPLASH_DELAY)
     }
 }

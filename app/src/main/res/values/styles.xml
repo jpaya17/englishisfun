@@ -8,11 +8,6 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
-    <!-- SplashActivity Reference: https://android.jlelse.eu/launch-screen-in-android-the-right-way-aca7e8c31f52 -->
-    <style name="SplashTheme" parent="AppTheme">
-        <item name="android:windowBackground">@drawable/splash_background</item>
-    </style>
-
     <style name="AppTheme.BackgroundStyle">
         <item name="android:background">@color/primaryLight</item>
     </style>
