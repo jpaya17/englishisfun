@@ -41,10 +41,8 @@ class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListVi
     private lateinit var binding: IdiomsFragmentListBinding
 
     override fun provideViewModel() = customViewModel
-    override fun getViewResource() = R.layout.idioms_fragment_list
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
         binding = IdiomsFragmentListBinding.inflate(inflater, container, false)
         binding.viewModel = customViewModel
         return binding.root

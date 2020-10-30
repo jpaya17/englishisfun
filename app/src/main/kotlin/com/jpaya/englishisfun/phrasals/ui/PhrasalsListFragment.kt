@@ -41,10 +41,8 @@ class PhrasalsListFragment : RainbowCakeFragment<PhrasalsListViewState, Phrasals
     private lateinit var binding: PhrasalsFragmentListBinding
 
     override fun provideViewModel() = customViewModel
-    override fun getViewResource() = R.layout.phrasals_fragment_list
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
         binding = PhrasalsFragmentListBinding.inflate(inflater, container, false)
         binding.viewModel = customViewModel
         return binding.root

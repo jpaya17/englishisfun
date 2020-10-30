@@ -37,10 +37,8 @@ class AboutFragment : RainbowCakeFragment<AboutViewState, AboutViewModel>() {
     private lateinit var binding: AboutFragmentBinding
 
     override fun provideViewModel() = customViewModel
-    override fun getViewResource() = R.layout.about_fragment
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
         binding = AboutFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
