@@ -24,7 +24,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.transition.TransitionManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
-import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.conditionals.ui.adapter.ConditionalsAdapter
 import com.jpaya.englishisfun.databinding.ConditionalsFragmentListBinding
 import dagger.hilt.android.AndroidEntryPoint
