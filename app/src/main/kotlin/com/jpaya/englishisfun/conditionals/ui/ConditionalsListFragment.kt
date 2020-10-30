@@ -37,11 +37,8 @@ class ConditionalsListFragment : RainbowCakeFragment<ConditionalsListViewState, 
 
     override fun provideViewModel() = customViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = ConditionalsFragmentListBinding.inflate(inflater, container, false)
-        binding.viewModel = customViewModel
-        return binding.root
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+        ConditionalsFragmentListBinding.inflate(inflater, container, false).apply { viewModel = customViewModel }.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

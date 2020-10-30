@@ -42,11 +42,8 @@ class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState
 
     override fun provideViewModel() = customViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = AbbreviationsFragmentListBinding.inflate(inflater, container, false)
-        binding.viewModel = customViewModel
-        return binding.root
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+        AbbreviationsFragmentListBinding.inflate(inflater, container, false).apply { viewModel = customViewModel }.root
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

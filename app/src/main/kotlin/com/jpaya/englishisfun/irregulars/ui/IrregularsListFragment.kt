@@ -42,11 +42,8 @@ class IrregularsListFragment : RainbowCakeFragment<IrregularsListViewState, Irre
 
     override fun provideViewModel() = customViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = IrregularsFragmentListBinding.inflate(inflater, container, false)
-        binding.viewModel = customViewModel
-        return binding.root
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+        IrregularsFragmentListBinding.inflate(inflater, container, false).apply { viewModel = customViewModel }.root
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
