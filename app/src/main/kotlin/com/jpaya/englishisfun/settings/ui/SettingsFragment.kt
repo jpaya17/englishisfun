@@ -35,12 +35,11 @@ class SettingsFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.settings_fragment, rootKey)
 
-        findPreference<ListPreference>(getString(R.string.setting_appearance_key))
-            ?.setOnPreferenceChangeListener { _, newValue ->
-                viewModel.setAppearance(Appearance.valueOf(newValue as String))
-                Preferences.putAppearance(newValue, requireContext().applicationContext)
-                true
-            }
+        findPreference<ListPreference>(getString(R.string.setting_appearance_key))?.setOnPreferenceChangeListener { _, newValue ->
+            viewModel.setAppearance(Appearance.valueOf(newValue as String))
+            Preferences.putAppearance(newValue, requireContext().applicationContext)
+            true
+        }
 
         findPreference<Preference>(getString(R.string.setting_about_key))?.setOnPreferenceClickListener {
             findNavController().navigate(R.id.action_settings_fragment_to_aboutFragment)
