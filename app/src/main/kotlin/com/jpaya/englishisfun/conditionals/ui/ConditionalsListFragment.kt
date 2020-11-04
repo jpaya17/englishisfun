@@ -24,7 +24,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.transition.TransitionManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
-import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.conditionals.ui.adapter.ConditionalsAdapter
 import com.jpaya.englishisfun.databinding.ConditionalsFragmentListBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,10 +36,8 @@ class ConditionalsListFragment : RainbowCakeFragment<ConditionalsListViewState, 
     private lateinit var binding: ConditionalsFragmentListBinding
 
     override fun provideViewModel() = customViewModel
-    override fun getViewResource() = R.layout.conditionals_fragment_list
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
         binding = ConditionalsFragmentListBinding.inflate(inflater, container, false)
         binding.viewModel = customViewModel
         return binding.root
