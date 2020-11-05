@@ -20,10 +20,10 @@ class Header @JvmOverloads constructor(
 
     private fun loadAttrs(attrs: AttributeSet?) {
         attrs?.let {
-            val styledAttributes = context.obtainStyledAttributes(it, R.styleable.Header, 0, 0)
-            val title = resources.getText(styledAttributes.getResourceId(R.styleable.Header_header_title, R.string.app_name))
+            val attributes = context.obtainStyledAttributes(it, R.styleable.Header, 0, 0)
+            val title = resources.getText(attributes.getResourceId(R.styleable.Header_header_title, R.string.app_name))
             tv_title.text = title
-            styledAttributes.recycle()
+            attributes.recycle()
         }
     }
 }
