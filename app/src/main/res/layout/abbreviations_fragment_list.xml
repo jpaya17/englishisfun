@@ -42,7 +42,7 @@
             android:layout_marginTop="75dp"
             android:layout_marginEnd="25dp"
             android:layout_marginBottom="75dp"
-            android:background="@android:color/white"
+            android:background="@drawable/rounded"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -85,22 +85,13 @@
                 </LinearLayout>
             </com.facebook.shimmer.ShimmerFrameLayout>
 
-            <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/irregularsList"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:orientation="vertical"
-                app:fastScrollAutoHide="true"
-                app:fastScrollAutoHideDelay="1500"
-                app:fastScrollEnableThumbInactiveColor="true"
-                app:fastScrollPopupBackgroundSize="62dp"
-                app:fastScrollPopupBgColor="@color/accent"
-                app:fastScrollPopupPosition="adjacent"
-                app:fastScrollPopupTextColor="@android:color/primary_text_light"
-                app:fastScrollPopupTextSize="32dp"
-                app:fastScrollPopupTextVerticalAlignmentMode="font_metrics"
-                app:fastScrollThumbColor="@color/accent"
-                app:fastScrollThumbEnabled="true"
+                android:overScrollMode="never"
+                android:scrollbars="none"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
