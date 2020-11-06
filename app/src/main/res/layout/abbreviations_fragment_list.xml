@@ -17,7 +17,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E4E3E3"
+        android:background="@color/grey_light"
         tools:context=".irregulars.ui.IrregularsListFragment">
 
         <com.jpaya.englishisfun.Header
@@ -43,7 +43,7 @@
             android:layout_marginTop="75dp"
             android:layout_marginEnd="25dp"
             android:layout_marginBottom="75dp"
-            android:background="@drawable/rounded"
+            android:background="@drawable/rounded_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -106,6 +106,7 @@
                 android:layout_height="0dp"
                 android:gravity="center"
                 android:text="@string/abbreviations_list_empty_text"
+                android:textColor="@color/grey_dark"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -126,6 +127,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/abbreviations_list_error_text"
+                android:textColor="@color/grey_dark"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/retry"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -141,6 +143,7 @@
                 android:layout_marginTop="16dp"
                 android:onClick="@{() -> viewModel.reload()}"
                 android:text="@string/retry"
+                app:backgroundTint="@color/orange_light"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -14,11 +14,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_abbreviation"
-            style="@style/TextAppearance.CardTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/darker_gray"
+            android:gravity="center"
             android:padding="@dimen/abbreviations_list_item_text_padding"
+            android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -26,11 +28,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_description"
-            style="@style/TextAppearance.CardTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/darker_gray"
+            android:gravity="center"
             android:padding="@dimen/abbreviations_list_item_text_padding"
+            android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
