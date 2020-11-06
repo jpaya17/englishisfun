@@ -14,7 +14,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
+            android:layout_height="?attr/actionBarSize"
+            app:theme="@style/ToolBarStyle" />
 
         <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
         <androidx.fragment.app.FragmentContainerView
