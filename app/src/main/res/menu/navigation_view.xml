@@ -2,31 +2,31 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/abbreviations_list_fragment"
-        android:icon="@drawable/ic_favorites"
+        android:icon="@drawable/ic_abbreviations"
         android:title="@string/home_tab_abbreviations" />
 
     <item
         android:id="@+id/irregulars_list_fragment"
-        android:icon="@drawable/ic_favorites"
+        android:icon="@drawable/ic_irregulars"
         android:title="@string/home_tab_irregulars" />
 
     <item
         android:id="@+id/idioms_list_fragment"
-        android:icon="@drawable/ic_favorites"
+        android:icon="@drawable/ic_idioms"
         android:title="@string/home_tab_idioms" />
 
     <item
         android:id="@+id/conditionals_list_fragment"
-        android:icon="@drawable/ic_favorites"
+        android:icon="@drawable/ic_conditionals"
         android:title="@string/home_tab_conditionals" />
 
     <item
         android:id="@+id/phrasals_list_fragment"
-        android:icon="@drawable/ic_favorites"
+        android:icon="@drawable/ic_phrasal_verbs"
         android:title="@string/home_tab_phrasals" />
 
     <item
         android:id="@+id/settings_fragment"
-        android:icon="@drawable/ic_favorites"
+        android:icon="@drawable/ic_settings"
         android:title="@string/home_tab_settings" />
 </menu>
