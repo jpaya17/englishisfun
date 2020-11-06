@@ -17,6 +17,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#E4E3E3"
         tools:context=".irregulars.ui.IrregularsListFragment">
 
         <com.jpaya.englishisfun.Header
@@ -92,7 +93,6 @@
                 android:orientation="vertical"
                 android:overScrollMode="never"
                 android:scrollbars="none"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
