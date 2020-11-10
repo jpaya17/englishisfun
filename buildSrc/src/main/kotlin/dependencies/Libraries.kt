@@ -31,7 +31,7 @@ object Libraries {
     private object Versions {
         const val APPCOMPAT = "1.2.0"
         const val COMPOSE = "0.1.0-dev14"
-        const val CONSTRAINT_LAYOUT = "2.0.2"
+        const val CONSTRAINT_LAYOUT = "2.0.4"
         const val CORE_KTX = "1.3.2"
         const val COROUTINES = "1.4.1"
         const val FIREBASE_ANALYTICS = "18.0.0"
