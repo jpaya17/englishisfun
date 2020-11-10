@@ -13,6 +13,9 @@
     <color name="grey_medium">#ACACAC</color>
     <color name="grey_dark">#4D4D4D</color>
 
+    <!-- Shimmer colors -->
+    <color name="shimmer">@color/grey_medium</color>
+
     <!-- Splash shapes colors -->
     <color name="splash_shape_top">@color/orange_dark</color>
     <color name="splash_shape_bottom">@color/orange_light</color>
