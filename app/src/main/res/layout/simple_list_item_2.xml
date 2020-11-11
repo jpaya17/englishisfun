@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="abbreviation"
-            type="com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem" />
+            name="item"
+            type="com.jpaya.englishisfun.base.ui.model.SimpleListItem2" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,34 +19,34 @@
         android:paddingBottom="20dp">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_abbreviation"
+            android:id="@+id/tv_text1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@{abbreviation.abbr}"
+            android:text="@{item.text1}"
             android:textColor="@color/text_dark"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Abbreviation" />
+            tools:text="Text 1" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_description"
+            android:id="@+id/tv_text2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:lines="2"
             android:minLines="1"
             android:paddingTop="20dp"
-            android:text="@{abbreviation.desc}"
+            android:text="@{item.text2}"
             android:textColor="@color/text_dark"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_abbreviation"
-            tools:text="Description" />
+            app:layout_constraintTop_toBottomOf="@id/tv_text1"
+            tools:text="Text 2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -18,7 +18,7 @@ package com.jpaya.englishisfun.abbreviations.ui
 
 import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
 import com.jpaya.englishisfun.abbreviations.domain.AbbreviationsInteractor
-import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -60,15 +60,15 @@ class AbbreviationsListPresenterTest {
         whenever(interactor.getAbbreviations()).doReturn(MOCK_ABBREVIATIONS_LIST)
 
         val expectedResult = listOf(
-            AbbreviationItem(
+            SimpleListItem2(
                 id = 1,
-                abbr = "Abbreviation 1",
-                desc = "Description 1"
+                text1 = "Abbreviation 1",
+                text2 = "Description 1"
             ),
-            AbbreviationItem(
+            SimpleListItem2(
                 id = 2,
-                abbr = "Abbreviation 2",
-                desc = "Description 2"
+                text1 = "Abbreviation 2",
+                text2 = "Description 2"
             )
         )
 
@@ -82,15 +82,15 @@ class AbbreviationsListPresenterTest {
         whenever(interactor.searchAbbreviations(filter)).doReturn(MOCK_ABBREVIATIONS_LIST)
 
         val expectedResult = listOf(
-            AbbreviationItem(
+            SimpleListItem2(
                 id = 1,
-                abbr = "Abbreviation 1",
-                desc = "Description 1"
+                text1 = "Abbreviation 1",
+                text2 = "Description 1"
             ),
-            AbbreviationItem(
+            SimpleListItem2(
                 id = 2,
-                abbr = "Abbreviation 2",
-                desc = "Description 2"
+                text1 = "Abbreviation 2",
+                text2 = "Description 2"
             )
         )
 

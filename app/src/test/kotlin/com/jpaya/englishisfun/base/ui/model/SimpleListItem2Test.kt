@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.ui.model
+package com.jpaya.englishisfun.base.ui.model
 
 import org.junit.Assert.*
 import org.junit.Test
 
-class AbbreviationItemTest {
+class SimpleListItem2Test {
 
     @Test
     fun `Init should initialise properly`() {
@@ -27,28 +27,28 @@ class AbbreviationItemTest {
         val abbr = "Abbreviation"
         val desc = "Description"
 
-        val item = AbbreviationItem(id, abbr, desc)
+        val item = SimpleListItem2(id, abbr, desc)
 
         assertEquals(id, item.id)
-        assertEquals(abbr, item.abbr)
-        assertEquals(desc, item.desc)
+        assertEquals(abbr, item.text1)
+        assertEquals(desc, item.text2)
     }
 
     @Test
     fun `Check that comparator works properly`() {
         // Different data
-        val item1 = AbbreviationItem(1, "Abbreviation 1", "Description 1")
-        val item2 = AbbreviationItem(2, "Abbreviation 2", "Description 2")
+        val item1 = SimpleListItem2(1, "Abbreviation 1", "Description 1")
+        val item2 = SimpleListItem2(2, "Abbreviation 2", "Description 2")
         assertFalse(item1.isSameItemAs(item2))
         assertFalse(item1.hasSameContentsAs(item2))
 
         // Same Id
-        val item3 = AbbreviationItem(1, "Abbreviation 3", "Description 3")
+        val item3 = SimpleListItem2(1, "Abbreviation 3", "Description 3")
         assertTrue(item1.isSameItemAs(item3))
         assertFalse(item1.hasSameContentsAs(item3))
 
         // Same data
-        val item4 = AbbreviationItem(1, "Abbreviation 1", "Description 1")
+        val item4 = SimpleListItem2(1, "Abbreviation 1", "Description 1")
         assertTrue(item1.isSameItemAs(item4))
         assertTrue(item1.hasSameContentsAs(item4))
     }
