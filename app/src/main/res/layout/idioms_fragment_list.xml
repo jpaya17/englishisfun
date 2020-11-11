@@ -64,25 +64,25 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <include layout="@layout/idioms_list_item_shimmer" />
+                    <include layout="@layout/simple_list_item_2_shimmer" />
 
-                    <include layout="@layout/idioms_list_item_shimmer" />
+                    <include layout="@layout/simple_list_item_2_shimmer" />
 
-                    <include layout="@layout/idioms_list_item_shimmer" />
+                    <include layout="@layout/simple_list_item_2_shimmer" />
 
-                    <include layout="@layout/idioms_list_item_shimmer" />
+                    <include layout="@layout/simple_list_item_2_shimmer" />
 
-                    <include layout="@layout/idioms_list_item_shimmer" />
+                    <include layout="@layout/simple_list_item_2_shimmer" />
 
-                    <include layout="@layout/idioms_list_item_shimmer" />
+                    <include layout="@layout/simple_list_item_2_shimmer" />
 
-                    <include layout="@layout/idioms_list_item_shimmer" />
+                    <include layout="@layout/simple_list_item_2_shimmer" />
 
-                    <include layout="@layout/idioms_list_item_shimmer" />
+                    <include layout="@layout/simple_list_item_2_shimmer" />
 
-                    <include layout="@layout/idioms_list_item_shimmer" />
+                    <include layout="@layout/simple_list_item_2_shimmer" />
 
-                    <include layout="@layout/idioms_list_item_shimmer" />
+                    <include layout="@layout/simple_list_item_2_shimmer" />
                 </LinearLayout>
             </com.facebook.shimmer.ShimmerFrameLayout>
 
@@ -99,7 +99,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:list="@{viewState.list()}"
                 app:visible="@{viewState.showList()}"
-                tools:listitem="@layout/idioms_list_item" />
+                tools:listitem="@layout/simple_list_item_2" />
 
             <TextView
                 android:layout_width="0dp"
