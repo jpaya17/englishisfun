@@ -13,31 +13,40 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:background="@drawable/rounded_grey_light"
+        android:paddingStart="10dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="20dp">
 
         <TextView
             android:id="@+id/idiom"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@{item.idiom}"
-            android:textIsSelectable="true"
+            android:textColor="@color/text_dark"
+            android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Base" />
+            tools:text="Idiom" />
 
         <TextView
             android:id="@+id/description"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:lines="2"
+            android:minLines="1"
+            android:paddingTop="20dp"
             android:text="@{item.description}"
-            android:textIsSelectable="true"
+            android:textColor="@color/text_dark"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idiom"
-            tools:text="Simple" />
-
+            tools:text="Description" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
