@@ -17,8 +17,8 @@
 package com.jpaya.englishisfun.abbreviations.ui.adapter
 
 import android.widget.FrameLayout
-import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
-import com.jpaya.englishisfun.databinding.AbbreviationsListItemBinding
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
+import com.jpaya.englishisfun.databinding.SimpleListItem2Binding
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.hamcrest.CoreMatchers.instanceOf
 import org.junit.Assert.*
@@ -28,15 +28,15 @@ import org.junit.Test
 class AbbreviationsAdapterTest : TestRobolectric() {
 
     private val itemsList = listOf(
-        AbbreviationItem(
+        SimpleListItem2(
             id = 1,
-            abbr = "Abbreviation",
-            desc = "Description"
+            text1 = "Abbreviation",
+            text2 = "Description"
         ),
-        AbbreviationItem(
+        SimpleListItem2(
             id = 2,
-            abbr = "Another Abbreviation",
-            desc = "Another Description"
+            text1 = "Another Abbreviation",
+            text2 = "Another Description"
         ),
     )
     private lateinit var adapter: AbbreviationsAdapter
@@ -54,13 +54,6 @@ class AbbreviationsAdapterTest : TestRobolectric() {
     }
 
     @Test
-    fun `Check getSectionName works properly`() {
-        adapter.setData(itemsList)
-        assertEquals("A", adapter.getSectionName(0))
-        assertEquals("A", adapter.getSectionName(1))
-    }
-
-    @Test
     fun `Check onCreateViewHolder and onBindViewHolder works properly`() {
         adapter.setData(itemsList)
 
@@ -68,10 +61,10 @@ class AbbreviationsAdapterTest : TestRobolectric() {
         val binding = viewHolder.binding
 
         assertNotNull(viewHolder)
-        assertThat(binding, instanceOf(AbbreviationsListItemBinding::class.java))
+        assertThat(binding, instanceOf(SimpleListItem2Binding::class.java))
 
         adapter.onBindViewHolder(viewHolder, 1)
-        assertEquals("Another Abbreviation", binding.tvAbbreviation.text.toString())
-        assertEquals("Another Description", binding.tvDescription.text.toString())
+        assertEquals("Another Abbreviation", binding.tvText1.text.toString())
+        assertEquals("Another Description", binding.tvText2.text.toString())
     }
 }

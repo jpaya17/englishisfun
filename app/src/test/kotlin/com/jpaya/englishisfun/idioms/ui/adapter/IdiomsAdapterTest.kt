@@ -17,8 +17,8 @@
 package com.jpaya.englishisfun.idioms.ui.adapter
 
 import android.widget.FrameLayout
-import com.jpaya.englishisfun.databinding.IdiomsListItemBinding
-import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
+import com.jpaya.englishisfun.databinding.SimpleListItem2Binding
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert.assertThat
@@ -30,15 +30,15 @@ import org.junit.Test
 class IdiomsAdapterTest : TestRobolectric() {
 
     private val itemsList = listOf(
-        IdiomItem(
+        SimpleListItem2(
             id = 1,
-            idiom = "Idiom",
-            description = "Description"
+            text1 = "Idiom",
+            text2 = "Description"
         ),
-        IdiomItem(
+        SimpleListItem2(
             id = 2,
-            idiom = "Another Idiom",
-            description = "Another Description"
+            text1 = "Another Idiom",
+            text2 = "Another Description"
         ),
     )
     private lateinit var adapter: IdiomsAdapter
@@ -56,13 +56,6 @@ class IdiomsAdapterTest : TestRobolectric() {
     }
 
     @Test
-    fun `Check getSectionName works properly`() {
-        adapter.setData(itemsList)
-        assertEquals("I", adapter.getSectionName(0))
-        assertEquals("A", adapter.getSectionName(1))
-    }
-
-    @Test
     fun `Check onCreateViewHolder and onBindViewHolder works properly`() {
         adapter.setData(itemsList)
 
@@ -70,10 +63,10 @@ class IdiomsAdapterTest : TestRobolectric() {
         val binding = viewHolder.binding
 
         assertNotNull(viewHolder)
-        assertThat(binding, CoreMatchers.instanceOf(IdiomsListItemBinding::class.java))
+        assertThat(binding, CoreMatchers.instanceOf(SimpleListItem2Binding::class.java))
 
         adapter.onBindViewHolder(viewHolder, 1)
-        assertEquals("Another Idiom", binding.idiom.text.toString())
-        assertEquals("Another Description", binding.description.text.toString())
+        assertEquals("Another Idiom", binding.tvText1.text.toString())
+        assertEquals("Another Description", binding.tvText2.text.toString())
     }
 }

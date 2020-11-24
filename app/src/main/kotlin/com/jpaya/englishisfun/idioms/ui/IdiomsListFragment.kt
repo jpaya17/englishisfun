@@ -24,18 +24,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.transition.TransitionManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
+import com.jpaya.base.ui.recyclerview.SpaceGrid
 import com.jpaya.englishisfun.R
 import com.jpaya.base.ui.searchview.DebouncingQueryTextListener
 import com.jpaya.englishisfun.databinding.IdiomsFragmentListBinding
 import com.jpaya.englishisfun.idioms.ui.adapter.IdiomsAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.idioms_fragment_list.*
+import kotlinx.android.synthetic.main.idioms_fragment_list.idiomsList
+import kotlinx.android.synthetic.main.idioms_fragment_list.listFragmentRoot
 
 @AndroidEntryPoint
 class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListViewModel>() {
+
+    companion object {
+        private const val COLUMNS = 2
+        private const val SPACING = 30
+    }
 
     private val customViewModel: IdiomsListViewModel by viewModels()
     private lateinit var binding: IdiomsFragmentListBinding
@@ -56,8 +63,9 @@ class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListVi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        idiomsList.layoutManager = GridLayoutManager(context, COLUMNS)
         idiomsList.adapter = IdiomsAdapter()
-        idiomsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        idiomsList.addItemDecoration(SpaceGrid(COLUMNS, SPACING, true))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

@@ -16,10 +16,10 @@
 
 package com.jpaya.englishisfun.idioms.mapper
 
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
 import com.jpaya.englishisfun.idioms.data.db.IdiomRoomItem
 import com.jpaya.englishisfun.idioms.data.network.model.IdiomNetworkItem
 import com.jpaya.englishisfun.idioms.domain.Idiom
-import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -84,10 +84,10 @@ class IdiomMapperTest {
             description = "Description"
         )
 
-        val expectedResult = IdiomItem(
+        val expectedResult = SimpleListItem2(
             id = 1,
-            idiom = "Idiom",
-            description = "Description"
+            text1 = "Idiom",
+            text2 = "Description"
         )
 
         assertEquals(expectedResult, domain.toPresentation())

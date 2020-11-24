@@ -6,7 +6,23 @@
     <color name="primaryLight">#ffffff</color>
     <color name="accent">#111111</color>
 
-    <!--Text colors-->
-    <color name="textHeadline">#1f1f1f</color>
-    <color name="textBody">#4f4f4f</color>
+    <!-- Design colors -->
+    <color name="orange_light">#F79A14</color>
+    <color name="orange_dark">#EF450B</color>
+    <color name="grey_light">#F2F2F2</color>
+    <color name="grey_medium">#ACACAC</color>
+    <color name="grey_dark">#4D4D4D</color>
+
+    <!-- Shimmer colors -->
+    <color name="shimmer">@color/grey_medium</color>
+
+    <!-- Splash shapes colors -->
+    <color name="splash_shape_top">@color/orange_dark</color>
+    <color name="splash_shape_bottom">@color/orange_light</color>
+
+    <!-- Button colors -->
+    <color name="button_primary">@color/orange_light</color>
+
+    <!-- Text colors -->
+    <color name="text_dark">@color/grey_dark</color>
 </resources>

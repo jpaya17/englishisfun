@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.ui.model
+package com.jpaya.englishisfun.base.ui.model
 
 import com.jpaya.base.adapter.GenericAdapterComparator
 
-data class AbbreviationItem(
+data class SimpleListItem2(
     val id: Long,
-    val abbr: String,
-    val desc: String
-) : GenericAdapterComparator<AbbreviationItem> {
+    val text1: String,
+    val text2: String
+) : GenericAdapterComparator<SimpleListItem2> {
 
-    override fun isSameItemAs(item: AbbreviationItem) = id == item.id
+    override fun isSameItemAs(item: SimpleListItem2) = id == item.id
 
-    override fun hasSameContentsAs(item: AbbreviationItem) = this == item
+    override fun hasSameContentsAs(item: SimpleListItem2) = this == item
 }

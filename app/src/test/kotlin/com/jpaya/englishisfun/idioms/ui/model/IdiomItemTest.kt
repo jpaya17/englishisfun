@@ -16,6 +16,7 @@
 
 package com.jpaya.englishisfun.idioms.ui.model
 
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
 import org.junit.Assert.*
 import org.junit.Test
 
@@ -27,28 +28,28 @@ class IdiomItemTest {
         val idiom = "Idiom"
         val description = "Description"
 
-        val item = IdiomItem(id, idiom, description)
+        val item = SimpleListItem2(id, idiom, description)
 
         assertEquals(id, item.id)
-        assertEquals(idiom, item.idiom)
-        assertEquals(description, item.description)
+        assertEquals(idiom, item.text1)
+        assertEquals(description, item.text2)
     }
 
     @Test
     fun `Check that comparator works properly`() {
         // Different data
-        val item1 = IdiomItem(1, "Idiom 1", "Description 1")
-        val item2 = IdiomItem(2, "Idiom 2", "Description 2")
+        val item1 = SimpleListItem2(1, "Idiom 1", "Description 1")
+        val item2 = SimpleListItem2(2, "Idiom 2", "Description 2")
         assertFalse(item1.isSameItemAs(item2))
         assertFalse(item1.hasSameContentsAs(item2))
 
         // Same Id
-        val item3 = IdiomItem(1, "Idiom 3", "Description 3")
+        val item3 = SimpleListItem2(1, "Idiom 3", "Description 3")
         assertTrue(item1.isSameItemAs(item3))
         assertFalse(item1.hasSameContentsAs(item3))
 
         // Same data
-        val item4 = IdiomItem(1, "Idiom 1", "Description 1")
+        val item4 = SimpleListItem2(1, "Idiom 1", "Description 1")
         assertTrue(item1.isSameItemAs(item4))
         assertTrue(item1.hasSameContentsAs(item4))
     }

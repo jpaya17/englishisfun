@@ -19,7 +19,7 @@ package com.jpaya.englishisfun.abbreviations.mapper
 import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationRoomItem
 import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationNetworkItem
 import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
-import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
 
 fun Abbreviation.toRoomItem() = AbbreviationRoomItem(
     id = id,
@@ -39,8 +39,8 @@ fun AbbreviationNetworkItem.toDomain() = Abbreviation(
     desc = desc
 )
 
-fun Abbreviation.toPresentation() = AbbreviationItem(
+fun Abbreviation.toPresentation() = SimpleListItem2(
     id = id,
-    abbr = abbr,
-    desc = desc
+    text1 = abbr,
+    text2 = desc
 )

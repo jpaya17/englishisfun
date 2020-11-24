@@ -24,18 +24,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.transition.TransitionManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
+import com.jpaya.base.ui.recyclerview.SpaceGrid
+import com.jpaya.base.ui.searchview.DebouncingQueryTextListener
 import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.abbreviations.ui.adapter.AbbreviationsAdapter
 import com.jpaya.englishisfun.databinding.AbbreviationsFragmentListBinding
-import com.jpaya.base.ui.searchview.DebouncingQueryTextListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.abbreviations_fragment_list.*
 
 @AndroidEntryPoint
 class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState, AbbreviationsListViewModel>() {
+
+    companion object {
+        private const val COLUMNS = 2
+        private const val SPACING = 30
+    }
 
     private val customViewModel: AbbreviationsListViewModel by viewModels()
     private lateinit var binding: AbbreviationsFragmentListBinding
@@ -56,8 +62,9 @@ class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        irregularsList.layoutManager = GridLayoutManager(context, COLUMNS)
         irregularsList.adapter = AbbreviationsAdapter()
-        irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        irregularsList.addItemDecoration(SpaceGrid(COLUMNS, SPACING, true))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
