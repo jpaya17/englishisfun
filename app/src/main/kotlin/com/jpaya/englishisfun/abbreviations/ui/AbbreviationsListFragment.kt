@@ -33,7 +33,6 @@ import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.abbreviations.ui.adapter.AbbreviationsAdapter
 import com.jpaya.englishisfun.databinding.AbbreviationsFragmentListBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.abbreviations_fragment_list.*
 
 @AndroidEntryPoint
 class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState, AbbreviationsListViewModel>() {
@@ -48,7 +47,7 @@ class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState
 
     override fun provideViewModel() = customViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = AbbreviationsFragmentListBinding.inflate(inflater, container, false)
         binding.viewModel = customViewModel
         return binding.root
@@ -62,9 +61,9 @@ class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        irregularsList.layoutManager = GridLayoutManager(context, COLUMNS)
-        irregularsList.adapter = AbbreviationsAdapter()
-        irregularsList.addItemDecoration(SpaceGrid(COLUMNS, SPACING, true))
+        binding.irregularsList.layoutManager = GridLayoutManager(context, COLUMNS)
+        binding.irregularsList.adapter = AbbreviationsAdapter()
+        binding.irregularsList.addItemDecoration(SpaceGrid(COLUMNS, SPACING, true))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -83,7 +82,7 @@ class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState
     }
 
     override fun render(viewState: AbbreviationsListViewState) {
-        TransitionManager.beginDelayedTransition(listFragmentRoot)
+        TransitionManager.beginDelayedTransition(binding.listFragmentRoot)
         binding.viewState = viewState
     }
 }
