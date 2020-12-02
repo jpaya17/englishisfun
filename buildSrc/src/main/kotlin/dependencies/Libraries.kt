@@ -33,7 +33,7 @@ object Libraries {
         const val COMPOSE = "0.1.0-dev14"
         const val CONSTRAINT_LAYOUT = "2.0.4"
         const val CORE_KTX = "1.3.2"
-        const val COROUTINES = "1.4.1"
+        const val COROUTINES = "1.4.2"
         const val FIREBASE_ANALYTICS = "18.0.0"
         const val FIREBASE_AUTH = "20.0.1"
         const val FIREBASE_CRASHLYTICS = "17.3.0"
@@ -155,7 +155,7 @@ object TestLibraries {
     private object Versions {
         const val ARCH_CORE = "2.1.0"
         const val ASSERTJ = "3.16.1"
-        const val COROUTINES = "1.4.1"
+        const val COROUTINES = "1.4.2"
         const val EXT = "1.1.2"
         const val FRAGMENT = "1.2.5"
         const val HAMCREST = "2.2"
