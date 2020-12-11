@@ -15,121 +15,149 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/listFragmentRoot"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/grey_light"
         tools:context=".phrasals.ui.PhrasalsListFragment">
 
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmerLayout"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <com.jpaya.englishisfun.Header
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shimmer_duration="1000"
-            app:visible="@{viewState.showLoading()}">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Adding 10 rows of placeholders -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <include layout="@layout/phrasals_list_item_shimmer" />
-
-                <include layout="@layout/phrasals_list_item_shimmer" />
-
-                <include layout="@layout/phrasals_list_item_shimmer" />
-
-                <include layout="@layout/phrasals_list_item_shimmer" />
-
-                <include layout="@layout/phrasals_list_item_shimmer" />
-
-                <include layout="@layout/phrasals_list_item_shimmer" />
-
-                <include layout="@layout/phrasals_list_item_shimmer" />
-
-                <include layout="@layout/phrasals_list_item_shimmer" />
-
-                <include layout="@layout/phrasals_list_item_shimmer" />
-
-                <include layout="@layout/phrasals_list_item_shimmer" />
-            </LinearLayout>
-        </com.facebook.shimmer.ShimmerFrameLayout>
-
-        <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
-            android:id="@+id/phrasalsList"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:fastScrollAutoHide="true"
-            app:fastScrollAutoHideDelay="1500"
-            app:fastScrollEnableThumbInactiveColor="true"
-            app:fastScrollPopupBackgroundSize="62dp"
-            app:fastScrollPopupBgColor="@color/recyclerview_popup_bg"
-            app:fastScrollPopupPosition="adjacent"
-            app:fastScrollPopupTextColor="@color/recyclerview_popup_text"
-            app:fastScrollPopupTextSize="32dp"
-            app:fastScrollPopupTextVerticalAlignmentMode="font_metrics"
-            app:fastScrollThumbColor="@color/recyclerview_popup_bar"
-            app:fastScrollThumbEnabled="true"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:list="@{viewState.list()}"
-            app:visible="@{viewState.showList()}"
-            tools:listitem="@layout/irregulars_list_item" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="@string/phrasals_list_empty_text"
-            android:textColor="@color/text_dark"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:visible="@{viewState.showEmpty()}" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/errorGroup"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:constraint_referenced_ids="errorText,retry"
-            app:visible="@{viewState.showError()}" />
-
-        <TextView
-            android:id="@+id/errorText"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/phrasals_list_error_text"
-            android:textColor="@color/text_dark"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/retry"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/retry"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:onClick="@{() -> viewModel.reload()}"
-            android:text="@string/retry"
-            app:backgroundTint="@color/button_primary"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/listFragmentRoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="75dp"
+            android:background="@drawable/rounded_white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/errorText" />
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shimmer_duration="1000"
+                app:visible="@{viewState.showLoading()}">
+
+                <!-- Adding 10 rows of placeholders -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/phrasals_list_item_shimmer" />
+
+                    <include layout="@layout/phrasals_list_item_shimmer" />
+
+                    <include layout="@layout/phrasals_list_item_shimmer" />
+
+                    <include layout="@layout/phrasals_list_item_shimmer" />
+
+                    <include layout="@layout/phrasals_list_item_shimmer" />
+
+                    <include layout="@layout/phrasals_list_item_shimmer" />
+
+                    <include layout="@layout/phrasals_list_item_shimmer" />
+
+                    <include layout="@layout/phrasals_list_item_shimmer" />
+
+                    <include layout="@layout/phrasals_list_item_shimmer" />
+
+                    <include layout="@layout/phrasals_list_item_shimmer" />
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
+                android:id="@+id/list"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:fastScrollAutoHide="true"
+                app:fastScrollAutoHideDelay="1500"
+                app:fastScrollEnableThumbInactiveColor="true"
+                app:fastScrollPopupBackgroundSize="62dp"
+                app:fastScrollPopupBgColor="@color/recyclerview_popup_bg"
+                app:fastScrollPopupPosition="adjacent"
+                app:fastScrollPopupTextColor="@color/recyclerview_popup_text"
+                app:fastScrollPopupTextSize="32dp"
+                app:fastScrollPopupTextVerticalAlignmentMode="font_metrics"
+                app:fastScrollThumbColor="@color/recyclerview_popup_bar"
+                app:fastScrollThumbEnabled="true"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:list="@{viewState.list()}"
+                app:visible="@{viewState.showList()}"
+                tools:listitem="@layout/irregulars_list_item" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/phrasals_list_empty_text"
+                android:textColor="@color/text_dark"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:visible="@{viewState.showEmpty()}" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/errorGroup"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="errorText,retry"
+                app:visible="@{viewState.showError()}" />
+
+            <TextView
+                android:id="@+id/errorText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/phrasals_list_error_text"
+                android:textColor="@color/text_dark"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/retry"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/retry"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewModel.reload()}"
+                android:text="@string/retry"
+                app:backgroundTint="@color/button_primary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/errorText" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
