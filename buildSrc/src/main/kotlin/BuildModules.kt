@@ -18,7 +18,6 @@
  * Configuration of build modules
  */
 object BuildModules {
-    const val APP = ":app"
     const val BASE_ANDROID = ":base-android"
 
     object Libraries {

@@ -61,9 +61,9 @@ class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListVi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.idiomsList.layoutManager = GridLayoutManager(context, COLUMNS)
-        binding.idiomsList.adapter = IdiomsAdapter()
-        binding.idiomsList.addItemDecoration(SpaceGrid(COLUMNS, SPACING, true))
+        binding.list.layoutManager = GridLayoutManager(context, COLUMNS)
+        binding.list.adapter = IdiomsAdapter()
+        binding.list.addItemDecoration(SpaceGrid(COLUMNS, SPACING, true))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
