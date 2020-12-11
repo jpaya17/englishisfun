@@ -33,7 +33,7 @@ import com.jpaya.base.ui.searchview.DebouncingQueryTextListener
 import com.jpaya.englishisfun.databinding.IdiomsFragmentListBinding
 import com.jpaya.englishisfun.idioms.ui.adapter.IdiomsAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.idioms_fragment_list.idiomsList
+import kotlinx.android.synthetic.main.idioms_fragment_list.list
 import kotlinx.android.synthetic.main.idioms_fragment_list.listFragmentRoot
 
 @AndroidEntryPoint
@@ -63,9 +63,9 @@ class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListVi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        idiomsList.layoutManager = GridLayoutManager(context, COLUMNS)
-        idiomsList.adapter = IdiomsAdapter()
-        idiomsList.addItemDecoration(SpaceGrid(COLUMNS, SPACING, true))
+        list.layoutManager = GridLayoutManager(context, COLUMNS)
+        list.adapter = IdiomsAdapter()
+        list.addItemDecoration(SpaceGrid(COLUMNS, SPACING, true))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

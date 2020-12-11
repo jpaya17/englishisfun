@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/grey_light"
-        tools:context=".irregulars.ui.IrregularsListFragment">
+        tools:context=".abbreviations.ui.AbbreviationsListFragment">
 
         <com.jpaya.englishisfun.Header
             android:layout_width="match_parent"
@@ -87,7 +87,7 @@
             </com.facebook.shimmer.ShimmerFrameLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/irregularsList"
+                android:id="@+id/list"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:orientation="vertical"
