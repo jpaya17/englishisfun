@@ -62,9 +62,9 @@ class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        irregularsList.layoutManager = GridLayoutManager(context, COLUMNS)
-        irregularsList.adapter = AbbreviationsAdapter()
-        irregularsList.addItemDecoration(SpaceGrid(COLUMNS, SPACING, true))
+        list.layoutManager = GridLayoutManager(context, COLUMNS)
+        list.adapter = AbbreviationsAdapter()
+        list.addItemDecoration(SpaceGrid(COLUMNS, SPACING, true))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

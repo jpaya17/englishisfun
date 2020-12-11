@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Basic colors -->
+    <color name="white">#FFFFFF</color>
+
     <!--Primary colors-->
     <color name="primary">#ffffff</color>
     <color name="primaryDark">#f3f3f3f3</color>
@@ -25,4 +28,9 @@
 
     <!-- Text colors -->
     <color name="text_dark">@color/grey_dark</color>
+
+    <!-- RecyclerView colors -->
+    <color name="recyclerview_popup_bar">@color/grey_medium</color>
+    <color name="recyclerview_popup_bg">@color/orange_dark</color>
+    <color name="recyclerview_popup_text">@color/white</color>
 </resources>
