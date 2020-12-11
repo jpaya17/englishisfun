@@ -20,7 +20,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
-import kotlinx.android.synthetic.main.header.view.*
+import com.jpaya.englishisfun.databinding.HeaderBinding
 
 class Header @JvmOverloads constructor(
     context: Context,
@@ -29,8 +29,9 @@ class Header @JvmOverloads constructor(
     defStyleRes: Int = 0
 ) : FrameLayout(context, attrs, defStyle, defStyleRes) {
 
+    private var binding: HeaderBinding = HeaderBinding.inflate(LayoutInflater.from(context), this)
+
     init {
-        LayoutInflater.from(context).inflate(R.layout.header, this, true)
         loadAttrs(attrs)
     }
 
@@ -38,7 +39,7 @@ class Header @JvmOverloads constructor(
         attrs?.let {
             val attributes = context.obtainStyledAttributes(it, R.styleable.Header, 0, 0)
             val title = resources.getText(attributes.getResourceId(R.styleable.Header_header_title, R.string.app_name))
-            tv_title.text = title
+            binding.tvTitle.text = title
             attributes.recycle()
         }
     }

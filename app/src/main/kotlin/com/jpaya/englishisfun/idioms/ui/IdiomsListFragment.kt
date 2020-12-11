@@ -33,8 +33,6 @@ import com.jpaya.base.ui.searchview.DebouncingQueryTextListener
 import com.jpaya.englishisfun.databinding.IdiomsFragmentListBinding
 import com.jpaya.englishisfun.idioms.ui.adapter.IdiomsAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.idioms_fragment_list.list
-import kotlinx.android.synthetic.main.idioms_fragment_list.listFragmentRoot
 
 @AndroidEntryPoint
 class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListViewModel>() {
@@ -49,7 +47,7 @@ class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListVi
 
     override fun provideViewModel() = customViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = IdiomsFragmentListBinding.inflate(inflater, container, false)
         binding.viewModel = customViewModel
         return binding.root
@@ -63,9 +61,9 @@ class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListVi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        list.layoutManager = GridLayoutManager(context, COLUMNS)
-        list.adapter = IdiomsAdapter()
-        list.addItemDecoration(SpaceGrid(COLUMNS, SPACING, true))
+        binding.list.layoutManager = GridLayoutManager(context, COLUMNS)
+        binding.list.adapter = IdiomsAdapter()
+        binding.list.addItemDecoration(SpaceGrid(COLUMNS, SPACING, true))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -84,7 +82,7 @@ class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListVi
     }
 
     override fun render(viewState: IdiomsListViewState) {
-        TransitionManager.beginDelayedTransition(listFragmentRoot)
+        TransitionManager.beginDelayedTransition(binding.listFragmentRoot)
         binding.viewState = viewState
     }
 }

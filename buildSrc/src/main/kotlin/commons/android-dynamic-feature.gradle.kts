@@ -17,24 +17,14 @@
 package commons
 
 import BuildAndroidConfig
-import BuildModules
 import BuildProductDimensions
 import ProductFlavorDevelop
 import ProductFlavorProduction
 import ProductFlavorQA
-import dependencies.AnnotationProcessorsLibraries
-import dependencies.Libraries
-import dependencies.TestAndroidLibraries
-import dependencies.TestLibraries
-import extensions.implementation
-import extensions.kapt
-import extensions.testImplementation
-import extensions.androidTestImplementation
 
 plugins {
     id("com.android.dynamic-feature")
     id("kotlin-android")
-    id("kotlin-android-extensions")
     id("kotlin-kapt")
     id("kotlin-allopen")
     id("androidx.navigation.safeargs.kotlin")
@@ -57,10 +47,6 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
-    }
-
-    androidExtensions {
-        isExperimental = true
     }
 
     flavorDimensions(BuildProductDimensions.ENVIRONMENT)
