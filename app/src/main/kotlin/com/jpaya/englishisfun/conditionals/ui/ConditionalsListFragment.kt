@@ -45,8 +45,8 @@ class ConditionalsListFragment : RainbowCakeFragment<ConditionalsListViewState, 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.conditionalsList.adapter = ConditionalsAdapter()
-        binding.conditionalsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        binding.list.adapter = ConditionalsAdapter()
+        binding.list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
     override fun render(viewState: ConditionalsListViewState) {

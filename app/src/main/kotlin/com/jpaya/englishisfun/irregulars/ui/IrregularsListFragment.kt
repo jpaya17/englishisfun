@@ -55,8 +55,8 @@ class IrregularsListFragment : RainbowCakeFragment<IrregularsListViewState, Irre
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.irregularsList.adapter = IrregularsAdapter()
-        binding.irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        binding.list.adapter = IrregularsAdapter()
+        binding.list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

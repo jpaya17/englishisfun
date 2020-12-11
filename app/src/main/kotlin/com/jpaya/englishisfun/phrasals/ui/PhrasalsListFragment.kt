@@ -55,8 +55,8 @@ class PhrasalsListFragment : RainbowCakeFragment<PhrasalsListViewState, Phrasals
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.phrasalsList.adapter = PhrasalsAdapter()
-        binding.phrasalsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        binding.list.adapter = PhrasalsAdapter()
+        binding.list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
