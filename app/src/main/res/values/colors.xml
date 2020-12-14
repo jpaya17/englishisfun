@@ -4,12 +4,6 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
-    <!--Primary colors-->
-    <color name="primary">#ffffff</color>
-    <color name="primaryDark">@color/app_color_dark</color>
-    <color name="primaryLight">#ffffff</color>
-    <color name="accent">#111111</color>
-
     <!-- Design colors -->
     <color name="app_color_light">#F79A14</color>
     <color name="app_color">#EF450B</color>
@@ -17,6 +11,12 @@
     <color name="grey_light">#F2F2F2</color>
     <color name="grey_medium">#ACACAC</color>
     <color name="grey_dark">#4D4D4D</color>
+
+    <!-- Theme colors -->
+    <color name="primary">@color/app_color</color>
+    <color name="primaryDark">@color/app_color_dark</color>
+    <color name="primaryLight">@color/app_color_light</color>
+    <color name="accent">@color/black</color>
 
     <!-- StatusBar colors -->
     <color name="status_bar">@color/app_color_dark</color>
