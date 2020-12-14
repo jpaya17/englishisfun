@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!--Themes-->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primaryDark</item>
-        <item name="colorAccent">@color/accent</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:statusBarColor">@color/status_bar</item>
     </style>
 
     <style name="AppTheme.BackgroundStyle">
@@ -19,9 +16,9 @@
 
     <!-- ToolBar -->
     <style name="ToolBarStyle" parent="Theme.AppCompat">
-        <item name="android:background">@color/orange_dark</item>
-        <item name="android:textColorPrimary">@android:color/white</item>
-        <item name="android:textColorSecondary">@android:color/white</item>
-        <item name="actionMenuTextColor">@android:color/white</item>
+        <item name="android:background">@color/toolbar</item>
+        <item name="android:textColorPrimary">@color/toolbar_text_primary</item>
+        <item name="android:textColorSecondary">@color/toolbar_text_secondary</item>
+        <item name="actionMenuTextColor">@color/toolbar_menu</item>
     </style>
 </resources>

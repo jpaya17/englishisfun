@@ -2,35 +2,50 @@
 <resources>
     <!-- Basic colors -->
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 
     <!--Primary colors-->
     <color name="primary">#ffffff</color>
-    <color name="primaryDark">#f3f3f3f3</color>
+    <color name="primaryDark">@color/app_color_dark</color>
     <color name="primaryLight">#ffffff</color>
     <color name="accent">#111111</color>
 
     <!-- Design colors -->
-    <color name="orange_light">#F79A14</color>
-    <color name="orange_dark">#EF450B</color>
+    <color name="app_color_light">#F79A14</color>
+    <color name="app_color">#EF450B</color>
+    <color name="app_color_dark">#BF3708</color>
     <color name="grey_light">#F2F2F2</color>
     <color name="grey_medium">#ACACAC</color>
     <color name="grey_dark">#4D4D4D</color>
+
+    <!-- StatusBar colors -->
+    <color name="status_bar">@color/app_color_dark</color>
+
+    <!-- Toolbar colors -->
+    <color name="toolbar">@color/app_color</color>
+    <color name="toolbar_menu">@color/white</color>
+    <color name="toolbar_text_primary">@color/white</color>
+    <color name="toolbar_text_secondary">@color/white</color>
 
     <!-- Shimmer colors -->
     <color name="shimmer">@color/grey_medium</color>
 
     <!-- Splash shapes colors -->
-    <color name="splash_shape_top">@color/orange_dark</color>
-    <color name="splash_shape_bottom">@color/orange_light</color>
+    <color name="splash_shape_top">@color/app_color</color>
+    <color name="splash_shape_bottom">@color/app_color_light</color>
 
     <!-- Button colors -->
-    <color name="button_primary">@color/orange_light</color>
+    <color name="button_primary">@color/app_color_light</color>
 
     <!-- Text colors -->
     <color name="text_dark">@color/grey_dark</color>
 
     <!-- RecyclerView colors -->
     <color name="recyclerview_popup_bar">@color/grey_medium</color>
-    <color name="recyclerview_popup_bg">@color/orange_dark</color>
+    <color name="recyclerview_popup_bg">@color/app_color</color>
     <color name="recyclerview_popup_text">@color/white</color>
+
+    <!-- NavigationView colors -->
+    <color name="navigation_view_item">@color/black</color>
+    <color name="navigation_view_item_selected">@color/app_color</color>
 </resources>
