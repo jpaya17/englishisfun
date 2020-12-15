@@ -54,17 +54,6 @@ class ConditionalsListViewModelTest : ViewModelTest() {
                 examples = "Example 1"
             )
         )
-
-        private val MOCK_ITEMS_FILTERED = listOf(
-            ConditionalItem(
-                id = 1,
-                name = "Name 1",
-                condition = "Condition 1",
-                result = "Result 1",
-                uses = "Use 1",
-                examples = "Example 1"
-            )
-        )
     }
 
     private lateinit var presenter: ConditionalsListPresenter

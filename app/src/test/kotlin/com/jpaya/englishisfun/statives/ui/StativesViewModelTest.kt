@@ -48,14 +48,6 @@ class StativesViewModelTest : ViewModelTest() {
                 verbs = mutableListOf("Verb 2")
             )
         )
-
-        private val MOCK_ITEMS_FILTERED = listOf(
-            StativeItem(
-                id = 1,
-                category = "Category 1",
-                verbs = mutableListOf("Verb 1")
-            )
-        )
     }
 
     private lateinit var presenter: StativesPresenter

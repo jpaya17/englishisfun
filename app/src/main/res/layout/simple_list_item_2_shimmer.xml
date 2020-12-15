@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:background="@color/shimmer"
         android:gravity="center"
-        android:padding="@dimen/abbreviations_list_item_text_padding"
+        android:padding="10dp"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
