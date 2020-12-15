@@ -34,7 +34,7 @@ class ContextExtensionsTest {
 
     @Test
     fun getString_WhenIdIsNonNull_ReturnResource() {
-        val resId: Int? = 0
+        val resId = 0
         val expectedString = "test"
         every { context.getString(any()) } returns expectedString
 
