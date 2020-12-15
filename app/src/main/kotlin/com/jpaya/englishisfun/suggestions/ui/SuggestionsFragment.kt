@@ -17,29 +17,36 @@
 package com.jpaya.englishisfun.suggestions.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import com.jpaya.englishisfun.R
+import com.jpaya.englishisfun.databinding.SuggestionsFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.suggestions_fragment.*
 
 @AndroidEntryPoint
 class SuggestionsFragment : RainbowCakeFragment<SuggestionsViewState, SuggestionsViewModel>() {
 
     private val customViewModel: SuggestionsViewModel by viewModels()
+    private lateinit var binding: SuggestionsFragmentBinding
 
     override fun provideViewModel() = customViewModel
-    override fun getViewResource() = R.layout.suggestions_fragment
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        binding = SuggestionsFragmentBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bt_send.setOnClickListener {
+        binding.send.setOnClickListener {
             viewModel.sendSuggestion(
-                et_title.text.toString(),
-                resources.getStringArray(R.array.suggestions_sections_values)[section.selectedItemId.toInt()],
-                et_description.text.toString()
+                binding.title.text.toString(),
+                resources.getStringArray(R.array.suggestions_sections_values)[binding.section.selectedItemId.toInt()],
+                binding.description.text.toString()
             )
         }
     }

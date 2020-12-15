@@ -32,7 +32,6 @@ import com.jpaya.base.ui.searchview.DebouncingQueryTextListener
 import com.jpaya.englishisfun.databinding.PhrasalsFragmentListBinding
 import com.jpaya.englishisfun.phrasals.ui.adapter.PhrasalsAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.phrasals_fragment_list.*
 
 @AndroidEntryPoint
 class PhrasalsListFragment : RainbowCakeFragment<PhrasalsListViewState, PhrasalsListViewModel>() {
@@ -42,7 +41,7 @@ class PhrasalsListFragment : RainbowCakeFragment<PhrasalsListViewState, Phrasals
 
     override fun provideViewModel() = customViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = PhrasalsFragmentListBinding.inflate(inflater, container, false)
         binding.viewModel = customViewModel
         return binding.root
@@ -56,8 +55,8 @@ class PhrasalsListFragment : RainbowCakeFragment<PhrasalsListViewState, Phrasals
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        phrasalsList.adapter = PhrasalsAdapter()
-        phrasalsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        binding.list.adapter = PhrasalsAdapter()
+        binding.list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -76,7 +75,7 @@ class PhrasalsListFragment : RainbowCakeFragment<PhrasalsListViewState, Phrasals
     }
 
     override fun render(viewState: PhrasalsListViewState) {
-        TransitionManager.beginDelayedTransition(listFragmentRoot)
+        TransitionManager.beginDelayedTransition(binding.listFragmentRoot)
         binding.viewState = viewState
     }
 }
