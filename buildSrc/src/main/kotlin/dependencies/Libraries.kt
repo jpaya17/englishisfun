@@ -44,7 +44,7 @@ object Libraries {
         const val KOTLIN = "1.4.21"
         const val LICENSES_DIALOG = "2.1.0"
         const val MATERIAL = "1.2.1"
-        const val NAVIGATION = "2.3.1"
+        const val NAVIGATION = "2.3.2"
         const val PREFERENCES = "1.1.1"
         const val RAINBOW_CAKE = "1.3.0"
         const val RECYCLER_VIEW = "1.1.0"
