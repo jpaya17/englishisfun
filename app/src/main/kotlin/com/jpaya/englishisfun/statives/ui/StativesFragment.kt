@@ -36,7 +36,7 @@ class StativesFragment : RainbowCakeFragment<StativesViewState, StativesViewMode
 
     override fun provideViewModel() = customViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = StativesFragmentListBinding.inflate(inflater, container, false)
         binding.viewModel = customViewModel
         return binding.root
