@@ -137,7 +137,7 @@ object TestLibraries {
         const val HAMCREST = "2.2"
         const val JUNIT = "4.13.1"
         const val MOCKITO = "2.2.0"
-        const val MOCKK = "1.10.2"
+        const val MOCKK = "1.10.3-jdk8"
         const val RAINBOW_CAKE = "1.3.0"
         const val ROBOELECTRIC = "4.4"
         const val ROOM = "2.2.5"
