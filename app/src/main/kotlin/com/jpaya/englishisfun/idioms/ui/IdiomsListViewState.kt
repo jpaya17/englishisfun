@@ -16,29 +16,29 @@
 
 package com.jpaya.englishisfun.idioms.ui
 
-import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
 
 sealed class IdiomsListViewState {
     abstract fun showLoading(): Boolean
     abstract fun showError(): Boolean
     abstract fun showList(): Boolean
     abstract fun showEmpty(): Boolean
-    abstract fun list(): List<IdiomItem>
+    abstract fun list(): List<SimpleListItem2>
 
     object Loading : IdiomsListViewState() {
         override fun showLoading(): Boolean = true
         override fun showError(): Boolean = false
         override fun showList(): Boolean = false
         override fun showEmpty(): Boolean = false
-        override fun list(): List<IdiomItem> = listOf()
+        override fun list(): List<SimpleListItem2> = listOf()
     }
 
-    data class ListReady(private val idioms: List<IdiomItem>) : IdiomsListViewState() {
+    data class ListReady(private val idioms: List<SimpleListItem2>) : IdiomsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
         override fun showList(): Boolean = idioms.isEmpty().not()
         override fun showEmpty(): Boolean = idioms.isEmpty()
-        override fun list(): List<IdiomItem> = idioms
+        override fun list(): List<SimpleListItem2> = idioms
     }
 
     object NetworkError : IdiomsListViewState() {
@@ -46,6 +46,6 @@ sealed class IdiomsListViewState {
         override fun showError(): Boolean = true
         override fun showList(): Boolean = false
         override fun showEmpty(): Boolean = false
-        override fun list(): List<IdiomItem> = listOf()
+        override fun list(): List<SimpleListItem2> = listOf()
     }
 }

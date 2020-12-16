@@ -22,7 +22,7 @@ import co.zsmb.rainbowcake.test.observeStateAndEvents
 import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListViewState.ListReady
 import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListViewState.Loading
 import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListViewState.NetworkError
-import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -37,23 +37,23 @@ class AbbreviationsListViewModelTest : ViewModelTest() {
 
     companion object {
         private val MOCK_ITEMS = listOf(
-            AbbreviationItem(
+            SimpleListItem2(
                 id = 1,
-                abbr = "Abbreviation 1",
-                desc = "Description 1"
+                text1 = "Abbreviation 1",
+                text2 = "Description 1"
             ),
-            AbbreviationItem(
+            SimpleListItem2(
                 id = 2,
-                abbr = "Abbreviation 2",
-                desc = "Description 2"
+                text1 = "Abbreviation 2",
+                text2 = "Description 2"
             )
         )
 
         private val MOCK_ITEMS_FILTERED = listOf(
-            AbbreviationItem(
+            SimpleListItem2(
                 id = 1,
-                abbr = "Abbreviation 1",
-                desc = "Description 1"
+                text1 = "Abbreviation 1",
+                text2 = "Description 1"
             )
         )
     }

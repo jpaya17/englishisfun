@@ -19,10 +19,10 @@ package com.jpaya.englishisfun.idioms.ui
 import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
 import com.jpaya.englishisfun.idioms.ui.IdiomsListViewState.ListReady
 import com.jpaya.englishisfun.idioms.ui.IdiomsListViewState.Loading
 import com.jpaya.englishisfun.idioms.ui.IdiomsListViewState.NetworkError
-import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -37,23 +37,23 @@ class IdiomsListViewModelTest : ViewModelTest() {
 
     companion object {
         private val MOCK_ITEMS = listOf(
-            IdiomItem(
+            SimpleListItem2(
                 id = 1,
-                idiom = "Idiom 1",
-                description = "Description 1"
+                text1 = "Idiom 1",
+                text2 = "Description 1"
             ),
-            IdiomItem(
+            SimpleListItem2(
                 id = 2,
-                idiom = "Idiom 2",
-                description = "Description 2"
+                text1 = "Idiom 2",
+                text2 = "Description 2"
             )
         )
 
         private val MOCK_ITEMS_FILTERED = listOf(
-            IdiomItem(
+            SimpleListItem2(
                 id = 1,
-                idiom = "Idiom 1",
-                description = "Description 1"
+                text1 = "Idiom 1",
+                text2 = "Description 1"
             )
         )
     }

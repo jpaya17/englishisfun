@@ -32,7 +32,6 @@ import com.jpaya.base.ui.searchview.DebouncingQueryTextListener
 import com.jpaya.englishisfun.databinding.IrregularsFragmentListBinding
 import com.jpaya.englishisfun.irregulars.ui.adapter.IrregularsAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.irregulars_fragment_list.*
 
 @AndroidEntryPoint
 class IrregularsListFragment : RainbowCakeFragment<IrregularsListViewState, IrregularsListViewModel>() {
@@ -42,7 +41,7 @@ class IrregularsListFragment : RainbowCakeFragment<IrregularsListViewState, Irre
 
     override fun provideViewModel() = customViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = IrregularsFragmentListBinding.inflate(inflater, container, false)
         binding.viewModel = customViewModel
         return binding.root
@@ -56,8 +55,8 @@ class IrregularsListFragment : RainbowCakeFragment<IrregularsListViewState, Irre
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        irregularsList.adapter = IrregularsAdapter()
-        irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        binding.list.adapter = IrregularsAdapter()
+        binding.list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -76,7 +75,7 @@ class IrregularsListFragment : RainbowCakeFragment<IrregularsListViewState, Irre
     }
 
     override fun render(viewState: IrregularsListViewState) {
-        TransitionManager.beginDelayedTransition(listFragmentRoot)
+        TransitionManager.beginDelayedTransition(binding.listFragmentRoot)
         binding.viewState = viewState
     }
 }

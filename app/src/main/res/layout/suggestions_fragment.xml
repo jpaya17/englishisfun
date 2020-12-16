@@ -7,7 +7,7 @@
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/et_title"
+        android:id="@+id/title"
         style="@android:style/TextAppearance.Large"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -29,8 +29,8 @@
         android:layout_marginTop="50dp"
         android:text="@string/suggestions_section"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/et_title"
-        app:layout_constraintTop_toBottomOf="@+id/et_title" />
+        app:layout_constraintStart_toStartOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <Spinner
         android:id="@+id/section"
@@ -39,11 +39,11 @@
         android:entries="@array/suggestions_sections"
         android:entryValues="@array/suggestions_sections_values"
         app:layout_constraintBottom_toBottomOf="@+id/tv_section"
-        app:layout_constraintEnd_toEndOf="@+id/et_title"
+        app:layout_constraintEnd_toEndOf="@+id/title"
         app:layout_constraintTop_toTopOf="@+id/tv_section" />
 
     <EditText
-        android:id="@+id/et_description"
+        android:id="@+id/description"
         style="@android:style/TextAppearance.Medium"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/section" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/bt_send"
+        android:id="@+id/send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

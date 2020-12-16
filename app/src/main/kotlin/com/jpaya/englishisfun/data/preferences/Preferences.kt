@@ -21,7 +21,7 @@ import android.content.Context.MODE_PRIVATE
 
 object Preferences {
 
-    const val FILE_NAME = "secret_preferences"
+    private const val FILE_NAME = "secret_preferences"
 
     // Pref Keys
     private const val APPEARANCE_PREF_KEY = "appearance"

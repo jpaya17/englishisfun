@@ -19,7 +19,7 @@ package com.jpaya.englishisfun.abbreviations.ui
 import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListViewState.Loading
 import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListViewState.ListReady
 import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListViewState.NetworkError
-import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
 import org.junit.Assert.*
 import org.junit.Test
 
@@ -39,10 +39,10 @@ class AbbreviationsListViewStateTest {
     fun `Check ListReady state works properly`() {
         // Non-empty list
         var list = listOf(
-            AbbreviationItem(
+            SimpleListItem2(
                 id = 1,
-                abbr = "Abbreviation",
-                desc = "Description"
+                text1 = "Abbreviation",
+                text2 = "Description"
             )
         )
         var state = ListReady(list)

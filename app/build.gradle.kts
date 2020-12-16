@@ -32,7 +32,6 @@ plugins {
     id(BuildPlugins.HILT)
     id(BuildPlugins.JACOCO)
     id(BuildPlugins.KOTLIN_ANDROID)
-    id(BuildPlugins.KOTLIN_ANDROID_EXTENSIONS)
     id(BuildPlugins.KOTLIN_ALLOPEN)
     id(BuildPlugins.KOTLIN_KAPT)
     id(BuildPlugins.NAVIGATION_SAFE_ARGS)
@@ -100,16 +99,13 @@ android {
     dynamicFeatures = mutableSetOf()
 
     buildFeatures {
+        viewBinding = true
         compose = false
     }
 
     composeOptions {
         kotlinCompilerExtensionVersion = Compose.KOTLIN_COMPILER_EXTENSION_VERSION
         kotlinCompilerVersion = Compose.KOTLIN_COMPILER_VERSION
-    }
-
-    androidExtensions {
-        isExperimental = true
     }
 
     compileOptions {

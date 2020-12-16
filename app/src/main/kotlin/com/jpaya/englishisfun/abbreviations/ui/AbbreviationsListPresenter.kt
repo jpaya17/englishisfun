@@ -19,18 +19,18 @@ package com.jpaya.englishisfun.abbreviations.ui
 import co.zsmb.rainbowcake.withIOContext
 import com.jpaya.englishisfun.abbreviations.mapper.toPresentation
 import com.jpaya.englishisfun.abbreviations.domain.AbbreviationsInteractor
-import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
 import javax.inject.Inject
 
 class AbbreviationsListPresenter @Inject constructor(
     private val interactor: AbbreviationsInteractor
 ) {
 
-    suspend fun getAbbreviationItems(): List<AbbreviationItem> = withIOContext {
+    suspend fun getAbbreviationItems(): List<SimpleListItem2> = withIOContext {
         interactor.getAbbreviations().map { it.toPresentation() }
     }
 
-    suspend fun searchAbbreviations(filter: String): List<AbbreviationItem> = withIOContext {
+    suspend fun searchAbbreviations(filter: String): List<SimpleListItem2> = withIOContext {
         interactor.searchAbbreviations(filter).map { it.toPresentation() }
     }
 }

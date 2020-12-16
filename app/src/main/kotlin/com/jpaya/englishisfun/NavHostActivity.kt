@@ -19,6 +19,8 @@ package com.jpaya.englishisfun
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -26,9 +28,9 @@ import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.google.android.material.internal.NavigationMenuView
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 /**
@@ -54,13 +56,14 @@ class NavHostActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun setupNavigationController() {
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         (nav_view.getChildAt(0) as NavigationMenuView).addItemDecoration(
             DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         )
-        nav_view.setupWithNavController(navController)
+        findViewById<NavigationView>(R.id.navigationView).setupWithNavController(navController)
         toolbar.setupWithNavController(
             navController,
             AppBarConfiguration(
@@ -72,7 +75,7 @@ class NavHostActivity : AppCompatActivity(R.layout.activity_main) {
                     R.id.phrasals_list_fragment,
                     R.id.settings_fragment
                 ),
-                drawer_layout
+                findViewById<DrawerLayout>(R.id.drawerLayout)
             )
         )
     }

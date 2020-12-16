@@ -27,7 +27,6 @@ import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import com.jpaya.englishisfun.conditionals.ui.adapter.ConditionalsAdapter
 import com.jpaya.englishisfun.databinding.ConditionalsFragmentListBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.conditionals_fragment_list.*
 
 @AndroidEntryPoint
 class ConditionalsListFragment : RainbowCakeFragment<ConditionalsListViewState, ConditionalsListViewModel>() {
@@ -37,7 +36,7 @@ class ConditionalsListFragment : RainbowCakeFragment<ConditionalsListViewState, 
 
     override fun provideViewModel() = customViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = ConditionalsFragmentListBinding.inflate(inflater, container, false)
         binding.viewModel = customViewModel
         return binding.root
@@ -46,12 +45,12 @@ class ConditionalsListFragment : RainbowCakeFragment<ConditionalsListViewState, 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        conditionalsList.adapter = ConditionalsAdapter()
-        conditionalsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        binding.list.adapter = ConditionalsAdapter()
+        binding.list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
     override fun render(viewState: ConditionalsListViewState) {
-        TransitionManager.beginDelayedTransition(listFragmentRoot)
+        TransitionManager.beginDelayedTransition(binding.listFragmentRoot)
         binding.viewState = viewState
     }
 }

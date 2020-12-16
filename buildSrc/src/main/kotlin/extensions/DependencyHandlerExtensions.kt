@@ -68,7 +68,7 @@ fun DependencyHandler.api(dependencyNotation: String): Dependency? =
 /**
  * Adds a dependency to the `api` configuration.
  *
- * @param dependencyNotation List of dependencies to add at specific configuration
+ * @param dependencies List of dependencies to add at specific configuration
  */
 fun DependencyHandler.api(dependencies: Array<String>) = dependencies.forEach { api(it) }
 
@@ -85,7 +85,7 @@ fun DependencyHandler.kapt(dependencyNotation: String): Dependency? =
 /**
  * Adds a dependency to the `kapt` configuration.
  *
- * @param dependencyNotation List of dependencies to add at specific configuration
+ * @param dependencies List of dependencies to add at specific configuration
  */
 fun DependencyHandler.kapt(dependencies: Array<String>) = dependencies.forEach { kapt(it) }
 
@@ -102,7 +102,7 @@ fun DependencyHandler.testImplementation(dependencyNotation: String): Dependency
 /**
  * Adds a dependency to the `testImplementation` configuration.
  *
- * @param dependencyNotation List of dependencies to add at specific configuration
+ * @param dependencies List of dependencies to add at specific configuration
  */
 fun DependencyHandler.testImplementation(dependencies: Array<String>) = dependencies.forEach { testImplementation(it) }
 
@@ -119,7 +119,7 @@ fun DependencyHandler.androidTestImplementation(dependencyNotation: String): Dep
 /**
  * Adds a dependency to the `androidTestImplementation` configuration.
  *
- * @param dependencyNotation List of dependencies to add at specific configuration
+ * @param dependencies List of dependencies to add at specific configuration
  */
 fun DependencyHandler.androidTestImplementation(dependencies: Array<String>) =
     dependencies.forEach { androidTestImplementation(it) }

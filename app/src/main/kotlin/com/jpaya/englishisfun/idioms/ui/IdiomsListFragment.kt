@@ -24,25 +24,30 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.transition.TransitionManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
+import com.jpaya.base.ui.recyclerview.SpaceGrid
 import com.jpaya.englishisfun.R
 import com.jpaya.base.ui.searchview.DebouncingQueryTextListener
 import com.jpaya.englishisfun.databinding.IdiomsFragmentListBinding
 import com.jpaya.englishisfun.idioms.ui.adapter.IdiomsAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.idioms_fragment_list.*
 
 @AndroidEntryPoint
 class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListViewModel>() {
+
+    companion object {
+        private const val COLUMNS = 2
+        private const val SPACING = 30
+    }
 
     private val customViewModel: IdiomsListViewModel by viewModels()
     private lateinit var binding: IdiomsFragmentListBinding
 
     override fun provideViewModel() = customViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = IdiomsFragmentListBinding.inflate(inflater, container, false)
         binding.viewModel = customViewModel
         return binding.root
@@ -56,8 +61,9 @@ class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListVi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        idiomsList.adapter = IdiomsAdapter()
-        idiomsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        binding.list.layoutManager = GridLayoutManager(context, COLUMNS)
+        binding.list.adapter = IdiomsAdapter()
+        binding.list.addItemDecoration(SpaceGrid(COLUMNS, SPACING, true))
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -76,7 +82,7 @@ class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListVi
     }
 
     override fun render(viewState: IdiomsListViewState) {
-        TransitionManager.beginDelayedTransition(listFragmentRoot)
+        TransitionManager.beginDelayedTransition(binding.listFragmentRoot)
         binding.viewState = viewState
     }
 }

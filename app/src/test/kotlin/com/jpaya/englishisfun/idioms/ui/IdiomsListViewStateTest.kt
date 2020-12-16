@@ -16,10 +16,10 @@
 
 package com.jpaya.englishisfun.idioms.ui
 
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
 import com.jpaya.englishisfun.idioms.ui.IdiomsListViewState.Loading
 import com.jpaya.englishisfun.idioms.ui.IdiomsListViewState.ListReady
 import com.jpaya.englishisfun.idioms.ui.IdiomsListViewState.NetworkError
-import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 import org.junit.Assert.*
 import org.junit.Test
 
@@ -39,10 +39,10 @@ class IdiomsListViewStateTest {
     fun `Check ListReady state works properly`() {
         // Non-empty list
         var list = listOf(
-            IdiomItem(
+            SimpleListItem2(
                 id = 1,
-                idiom = "Idiom",
-                description = "Description"
+                text1 = "Idiom",
+                text2 = "Description"
             )
         )
         var state = ListReady(list)

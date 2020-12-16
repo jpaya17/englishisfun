@@ -16,10 +16,10 @@
 
 package com.jpaya.englishisfun.idioms.mapper
 
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
 import com.jpaya.englishisfun.idioms.data.db.IdiomRoomItem
 import com.jpaya.englishisfun.idioms.data.network.model.IdiomNetworkItem
 import com.jpaya.englishisfun.idioms.domain.Idiom
-import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 
 fun Idiom.toRoomItem() = IdiomRoomItem(
     id = id,
@@ -39,8 +39,8 @@ fun IdiomNetworkItem.toDomain() = Idiom(
     description = description
 )
 
-fun Idiom.toPresentation() = IdiomItem(
+fun Idiom.toPresentation() = SimpleListItem2(
     id = id,
-    idiom = idiom,
-    description = description
+    text1 = idiom,
+    text2 = description
 )

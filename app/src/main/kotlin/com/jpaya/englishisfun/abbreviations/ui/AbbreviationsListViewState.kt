@@ -16,29 +16,29 @@
 
 package com.jpaya.englishisfun.abbreviations.ui
 
-import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
 
 sealed class AbbreviationsListViewState {
     abstract fun showLoading(): Boolean
     abstract fun showError(): Boolean
     abstract fun showList(): Boolean
     abstract fun showEmpty(): Boolean
-    abstract fun list(): List<AbbreviationItem>
+    abstract fun list(): List<SimpleListItem2>
 
     object Loading : AbbreviationsListViewState() {
         override fun showLoading(): Boolean = true
         override fun showError(): Boolean = false
         override fun showList(): Boolean = false
         override fun showEmpty(): Boolean = false
-        override fun list(): List<AbbreviationItem> = listOf()
+        override fun list(): List<SimpleListItem2> = listOf()
     }
 
-    data class ListReady(private val abbreviations: List<AbbreviationItem>) : AbbreviationsListViewState() {
+    data class ListReady(private val abbreviations: List<SimpleListItem2>) : AbbreviationsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
         override fun showList(): Boolean = abbreviations.isEmpty().not()
         override fun showEmpty(): Boolean = abbreviations.isEmpty()
-        override fun list(): List<AbbreviationItem> = abbreviations
+        override fun list(): List<SimpleListItem2> = abbreviations
     }
 
     object NetworkError : AbbreviationsListViewState() {
@@ -46,6 +46,6 @@ sealed class AbbreviationsListViewState {
         override fun showError(): Boolean = true
         override fun showList(): Boolean = false
         override fun showEmpty(): Boolean = false
-        override fun list(): List<AbbreviationItem> = listOf()
+        override fun list(): List<SimpleListItem2> = listOf()
     }
 }

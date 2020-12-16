@@ -27,7 +27,6 @@ import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import com.jpaya.englishisfun.databinding.StativesFragmentListBinding
 import com.jpaya.englishisfun.statives.ui.adapter.StativesAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.statives_fragment_list.*
 
 @AndroidEntryPoint
 class StativesFragment : RainbowCakeFragment<StativesViewState, StativesViewModel>() {
@@ -37,7 +36,7 @@ class StativesFragment : RainbowCakeFragment<StativesViewState, StativesViewMode
 
     override fun provideViewModel() = customViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = StativesFragmentListBinding.inflate(inflater, container, false)
         binding.viewModel = customViewModel
         return binding.root
@@ -46,12 +45,12 @@ class StativesFragment : RainbowCakeFragment<StativesViewState, StativesViewMode
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        list.adapter = StativesAdapter()
-        list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        binding.list.adapter = StativesAdapter()
+        binding.list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
     override fun render(viewState: StativesViewState) {
-        TransitionManager.beginDelayedTransition(listFragmentRoot)
+        TransitionManager.beginDelayedTransition(binding.listFragmentRoot)
         binding.viewState = viewState
     }
 }

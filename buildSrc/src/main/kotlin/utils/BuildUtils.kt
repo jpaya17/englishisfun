@@ -37,9 +37,7 @@ fun getLocalProperty(propertyName: String, project: Project): String {
         }
     }
 
-    return localProperties.getProperty(propertyName)?.let {
-        it
-    } ?: run {
+    return localProperties.getProperty(propertyName) ?: run {
         throw NoSuchFieldException("Not defined property: $propertyName")
     }
 }

@@ -19,7 +19,7 @@ package com.jpaya.englishisfun.abbreviations.mapper
 import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationRoomItem
 import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationNetworkItem
 import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
-import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -84,10 +84,10 @@ class AbbreviationMapperTest {
             desc = "Description"
         )
 
-        val expectedResult = AbbreviationItem(
+        val expectedResult = SimpleListItem2(
             id = 1,
-            abbr = "Abbreviation",
-            desc = "Description"
+            text1 = "Abbreviation",
+            text2 = "Description"
         )
 
         assertEquals(expectedResult, domain.toPresentation())

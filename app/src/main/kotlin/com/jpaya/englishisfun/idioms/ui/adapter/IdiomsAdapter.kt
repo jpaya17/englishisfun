@@ -22,27 +22,23 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.base.adapter.ListAdapterComparator
 import com.jpaya.englishisfun.DataBindingAdapter
-import com.jpaya.englishisfun.databinding.IdiomsListItemBinding
-import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
-import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
+import com.jpaya.englishisfun.databinding.SimpleListItem2Binding
 
 class IdiomsAdapter :
-    ListAdapter<IdiomItem, IdiomsAdapter.ViewHolder>(ListAdapterComparator<IdiomItem>()),
-    FastScrollRecyclerView.SectionedAdapter,
-    DataBindingAdapter<List<IdiomItem>> {
+    ListAdapter<SimpleListItem2, IdiomsAdapter.ViewHolder>(ListAdapterComparator<SimpleListItem2>()),
+    DataBindingAdapter<List<SimpleListItem2>> {
 
-    override fun setData(data: List<IdiomItem>) = submitList(data)
+    override fun setData(data: List<SimpleListItem2>) = submitList(data)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(IdiomsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        ViewHolder(SimpleListItem2Binding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position))
 
-    override fun getSectionName(position: Int): String = getItem(position).idiom.first().toString()
+    class ViewHolder(val binding: SimpleListItem2Binding) : RecyclerView.ViewHolder(binding.root) {
 
-    class ViewHolder(val binding: IdiomsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(item: IdiomItem) {
+        fun bind(item: SimpleListItem2) {
             binding.item = item
             binding.executePendingBindings()
         }

@@ -22,28 +22,24 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.base.adapter.ListAdapterComparator
 import com.jpaya.englishisfun.DataBindingAdapter
-import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
-import com.jpaya.englishisfun.databinding.AbbreviationsListItemBinding
-import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
+import com.jpaya.englishisfun.base.ui.model.SimpleListItem2
+import com.jpaya.englishisfun.databinding.SimpleListItem2Binding
 
 class AbbreviationsAdapter :
-    ListAdapter<AbbreviationItem, AbbreviationsAdapter.ViewHolder>(ListAdapterComparator<AbbreviationItem>()),
-    FastScrollRecyclerView.SectionedAdapter,
-    DataBindingAdapter<List<AbbreviationItem>> {
+    ListAdapter<SimpleListItem2, AbbreviationsAdapter.ViewHolder>(ListAdapterComparator<SimpleListItem2>()),
+    DataBindingAdapter<List<SimpleListItem2>> {
 
-    override fun setData(data: List<AbbreviationItem>) = submitList(data)
+    override fun setData(data: List<SimpleListItem2>) = submitList(data)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(AbbreviationsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        ViewHolder(SimpleListItem2Binding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position))
 
-    override fun getSectionName(position: Int): String = getItem(position).abbr.first().toString()
+    class ViewHolder(val binding: SimpleListItem2Binding) : RecyclerView.ViewHolder(binding.root) {
 
-    class ViewHolder(val binding: AbbreviationsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(item: AbbreviationItem) {
-            binding.abbreviation = item
+        fun bind(item: SimpleListItem2) {
+            binding.item = item
             binding.executePendingBindings()
         }
     }
