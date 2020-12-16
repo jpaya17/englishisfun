@@ -46,6 +46,7 @@
     <color name="recyclerview_popup_text">@color/white</color>
 
     <!-- NavigationView colors -->
+    <color name="navigation_view_icon">@color/app_color</color>
     <color name="navigation_view_item">@color/black</color>
     <color name="navigation_view_item_selected">@color/app_color</color>
 </resources>
