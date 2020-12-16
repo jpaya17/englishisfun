@@ -60,10 +60,11 @@ class NavHostActivity : AppCompatActivity(R.layout.activity_main) {
         setSupportActionBar(toolbar)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
-        (nav_view.getChildAt(0) as NavigationMenuView).addItemDecoration(
+        val navView = findViewById<NavigationView>(R.id.navigationView)
+        (navView.getChildAt(0) as NavigationMenuView).addItemDecoration(
             DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         )
-        findViewById<NavigationView>(R.id.navigationView).setupWithNavController(navController)
+        navView.setupWithNavController(navController)
         toolbar.setupWithNavController(
             navController,
             AppBarConfiguration(
