@@ -26,6 +26,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import com.google.android.material.internal.NavigationMenuView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
@@ -58,7 +60,11 @@ class NavHostActivity : AppCompatActivity(R.layout.activity_main) {
         setSupportActionBar(toolbar)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
-        findViewById<NavigationView>(R.id.navigationView).setupWithNavController(navController)
+        val navView = findViewById<NavigationView>(R.id.navigationView)
+        (navView.getChildAt(0) as NavigationMenuView).addItemDecoration(
+            DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        )
+        navView.setupWithNavController(navController)
         toolbar.setupWithNavController(
             navController,
             AppBarConfiguration(
