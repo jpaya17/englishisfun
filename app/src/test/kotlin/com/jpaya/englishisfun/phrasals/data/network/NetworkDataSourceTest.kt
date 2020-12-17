@@ -28,6 +28,8 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
+import kotlin.Result.Companion.failure
+import kotlin.Result.Companion.success
 
 class NetworkDataSourceTest {
 
@@ -60,8 +62,7 @@ class NetworkDataSourceTest {
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getPhrasalsItems works properly`() = runBlockingTest {
-        whenever(fireStoreClient.phrasals()).doReturn(MOCK_PHRASALS_DOCUMENT)
-
+        whenever(fireStoreClient.phrasals()).doReturn(success(MOCK_PHRASALS_DOCUMENT))
         val expectedResult = listOf(
             Phrasal(
                 id = 1,
@@ -74,27 +75,20 @@ class NetworkDataSourceTest {
                 definitions = "Definitions 2"
             )
         )
-
         assertEquals(expectedResult, dataSource.getPhrasalsItems())
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getPhrasalsItems works properly when null list`() = runBlockingTest {
-        whenever(fireStoreClient.phrasals()).doReturn(PhrasalsResponse())
-
-        val expectedResult = emptyList<Phrasal>()
-
-        assertEquals(expectedResult, dataSource.getPhrasalsItems())
+        whenever(fireStoreClient.phrasals()).doReturn(success(PhrasalsResponse()))
+        assertEquals(emptyList<Phrasal>(), dataSource.getPhrasalsItems())
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getPhrasalsItems works properly when null`() = runBlockingTest {
-        whenever(fireStoreClient.phrasals()).doReturn(null)
-
-        val expectedResult = emptyList<Phrasal>()
-
-        assertEquals(expectedResult, dataSource.getPhrasalsItems())
+        whenever(fireStoreClient.phrasals()).doReturn(failure(Exception()))
+        assertEquals(emptyList<Phrasal>(), dataSource.getPhrasalsItems())
     }
 }

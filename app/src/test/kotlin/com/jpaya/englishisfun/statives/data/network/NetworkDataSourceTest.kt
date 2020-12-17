@@ -28,6 +28,8 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
+import kotlin.Result.Companion.failure
+import kotlin.Result.Companion.success
 
 class NetworkDataSourceTest {
 
@@ -60,8 +62,7 @@ class NetworkDataSourceTest {
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getConditionalsItems works properly`() = runBlockingTest {
-        whenever(fireStoreClient.statives()).doReturn(MOCK_STATIVES_DOCUMENT)
-
+        whenever(fireStoreClient.statives()).doReturn(success(MOCK_STATIVES_DOCUMENT))
         val expectedResult = listOf(
             Stative(
                 id = 1,
@@ -74,27 +75,20 @@ class NetworkDataSourceTest {
                 verbs = mutableListOf("Verb 2")
             )
         )
-
         assertEquals(expectedResult, dataSource.getStativeItems())
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getConditionalsItems works properly when null list`() = runBlockingTest {
-        whenever(fireStoreClient.statives()).doReturn(StativesResponse())
-
-        val expectedResult = emptyList<Stative>()
-
-        assertEquals(expectedResult, dataSource.getStativeItems())
+        whenever(fireStoreClient.statives()).doReturn(success(StativesResponse()))
+        assertEquals(emptyList<Stative>(), dataSource.getStativeItems())
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getConditionalsItems works properly when null`() = runBlockingTest {
-        whenever(fireStoreClient.statives()).doReturn(null)
-
-        val expectedResult = emptyList<Stative>()
-
-        assertEquals(expectedResult, dataSource.getStativeItems())
+        whenever(fireStoreClient.statives()).doReturn(failure(Exception()))
+        assertEquals(emptyList<Stative>(), dataSource.getStativeItems())
     }
 }

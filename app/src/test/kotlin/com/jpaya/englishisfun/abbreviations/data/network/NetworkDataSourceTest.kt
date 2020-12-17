@@ -28,6 +28,8 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import kotlin.Result.Companion.failure
+import kotlin.Result.Companion.success
 
 class NetworkDataSourceTest {
 
@@ -60,8 +62,7 @@ class NetworkDataSourceTest {
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getAbbreviationItems works properly`() = runBlockingTest {
-        whenever(fireStoreClient.abbreviations()).doReturn(MOCK_ABBREVIATIONS_DOCUMENT)
-
+        whenever(fireStoreClient.abbreviations()).doReturn(success(MOCK_ABBREVIATIONS_DOCUMENT))
         val expectedResult = listOf(
             Abbreviation(
                 id = 1,
@@ -74,27 +75,20 @@ class NetworkDataSourceTest {
                 desc = "Description 2"
             )
         )
-
         assertEquals(expectedResult, dataSource.getAbbreviations())
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getAbbreviationItems works properly when null list`() = runBlockingTest {
-        whenever(fireStoreClient.abbreviations()).doReturn(AbbreviationsResponse())
-
-        val expectedResult = emptyList<Abbreviation>()
-
-        assertEquals(expectedResult, dataSource.getAbbreviations())
+        whenever(fireStoreClient.abbreviations()).doReturn(success(AbbreviationsResponse()))
+        assertEquals(emptyList<Abbreviation>(), dataSource.getAbbreviations())
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getAbbreviationItems works properly when null`() = runBlockingTest {
-        whenever(fireStoreClient.abbreviations()).doReturn(null)
-
-        val expectedResult = emptyList<Abbreviation>()
-
-        assertEquals(expectedResult, dataSource.getAbbreviations())
+        whenever(fireStoreClient.abbreviations()).doReturn(failure(Exception()))
+        assertEquals(emptyList<Abbreviation>(), dataSource.getAbbreviations())
     }
 }

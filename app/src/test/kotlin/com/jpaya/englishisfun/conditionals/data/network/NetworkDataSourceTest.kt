@@ -28,6 +28,8 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
+import kotlin.Result.Companion.failure
+import kotlin.Result.Companion.success
 
 class NetworkDataSourceTest {
 
@@ -66,8 +68,7 @@ class NetworkDataSourceTest {
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getConditionalsItems works properly`() = runBlockingTest {
-        whenever(fireStoreClient.conditionals()).doReturn(MOCK_CONDITIONALS_DOCUMENT)
-
+        whenever(fireStoreClient.conditionals()).doReturn(success(MOCK_CONDITIONALS_DOCUMENT))
         val expectedResult = listOf(
             Conditional(
                 id = 1,
@@ -86,27 +87,20 @@ class NetworkDataSourceTest {
                 examples = mutableListOf("Example 1")
             )
         )
-
         assertEquals(expectedResult, dataSource.getConditionalsItems())
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getConditionalsItems works properly when null list`() = runBlockingTest {
-        whenever(fireStoreClient.conditionals()).doReturn(ConditionalsResponse())
-
-        val expectedResult = emptyList<Conditional>()
-
-        assertEquals(expectedResult, dataSource.getConditionalsItems())
+        whenever(fireStoreClient.conditionals()).doReturn(success(ConditionalsResponse()))
+        assertEquals(emptyList<Conditional>(), dataSource.getConditionalsItems())
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getConditionalsItems works properly when null`() = runBlockingTest {
-        whenever(fireStoreClient.conditionals()).doReturn(null)
-
-        val expectedResult = emptyList<Conditional>()
-
-        assertEquals(expectedResult, dataSource.getConditionalsItems())
+        whenever(fireStoreClient.conditionals()).doReturn(failure(Exception()))
+        assertEquals(emptyList<Conditional>(), dataSource.getConditionalsItems())
     }
 }

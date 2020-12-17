@@ -28,6 +28,8 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
+import kotlin.Result.Companion.failure
+import kotlin.Result.Companion.success
 
 class NetworkDataSourceTest {
 
@@ -60,8 +62,7 @@ class NetworkDataSourceTest {
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getIdiomsItems works properly`() = runBlockingTest {
-        whenever(fireStoreClient.idioms()).doReturn(MOCK_IDIOMS_DOCUMENT)
-
+        whenever(fireStoreClient.idioms()).doReturn(success(MOCK_IDIOMS_DOCUMENT))
         val expectedResult = listOf(
             Idiom(
                 id = 1,
@@ -74,27 +75,20 @@ class NetworkDataSourceTest {
                 description = "Description 2"
             )
         )
-
         assertEquals(expectedResult, dataSource.getIdiomsItems())
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getIdiomsItems works properly when null list`() = runBlockingTest {
-        whenever(fireStoreClient.idioms()).doReturn(IdiomsResponse())
-
-        val expectedResult = emptyList<Idiom>()
-
-        assertEquals(expectedResult, dataSource.getIdiomsItems())
+        whenever(fireStoreClient.idioms()).doReturn(success(IdiomsResponse()))
+        assertEquals(emptyList<Idiom>(), dataSource.getIdiomsItems())
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getIdiomsItems works properly when null`() = runBlockingTest {
-        whenever(fireStoreClient.idioms()).doReturn(null)
-
-        val expectedResult = emptyList<Idiom>()
-
-        assertEquals(expectedResult, dataSource.getIdiomsItems())
+        whenever(fireStoreClient.idioms()).doReturn(failure(Exception()))
+        assertEquals(emptyList<Idiom>(), dataSource.getIdiomsItems())
     }
 }

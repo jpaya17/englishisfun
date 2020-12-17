@@ -28,6 +28,8 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
+import kotlin.Result.Companion.failure
+import kotlin.Result.Companion.success
 
 class NetworkDataSourceTest {
 
@@ -64,8 +66,7 @@ class NetworkDataSourceTest {
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getIrregularsItems works properly`() = runBlockingTest {
-        whenever(fireStoreClient.irregulars()).doReturn(MOCK_IRREGULARS_DOCUMENT)
-
+        whenever(fireStoreClient.irregulars()).doReturn(success(MOCK_IRREGULARS_DOCUMENT))
         val expectedResult = listOf(
             Irregular(
                 id = 1,
@@ -82,27 +83,20 @@ class NetworkDataSourceTest {
                 definitions = "Definitions 2"
             )
         )
-
         assertEquals(expectedResult, dataSource.getIrregularsItems())
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getIrregularsItems works properly when null list`() = runBlockingTest {
-        whenever(fireStoreClient.irregulars()).doReturn(IrregularsResponse())
-
-        val expectedResult = emptyList<Irregular>()
-
-        assertEquals(expectedResult, dataSource.getIrregularsItems())
+        whenever(fireStoreClient.irregulars()).doReturn(success(IrregularsResponse()))
+        assertEquals(emptyList<Irregular>(), dataSource.getIrregularsItems())
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getIrregularsItems works properly when null`() = runBlockingTest {
-        whenever(fireStoreClient.irregulars()).doReturn(null)
-
-        val expectedResult = emptyList<Irregular>()
-
-        assertEquals(expectedResult, dataSource.getIrregularsItems())
+        whenever(fireStoreClient.irregulars()).doReturn(failure(Exception()))
+        assertEquals(emptyList<Irregular>(), dataSource.getIrregularsItems())
     }
 }
