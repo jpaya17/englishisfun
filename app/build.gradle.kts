@@ -170,7 +170,6 @@ dependencies {
             Libraries.NAVIGATION_UI,
             Libraries.PREFERNCES,
             Libraries.RAINBOW_CAKE,
-            Libraries.RECYCLER_VIEW,
             Libraries.RECYCLER_VIEW_SCROLL,
             Libraries.ROOM,
             Libraries.ROOM_KTX,
