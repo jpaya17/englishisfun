@@ -21,6 +21,4 @@ package com.jpaya.englishisfun.abbreviations.data.network.model
  */
 class AbbreviationsResponse {
     lateinit var abbreviations: List<AbbreviationNetworkItem>
-
-    fun isInitialized() = this::abbreviations.isInitialized
 }

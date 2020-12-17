@@ -21,6 +21,4 @@ package com.jpaya.englishisfun.irregulars.data.network.model
  */
 class IrregularsResponse {
     lateinit var irregulars: List<IrregularNetworkItem>
-
-    fun isInitialized() = this::irregulars.isInitialized
 }
