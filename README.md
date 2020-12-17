@@ -24,7 +24,7 @@ on the application are:
 | Conditionals           | :hourglass_flowing_sand: | <img src="screenshots/conditionals.png" width="250" align="right" hspace="20">  |
 | Dependent Prepositions | :x:                      |                                                                                 |
 | Exam Preparation       | :x:                      |                                                                                 |
-| Grammar Tenses         | :x:                      | <img src="screenshots/grammar_tenses_1.png.png" width="250" align="right" hspace="20"> <img src="screenshots/grammar_tenses_2.png.png" width="250" align="right" hspace="20"> <img src="screenshots/grammar_tenses_3.png.png" width="250" align="right" hspace="20">|
+| Grammar Tenses         | :x:                      | <img src="screenshots/grammar_tenses_1.png" width="250" align="right" hspace="20"> <img src="screenshots/grammar_tenses_2.png" width="250" align="right" hspace="20"> <img src="screenshots/grammar_tenses_3.png" width="250" align="right" hspace="20">|
 | Idioms                 | :hourglass_flowing_sand: |                                                                                 |
 | Irregular Verbs        | :hourglass_flowing_sand: |                                                                                 |
 | Modal Verbs            | :x:                      |                                                                                 |
