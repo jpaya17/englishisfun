@@ -32,7 +32,6 @@ object Libraries {
         const val APPCOMPAT = "1.2.0"
         const val CONSTRAINT_LAYOUT = "2.0.4"
         const val CORE_KTX = "1.3.2"
-        const val COROUTINES = "1.4.2"
         const val FIREBASE_ANALYTICS = "18.0.0"
         const val FIREBASE_AUTH = "20.0.1"
         const val FIREBASE_CRASHLYTICS = "17.3.0"
@@ -66,8 +65,6 @@ object Libraries {
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
     const val HILT_VIEWMODEL = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.HILT_VIEWMODEL}"
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.KOTLIN}"
-    const val KOTLIN_COROUTINES_PLAY_SERVICES =
-        "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.COROUTINES}"
     const val LICENSES_DIALOG = "de.psdev.licensesdialog:licensesdialog:${Versions.LICENSES_DIALOG}"
     const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
     const val NAVIGATION_FRAGMENT = "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}"

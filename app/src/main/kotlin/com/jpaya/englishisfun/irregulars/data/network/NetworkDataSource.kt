@@ -27,8 +27,6 @@ class NetworkDataSource @Inject constructor(
     private val fireStoreClient: FireStoreClient
 ) {
 
-    suspend fun getIrregularsItems(): List<Irregular> {
-        val result = fireStoreClient.irregulars()
-        return if (result != null && result.isInitialized()) result.irregulars.map { it.toDomain() } else emptyList()
-    }
+    suspend fun getIrregularsItems(): List<Irregular> =
+        fireStoreClient.irregulars().fold({ it.irregulars.map { item -> item.toDomain() } }, { emptyList() })
 }

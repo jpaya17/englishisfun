@@ -26,9 +26,12 @@ import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsResponse
 import com.jpaya.englishisfun.phrasals.data.network.model.PhrasalsResponse
 import com.jpaya.englishisfun.statives.data.network.model.StativesResponse
 import com.jpaya.englishisfun.suggestions.data.network.model.SuggestionsRequest
-import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.suspendCancellableCoroutine
 import timber.log.Timber
 import javax.inject.Inject
+import kotlin.Result.Companion.failure
+import kotlin.Result.Companion.success
+import kotlin.coroutines.resume
 
 /**
  * Class to unify all FireStore operations.
@@ -96,7 +99,7 @@ class FireStoreClient @Inject constructor(
     /**
      * Function to save a suggestion.
      */
-    suspend fun sendSuggestion(data: SuggestionsRequest) {
+    fun sendSuggestion(data: SuggestionsRequest) {
         fireStore.collection(SUGGESTION_COLLECTION)
             .add(data)
             .addOnSuccessListener {
@@ -105,11 +108,37 @@ class FireStoreClient @Inject constructor(
             .addOnFailureListener {
                 Timber.d("Error adding document")
             }
-            .await()
     }
 
     private fun document(collection: String, document: String) = fireStore.collection(collection).document(document)
 
-    private suspend fun <T> execute(reference: DocumentReference, valueType: Class<T>): T? =
-        reference.get().await().toObject(valueType)
+    private suspend fun <T> execute(reference: DocumentReference, valueType: Class<T>): Result<T> {
+        reference.get().apply {
+            if (isComplete) {
+                return if (exception == null) {
+                    if (isCanceled) {
+                        failure(Exception("Task $this was cancelled normally."))
+                    } else {
+                        success(result.toObject(valueType)!!)
+                    }
+                } else {
+                    failure(Exception(exception!!.message))
+                }
+            } else {
+                return suspendCancellableCoroutine { coroutine ->
+                    addOnCompleteListener {
+                        if (it.exception == null) {
+                            if (it.isCanceled) {
+                                coroutine.resume(failure(Exception("Task $this was cancelled normally.")))
+                            } else {
+                                coroutine.resume(success(it.result.toObject(valueType)!!))
+                            }
+                        } else {
+                            coroutine.resume(failure(Exception(exception!!.message)))
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

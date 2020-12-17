@@ -27,8 +27,6 @@ class NetworkDataSource @Inject constructor(
     private val fireStoreClient: FireStoreClient
 ) {
 
-    suspend fun getConditionalsItems(): List<Conditional> {
-        val result = fireStoreClient.conditionals()
-        return if (result != null && result.isInitialized()) result.conditionals.map { it.toDomain() } else emptyList()
-    }
+    suspend fun getConditionalsItems(): List<Conditional> =
+        fireStoreClient.conditionals().fold({ it.conditionals.map { item -> item.toDomain() } }, { emptyList() })
 }

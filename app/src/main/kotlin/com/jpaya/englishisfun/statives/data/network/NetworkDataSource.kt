@@ -27,8 +27,6 @@ class NetworkDataSource @Inject constructor(
     private val fireStoreClient: FireStoreClient
 ) {
 
-    suspend fun getStativeItems(): List<Stative> {
-        val result = fireStoreClient.statives()
-        return if (result != null && result.isInitialized()) result.statives.map { it.toDomain() } else emptyList()
-    }
+    suspend fun getStativeItems(): List<Stative> =
+        fireStoreClient.statives().fold({ it.statives.map { item -> item.toDomain() } }, { emptyList() })
 }

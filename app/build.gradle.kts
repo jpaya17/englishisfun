@@ -115,6 +115,7 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+        freeCompilerArgs = listOf("-Xallow-result-return-type")
     }
 
     lintOptions {
@@ -163,7 +164,6 @@ dependencies {
             Libraries.HILT,
             Libraries.HILT_VIEWMODEL,
             Libraries.KOTLIN,
-            Libraries.KOTLIN_COROUTINES_PLAY_SERVICES,
             Libraries.LICENSES_DIALOG,
             Libraries.MATERIAL,
             Libraries.NAVIGATION_FRAGMENT,
