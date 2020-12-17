@@ -21,7 +21,7 @@ on the application are:
 | ---------------------- |------------------------- | ------------------------------------------------------------------------------- |
 | Chat Abbreviations     | :hourglass_flowing_sand: | <img src="screenshots/abbreviations.png" width="250" align="right" hspace="20"> |
 | Collocations           | :x:                      |                                                                                 |
-| Conditionals           | :hourglass_flowing_sand: |                                                                                 |
+| Conditionals           | :hourglass_flowing_sand: | <img src="screenshots/conditionals.png" width="250" align="right" hspace="20">  |
 | Dependent Prepositions | :x:                      |                                                                                 |
 | Exam Preparation       | :x:                      |                                                                                 |
 | Grammar Tenses         | :x:                      |                                                                                 |
