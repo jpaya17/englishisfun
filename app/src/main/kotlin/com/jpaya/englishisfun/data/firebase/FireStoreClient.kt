@@ -17,7 +17,9 @@
 package com.jpaya.englishisfun.data.firebase
 
 import androidx.annotation.VisibleForTesting
+import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsResponse
 import com.jpaya.englishisfun.idioms.data.network.model.IdiomsResponse
@@ -112,33 +114,28 @@ class FireStoreClient @Inject constructor(
 
     private fun document(collection: String, document: String) = fireStore.collection(collection).document(document)
 
-    private suspend fun <T> execute(reference: DocumentReference, valueType: Class<T>): Result<T> {
+    private suspend fun <T> execute(reference: DocumentReference, resultType: Class<T>): Result<T> {
         reference.get().apply {
-            if (isComplete) {
-                return if (exception == null) {
-                    if (isCanceled) {
-                        failure(Exception("Task $this was cancelled normally."))
-                    } else {
-                        success(result.toObject(valueType)!!)
-                    }
-                } else {
-                    failure(Exception(exception!!.message))
-                }
+            return if (isComplete) {
+                handleResult(this, resultType)
             } else {
-                return suspendCancellableCoroutine { coroutine ->
+                suspendCancellableCoroutine { coroutine ->
                     addOnCompleteListener {
-                        if (it.exception == null) {
-                            if (it.isCanceled) {
-                                coroutine.resume(failure(Exception("Task $this was cancelled normally.")))
-                            } else {
-                                coroutine.resume(success(it.result.toObject(valueType)!!))
-                            }
-                        } else {
-                            coroutine.resume(failure(Exception(exception!!.message)))
-                        }
+                        coroutine.resume(handleResult(it, resultType))
                     }
                 }
             }
         }
     }
+
+    private fun <T> handleResult(task: Task<DocumentSnapshot>, resultType: Class<T>): Result<T> =
+        if (task.exception == null) {
+            if (task.isCanceled) {
+                failure(Exception("The task was cancelled normally."))
+            } else {
+                success(task.result.toObject(resultType)!!)
+            }
+        } else {
+            failure(Exception(task.exception!!.message))
+        }
 }
