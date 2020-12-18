@@ -41,8 +41,7 @@ dependencies {
             Libraries.FRAGMENT_KTX,
             Libraries.HILT,
             Libraries.NAVIGATION_FRAGMENT,
-            Libraries.NAVIGATION_UI,
-            Libraries.RECYCLER_VIEW
+            Libraries.NAVIGATION_UI
         )
     )
     kapt(
