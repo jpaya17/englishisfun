@@ -49,7 +49,7 @@ object Libraries {
         const val RAINBOW_CAKE = "1.3.0"
         const val RECYCLER_VIEW = "1.1.0"
         const val RECYCLER_VIEW_SCROLL = "2.0.1"
-        const val ROOM = "2.2.5"
+        const val ROOM = "2.2.6"
         const val SHIMMER = "0.5.0"
         const val TIMBER = "4.7.1"
     }
@@ -92,7 +92,7 @@ object AnnotationProcessorsLibraries {
         const val DATABINDING = "3.1.4"
         const val HILT = "2.28-alpha"
         const val HILT_VIEWMODEL = "1.0.0-alpha01"
-        const val ROOM = "2.2.5"
+        const val ROOM = "2.2.6"
     }
 
     const val AUTO_SERVICE = "com.google.auto.service:auto-service:${Versions.AUTO_SERVICE}"
@@ -140,7 +140,7 @@ object TestLibraries {
         const val MOCKK = "1.10.3-jdk8"
         const val RAINBOW_CAKE = "1.3.0"
         const val ROBOELECTRIC = "4.4"
-        const val ROOM = "2.2.5"
+        const val ROOM = "2.2.6"
         const val TEST = "1.3.0"
     }
 
