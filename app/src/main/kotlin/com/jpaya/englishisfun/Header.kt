@@ -29,18 +29,7 @@ class Header @JvmOverloads constructor(
     defStyleRes: Int = 0
 ) : FrameLayout(context, attrs, defStyle, defStyleRes) {
 
-    private var binding: HeaderBinding = HeaderBinding.inflate(LayoutInflater.from(context), this)
-
     init {
-        loadAttrs(attrs)
-    }
-
-    private fun loadAttrs(attrs: AttributeSet?) {
-        attrs?.let {
-            val attributes = context.obtainStyledAttributes(it, R.styleable.Header, 0, 0)
-            val title = resources.getText(attributes.getResourceId(R.styleable.Header_header_title, R.string.app_name))
-            binding.tvTitle.text = title
-            attributes.recycle()
-        }
+        HeaderBinding.inflate(LayoutInflater.from(context), this)
     }
 }

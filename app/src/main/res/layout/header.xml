@@ -11,17 +11,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/splash_shape_top"
         tools:ignore="ContentDescription" />
-
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/home_tab_abbreviations"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </merge>
