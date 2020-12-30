@@ -106,7 +106,7 @@ object AnnotationProcessorsLibraries {
 object DebugLibraries {
     private object Versions {
         const val DEBUG_DB = "1.0.6"
-        const val LEAKCANARY = "2.5"
+        const val LEAKCANARY = "2.6"
     }
 
     private const val DEBUG_DB = "com.amitshekhar.android:debug-db:${Versions.DEBUG_DB}"
@@ -188,7 +188,7 @@ object TestAndroidLibraries {
         const val ESPRESSO = "3.3.0"
         const val EXT = "1.1.2"
         const val FRAGMENT = "1.2.5"
-        const val LEAKCANARY = "2.5"
+        const val LEAKCANARY = "2.6"
         const val MOCKITO = "2.2.0"
         const val TEST = "1.3.0"
     }
