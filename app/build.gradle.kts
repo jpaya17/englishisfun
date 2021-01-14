@@ -24,11 +24,9 @@ import extensions.*
 
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
-    id(BuildPlugins.CHANGELOG)
     id(BuildPlugins.FIREBASE_CRASHLYTICS)
     id(BuildPlugins.FIREBASE_PERFORMANCE)
     id(BuildPlugins.GOOGLE_SERVICES)
-    id(BuildPlugins.GRAPH_GENERATOR)
     id(BuildPlugins.HILT)
     id(BuildPlugins.JACOCO)
     id(BuildPlugins.KOTLIN_ANDROID)

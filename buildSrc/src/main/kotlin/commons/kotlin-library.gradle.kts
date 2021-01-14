@@ -16,9 +16,6 @@
 
 package commons
 
-import dependencies.Libraries
-import extensions.implementation
-
 plugins {
     id("kotlin")
 }
