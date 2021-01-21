@@ -38,7 +38,7 @@ object GradleVersions {
     const val FIREBASE_CRASHLYTICS = "2.4.1"
     const val FIREBASE_PERFORMANCE = "1.3.4"
     const val GOOGLE_SERVICES = "4.3.4"
-    const val GRADLE_ANDROID = "4.1.1"
+    const val GRADLE_ANDROID = "4.1.2"
     const val GRADLE_VERSIONS = "0.36.0"
     const val HILT = "2.28-alpha"
     const val JACOCO = "0.16.0"
