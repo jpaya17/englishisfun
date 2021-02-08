@@ -45,7 +45,7 @@ object GradleVersions {
     const val GRAPH_GENERATOR = "0.5.0"
     const val HILT = "2.28-alpha"
     const val JACOCO = "0.16.0"
-    const val KOTLIN = "1.4.21"
+    const val KOTLIN = "1.4.30"
     const val KTLINT = "0.40.0"
     const val NAVIGATION = "2.3.2"
     const val SONARQUBE = "3.0"

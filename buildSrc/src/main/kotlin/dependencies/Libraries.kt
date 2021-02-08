@@ -40,7 +40,7 @@ object Libraries {
         const val FRAGMENT = "1.2.5"
         const val HILT = "2.28-alpha"
         const val HILT_VIEWMODEL = "1.0.0-alpha01"
-        const val KOTLIN = "1.4.21"
+        const val KOTLIN = "1.4.30"
         const val LICENSES_DIALOG = "2.1.0"
         const val MATERIAL = "1.2.1"
         const val NAVIGATION = "2.3.2"
